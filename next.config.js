@@ -29,7 +29,6 @@ const nextConfig = {
 };
 
 module.exports = withImages();
-
 module.exports = withPlugins(
 	[
 		[css],
