@@ -19,6 +19,7 @@ export const getHour = (e: number): number => {
 	return 1000 * 60 * 60 * e;
 };
 
+// 핸드폰 Format Function
 export const phoneFormat = (_x: string): string => {
 	var number = _x.replace(/-/gi, "");
 	var tel = "";
@@ -59,6 +60,7 @@ export const brithFormat = (b: string): string => {
 	return formatBirth;
 };
 
+// <url query 가저오는 Function>
 // export const getQuery = (any?: any) => {
 //   let query_string = window.location.search;
 //   query_string = query_string.replace('?', '');
@@ -94,6 +96,7 @@ export const brithFormat = (b: string): string => {
 //   return tmp;
 // };
 
+// image-crop Function // => (react-image-crop lib)
 export const resizeBase64 = (base64: string) => {
 	return new Promise((resolve, reject) => {
 		const MAX_WIDTH = 433;
@@ -145,7 +148,6 @@ export const resizeBase64 = (base64: string) => {
 	});
 };
 
-// image-crop Function // => (react-image-crop lib)
 export const rotateBase64 = (
 	base64: string,
 	degree: number,
