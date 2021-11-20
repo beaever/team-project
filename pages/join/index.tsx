@@ -3,7 +3,7 @@ import { useRouter } from "next/dist/client/router";
 
 const Join = () => {
 	const router = useRouter();
-
+   // RETURN
 	return (
 		<>
 			<section>
