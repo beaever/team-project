@@ -1,34 +1,10 @@
 import React from "react";
 import { useRouter } from "next/dist/client/router";
-import styled from "styled-components";
-
-
-
-const Section = styled.section`
-	width: 100%;
-    height: 135vh;
-    background-color: tomato;
-`
-
-const Container = styled.div`
-	position: absolute;
-    background-color: #fff;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    margin-left: -266px;
-    margin-top: -190px;
-    width: 532px;
-    h2 {
-        font-size: 35px;
-        font-weight: bold;
-    }
-	
-`
 
 
 const Login = () => {
 	const router = useRouter();
+
 	const onMove = () => {
 		router.push("/join");
 		// window.location.href = '/join'
@@ -39,7 +15,7 @@ const Login = () => {
 
 			<section className="LoginPage">
 				<div className="Login_Container">
-					<form>
+					{/* <form> */}
 						<div className="login_section">
 							<div>
 								<h2>LOGO</h2>
@@ -60,7 +36,7 @@ const Login = () => {
 								</div>
 							</div>
 						</div>
-					</form>
+					{/* </form> */}
 				</div>
 			</section>
 		</>
