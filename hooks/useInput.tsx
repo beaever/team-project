@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-
+import { useState } from 'react';
 
 const useInput = (
 	initialState: string,
@@ -24,7 +22,6 @@ const useInput = (
 };
 
 export default useInput;
-
 
 /*handleChange라는 함수를 만들어주고 input 태그의 onChange에 적어줌
 onChange는 input 안의 값이 변경될 때에 발생.
