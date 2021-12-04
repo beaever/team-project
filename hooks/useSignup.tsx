@@ -50,7 +50,6 @@ const useSignup = (
 	reset: Function;
 } => {
 	const { data, mutate, isValidating, error } = useSWR("signup", fetcher);
-
 	const mutateWrappper = (newForm) => {
 		window.localStorage.setItem("signup", JSON.stringify(newForm));
 		return mutate();
