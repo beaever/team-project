@@ -1,0 +1,35 @@
+.Gnb{
+    width: 100%;
+    height: 90px;
+    padding: 0;
+    // border-bottom: 1px solid ;
+    border-bottom: 1px solid rgba(112,112,112,0.2) ;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    // box-shadow: 3px 9px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
+    ul{
+        display: flex;
+        padding: 0;
+        margin: 0;
+        height: 90px;
+        h1 {
+            margin: 0;
+            padding: 27px;
+        }
+        ul {
+            margin-left: auto;
+        }
+        li {
+            padding: 37px;
+        }
+        a{
+         color: black;
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .Gnb{
+        display: none;
+    }
+}
