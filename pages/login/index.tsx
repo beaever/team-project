@@ -29,12 +29,10 @@ const Container = styled.div`
 
 const Login = () => {
 	const router = useRouter();
-
 	const onMove = () => {
 		router.push("/join");
+		// window.location.href = '/join'
 	};
-
-	
 
 	return (
 		<>

@@ -8,10 +8,9 @@ import { useState } from 'react';
 const MobileHeader = () => {
     const router = useRouter();
    
-    const [isOpen, setMenu] = useState(false);  // 메뉴의 초기값을 false로 설정
-  
+    const [isOpen, setMenu] = useState<boolean>(false); 
     const toggleMenu = () => {
-        setMenu(isOpen => !isOpen); // on,off 개념 boolean
+        setMenu(isOpen => !isOpen); 
     }
 
     return (
