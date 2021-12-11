@@ -1,32 +1,39 @@
 .Gnb{
     width: 100%;
-    height: 90px;
+    height: 56px;
     padding: 0;
-    // border-bottom: 1px solid ;
+    position: fixed;
+    z-index: 10000;
     border-bottom: 1px solid rgba(112,112,112,0.2) ;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    // box-shadow: 3px 9px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
+    background-color: $nav;
+    
     ul{
         display: flex;
         padding: 0;
         margin: 0;
-        height: 90px;
+        // height: 56px;
         h1 {
             margin: 0;
-            padding: 27px;
+            // padding: 9px;
+            margin-left: 40px;
         }
         ul {
             margin-left: auto;
+            margin-right: 20px;
+
         }
         li {
-            padding: 37px;
+            padding: 10px;
         }
         a{
          color: black;
         }
     }
 }
-
+.Gnb_inner{
+    padding: 10px;
+}
 
 @media screen and (max-width: 768px) {
     .Gnb{

@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/dist/client/router';
 import useInput from '../../hooks/useInput';
 import { useState } from 'react';
+import CheckBox from '../../components/input/checkbox';
 
 const Join = () => {
 	const router = useRouter();
@@ -50,7 +51,20 @@ const Join = () => {
 	const handleTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTermError(e.target.checked !== true);
 		setTerm(e.target.checked);
+		// setAgree(e.target.checked);
 	};
+
+	// const allhandleTrem = (e: React.ChangeEvent<HTMLInputElement>) => {
+	// 	const current_agree = agree1 && agree2 && agree3;
+		
+	// 	setAgree({
+	// 		agree1: !current_agree,
+	// 		agree2: !current_agree,
+	// 		agree3: !current_agree,
+	// 		agree4: !current_agree,
+    //         agree5: !current_agree,
+	// 	});
+	// }
 
 	const onBlurValidCheck = (e: React.FocusEvent<HTMLInputElement>) => {
 		const id = e.currentTarget.id;
@@ -73,6 +87,16 @@ const Join = () => {
 			router.push('/');
 		}
 	};
+
+	// const [agree, setAgree] = useState({
+	// 	agree1: false,
+	// 	agree2: false,
+	// 	agree3: false,
+	// 	agree4: false,
+	// 	agree5: false,
+	// });
+
+	// const  { agree1, agree2, agree3 } = agree;
 
 	return (
 		<>
@@ -122,42 +146,52 @@ const Join = () => {
 										<input type="tel" name="phone1" />
 										{/* <input type="tel" name="phone2" />
 										<input type="tel" name="phone3" /> */}
-										<button type="submit">인증요청</button>
+										<button className="Join_Container_btn" type="submit">인증요청</button>
 									</form>
 								</div>
 								<div className="termCheckBox">
-									<label htmlFor="term">이용약관 동의</label>
-									<input
-										className="termCheckBox"
-										id="term"
-										type="checkbox"
+									<button className="term_btn">
+										<label htmlFor="term">모든 이용약관 동의</label>
+										<CheckBox
+										name={"모두 동의"}
+										id={'term'}
 										checked={term}
-										onChange={(e) => handleTerm(e)}
-									/>
-									<br />
-									<label htmlFor="term2">이용약관 동의</label>
-									<input
-										className="termCheckBox"
-										id="term2"
-										type="checkbox"
+										onChange= {(e)=> handleTerm(e)}
+										/>
+									</button>
+									<button className="term_btn">
+										<label htmlFor="term1">이용약관 동의1</label>
+										<CheckBox
+										name={""}
+										id={'term1'}
 										checked={term}
-										onChange={(e) => handleTerm(e)}
-									/>
-									<br />
-									<label htmlFor="term3">이용약관 동의</label>
-									<input
-										className="termCheckBox"
-										id="term3"
-										type="checkbox"
+										onChange= {(e)=>(e)}
+										/>
+										
+									</button>
+									<button className="term_btn">
+										<label htmlFor="term2">이용약관 동의2</label>
+										<CheckBox
+										name={"모두 동의"}
+										id={'term2'}
 										checked={term}
-										onChange={(e) => handleTerm(e)}
-									/>
-									<br />
+										onChange= {(e)=> handleTerm(e)}
+										/>
+									</button>
+									<button className="term_btn">
+										<label htmlFor="term3">이용약관 동의3</label>
+										<CheckBox
+										name={"모두 동의"}
+										id={'term3'}
+										checked={term}
+										onChange= {(e)=> (e)}
+										/>
+									</button>
 									{termError && (
 										<div style={{ color: 'red' }}>약관 동의 바람</div>
 									)}
 								</div>
-								<button className="btn" type="submit" onClick={() => onClick()}>
+								<button className="Join_Container_btn btn" type="submit" onClick={() => onClick()}>
 									회원가입완료
 								</button>
 							</div>

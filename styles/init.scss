@@ -1,10 +1,15 @@
 // 모든 Style 은 init.scss 파일안에서 @import
 @import '../styles/common.scss';
 @import '../styles/pcHeader.scss';
-@import '../styles/footer.scss';
+@import '../styles/pcFooter.scss';
+
 @import '../styles/join';
 @import '../styles/login';
 @import '../styles/mobileHeader';
+@import '../styles/mobileFooter';
+
+@import '../styles/carousel';
+@import '../styles/itemList';
 
 @import '../styles/components/button/main-button.scss';
 @import '../styles/components/button/pulldelete.scss';

@@ -33,7 +33,7 @@ export default function SelectBox(props: SelectBoxTypes) {
 						}
 					}).label
 				}
-				<img src="/img/icon/arrow-bottom.png" alt="" />
+				<img src="" alt="" />
 			</div>
 			<div className={`option-list-wrap ${open ? 'visible' : '_hide'}`}>
 				<ul className={`option-list ${open ? '_visible' : '_hide'}`}>

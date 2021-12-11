@@ -3,13 +3,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import ItemSlider from "../layout/_itemSlider";
+import Slider from "../layout/_slider";
 
-// Style
-import styles from "../styles/Home.module.css";
+
 
 const Div = styled.div `
   width: 100%;
-  height: 100vh;
+  height: 30vh;
   background-color: gray;
 `
 
@@ -28,7 +29,9 @@ export default function Home() {
 	// RETURN
 	return (
 		<>
-			<Div>메인페이지</Div>
+			<Slider />
+			<ItemSlider />
+			<Div></Div>
 		</>
 	);
 	

@@ -20,19 +20,19 @@
     }
   }
   input[type='checkbox']:checked + label {
-    background-image: url('../../../public/img/icon/check-white.svg');
+    // background-image: url('../../../public/img/icon/check-white.svg');
     background-size: 13px 10px;
     background-color: $prime;
     border: 1px solid $prime;
   }
   input[type='checkbox']:checked + label.reverse {
-    background-image: url('../../../public/img/icon/check-prime.svg');
+    // background-image: url('../../../public/img/icon/check-prime.svg');
     background-size: 13px 10px;
     background-color: #fff;
     border: 1px solid $prime;
   }
   input[type='checkbox']:checked + label.navy {
-    background-image: url('../../../public/img/icon/check-white.svg');
+    // background-image: url('../../../public/img/icon/check-white.svg');
     background-size: 13px 10px;
     background-color: $navy;
     border: 1px solid $navy;

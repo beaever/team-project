@@ -1,12 +1,12 @@
 .LoginPage{
     width: 100%;
     height: 90vh;
-    background-color: #fff;
+    background-color: $color-white;
 }
 
 .Login_Container{
     position: absolute;
-    background-color: #fff;
+    background-color: $color-white;
     top: 50%;
     left: 50%;
     text-align: center;
@@ -25,10 +25,10 @@
       margin-bottom: 20px;
     }
     button{
-       background-color: tomato;
+       background-color: $button-color;
        border: none;
        border-radius: 15px;
-       color: #fff;
+       color: $color-white;
     }
 }
 
@@ -39,7 +39,7 @@
         width: 99%;
         height: 40px;
         margin: 0 0 10px 0;
-        background-color: #fff;
+        background-color: $color-white;
         border: none;
         border-bottom: 1px solid #707070 ;
         opacity: 0.3;
@@ -81,8 +81,8 @@
         display: inline-block;
         width: 33%;
         height: 15px;
-        background-color: white;
-        color: black;
+        background-color: $color-white;
+        color: $color-black;
         border-right: 1px solid rgba(0,0,0,0.2);
         border-radius: 0px;
         margin-bottom: 30px;
@@ -90,4 +90,17 @@
     button:nth-child(3){
         border: none;
   }
+}
+
+
+@media screen and (max-width: 768px) {
+    .LoginPage {
+        height: 800px;
+    }   
+    .Login_Container {
+        left: 0; 
+        margin-left: 0px; 
+        width: 100%;
+
+    }
 }

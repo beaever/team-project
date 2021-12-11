@@ -1,12 +1,13 @@
 .JoinPage{
     width: 100%;
-    height: 120vh;
-    background-color: #fff;
+    height: 130vh;
+    // height: 90vh;
+    background-color: $color-white;
 }
 
 .Join_Container{
     position: absolute;
-    background-color: #fff;
+    background-color: $color-white;
     top: 50%;
     left: 50%;
     text-align: center;
@@ -24,12 +25,14 @@
       margin: 0 auto;
       margin-bottom: 20px;
     }
-    button{
-       background-color: tomato;
-       border: none;
-       border-radius: 15px;
-       color: #fff;
-    }
+   
+}
+
+.Join_Container_btn{
+        background-color: $button-color;
+        border: none;
+        border-radius: 15px;
+        color: $color-white;
 }
 
 .join_section {
@@ -39,7 +42,7 @@
         width: 99%;
         height: 40px;
         margin: 0 0 10px 0;
-        background-color: #fff;
+        background-color: $color-white;
         border: none;
         border-bottom: 1px solid #707070 ;
         opacity: 0.3;
@@ -78,6 +81,7 @@
     padding-top: 30px;
     label{
         display: inline-block;
+        width: 100%;
         // border: 1px solid rgba(0,0,0,0.2);
         
     }
@@ -89,4 +93,24 @@
 
 .btn{
    margin: 20px;
+}
+
+.term_btn{
+    background-color: $color-white;
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .JoinPage {
+        height: 150vh; 
+    }
+    .Join_Container{
+        width: 100%;
+        left: 0;
+        margin-left: 0px;
+    }
 }
