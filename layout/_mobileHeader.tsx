@@ -15,23 +15,25 @@ const MobileHeader = () => {
 
     return (
        <div className="m-Gnb">
-            <section>
-                <Link href="/" as="/">
-                    <a>
-                        <h1>LOGO</h1>
-                    </a>
-                </Link>
-                <button onClick={()=>toggleMenu()}>메뉴</button>
-                <ul className={isOpen ? "hide-menu" : "show-menu"}> 
-                        <Link href="/login" as="/login">
-                            <a>
-                                <li>Login</li>
-                            </a>
-                        </Link>
-                        <li>3</li>
-                        <li>4</li>
-                </ul>
-            </section>
+           <div className="MGnb_inner">
+                <section>
+                    <Link href="/" as="/">
+                        <a>
+                            <h1>LOGO</h1>
+                        </a>
+                    </Link>
+                    <button onClick={()=>toggleMenu()}>메뉴</button>
+                    <ul className={isOpen ? "hide-menu" : "show-menu"}> 
+                            <Link href="/login" as="/login">
+                                <a>
+                                    <li>Login</li>
+                                </a>
+                            </Link>
+                            <li>3</li>
+                            <li>4</li>
+                    </ul>
+                </section>
+           </div>
        </div>
     );
 }

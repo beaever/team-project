@@ -1,0 +1,27 @@
+@import "./palette";
+
+@media screen and (min-width: 768px) {
+    .m_footer{
+       display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .m_footer{
+       display: flex;
+       width: 100%;
+       position: fixed;
+       justify-content: space-around;
+       bottom: 0;
+       height: 50px;
+    //    border-top: 1px solid rgba(112,112,112,0.2) ;
+       box-shadow: 0 -1px 10px 0 rgba(0,0,0,0.2);
+       background-color: $nav;
+       ul{
+           padding: 0;
+       }
+       li{
+           padding: 0 50px;
+           display: inline-block;
+       }
+    }
+}
