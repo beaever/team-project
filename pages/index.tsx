@@ -10,8 +10,11 @@ import Slider from "../layout/_slider";
 
 const Div = styled.div `
   width: 100%;
-  height: 30vh;
+  height: 100vh;
   background-color: gray;
+  top: 13px;
+  position: relative;
+  
 `
 
 
@@ -31,7 +34,8 @@ export default function Home() {
 		<>
 			<Slider />
 			<ItemSlider />
-			<Div></Div>
+		    <Div>1</Div>
+			
 		</>
 	);
 	

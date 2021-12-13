@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import API from '../../service/api';
 import UserMemberInfoResponseDataModel from '../../service/api/user/model/user-member-info-response-data-model';
+import Link from 'next/link'
 
 import MainButton from "../../components/button/main-button"; 
 
@@ -57,8 +58,12 @@ const Login = () => {
 							</div>
 							<div className="util_btn">
 								<button onClick={() => onMove()}>회원가입</button>
-								<button >아이디찾기</button>
-								<button>비밀번호찾기</button>
+							<Link href='/find' as="/find">
+									<a>
+										<button >아이디찾기</button>
+										<button>비밀번호찾기</button>
+									</a>
+							</Link>
 							</div>
 						</div>
 					</div>

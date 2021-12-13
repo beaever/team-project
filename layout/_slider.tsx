@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slide from "./_slide";
+import img1 from "../public/1.jpeg";
 
 
     const TOTAL_SLIDES = 2;
@@ -28,9 +29,9 @@ import Slide from "./_slide";
         return (
             <section className="container">
               <div className="sliderContainner" ref={slideRef}>
-                <Slide  />
-                <Slide  />
-                <Slide  />
+                <Slide src={img1}  />
+                <Slide src={img1} />
+                <Slide src={img1} />
               </div>
               <div className="slider_btnBox">
                 <button className="slider_btn" onClick={prevSlide}>Previous Slide</button>
