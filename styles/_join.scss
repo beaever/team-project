@@ -56,23 +56,27 @@
          padding-top: 10px;
      }
     }
+    span {
+        text-align: left;
+        display: inherit;
+        margin-bottom: 20px;
+    }
  
 }
 
 .phoneBox {
-    display: flex;
     .telInputBox{
     
         input{
             display: inline-block;
-            width: 50px;
+            width: 70%;
             padding: 0;
             margin: 20px 20px 20px 0;
         }
        
     }
     button{
-        display: block;
+        display: inline-block;
         left: 0;
     }
 }

@@ -19,7 +19,7 @@ export default function CheckBox(props: CheckboxTypes) {
 				onChange={props.onChange}
 				checked={props.checked}
 			/>
-			{/* <label htmlFor={props.id} className={props.className}></label> */}
+			<label htmlFor={props.id} className={props.className}></label>
 		</div>
 	);
 }

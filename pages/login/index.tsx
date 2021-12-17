@@ -13,6 +13,10 @@ const Login = () => {
 		router.push('/join');
 	};
 
+	const GoSnsJoin = () => {
+     router.push('/join/snsjoin')
+	};
+
 	const getMemberInfo = () => {
 		API.user
 			.memberInfo({ token: 'token' })
@@ -52,9 +56,9 @@ const Login = () => {
 							<input className="loginInput" type="password" />
 							<button className="login_btn">로그인</button>
 							<div className="sns_btn">
-								<button>카카오</button>
-								<button>구글</button>
-								<button>네이버</button>
+								<button onClick={()=> GoSnsJoin()}>카카오</button>
+								<button onClick={()=> GoSnsJoin()}>구글</button>
+								<button onClick={()=> GoSnsJoin()}>네이버</button>
 							</div>
 							<div className="util_btn">
 								<button onClick={() => onMove()}>회원가입</button>

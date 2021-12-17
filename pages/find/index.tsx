@@ -19,6 +19,10 @@ const Find = () => {
     const IdStepGo = () => {
         router.push("/find/idStep");
     };
+
+    const PassStepGo = () => {
+        router.push("/find/passStep1");
+    };
    
 
     const tabContArr=[
@@ -67,7 +71,7 @@ const Find = () => {
                             </div>
                         </div>
 
-                        <button className="find_e_submitBtn" type="submit">확인</button>
+                        <button className="find_e_submitBtn" type="submit" onClick={()=> PassStepGo()}>확인</button>
                     </div>
                 </div>
             )
