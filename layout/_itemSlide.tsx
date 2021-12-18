@@ -16,11 +16,13 @@ return (
     //        })}
     //     </Link>   
     // </div>
-    <ul className="itemSlideContainer">
-        <li>
-            <img className="itemSlideBox"  />
-        </li>
-    </ul>
+   <div>
+        <ul className="itemSlideContainer">
+            <li>
+                <img className="itemSlideBox"  />
+            </li>
+        </ul>
+   </div>
          
  
 );

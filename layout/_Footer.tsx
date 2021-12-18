@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <footer className="footer">
         <div className="footerinner">
-            <div className="service_area">
+            {/* <div className="service_area">
                 <address className="footeraddr">
                     <h3>
                         <a href="tel:1588-xxxx">고객센터 1588-xxxx</a>
@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
 
                         
-            </div>
+            </div> */}
             <div className="corporation_area">
                 <ul>
                     <li><a href="/">회사소개</a></li>

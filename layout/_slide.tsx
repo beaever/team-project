@@ -12,7 +12,10 @@ const slide = (img) => {
       //          </a>
       //    </Link>
       //  </div>
-    <img className="imgBox"src={img} />
+      
+    <div>
+       <img className="imgBox" src={img} />
+    </div>
    );
 }
 export default slide;

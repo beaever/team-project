@@ -3,9 +3,10 @@
     height: 15vh;
     margin: 0;
     padding: 0;
+   
     li{
         border: none;
-        padding: 56px;
+        padding: 28px;
     }
 }
 
@@ -21,9 +22,11 @@
 
 .itemContainer{
     width: 100%;
-    height: 15vh;
+    height: 200px;
     margin: 0;
     overflow: hidden;
+    position: relative;
+    top: 13px;
 }
 .itemListBox {
     display: flex;
@@ -33,34 +36,29 @@
     margin: 0;
     align-items: center;
     position: relative;
-    top: 17px;
-    // margin-bottom: 15px;
-
-   
+    top: 17px; 
+    
 }
 
 .itemSlider_btnBox{
     position: relative;
     display: flex;
-    top: -152px;
 }
 
 .itemSlider_btn {
-    all: unset;
-      border: 1px solid $color-white;
-      padding: 0.5em 2em;
-      color: $color-black;
-      border-radius: 10px;
+all: unset;
+    border: 1px solid $color-black;
+    padding: 0.5em 2em;
+    color: $color-black;
+    border-radius: 10px;
      
-      &:hover {
-        transition: all 0.3s ease-in-out;
-        background-color: $color-black;
-        color: #fff;
-      }
-    }
+ &:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: $color-black;
+    color: #fff;
+ }
+}
     
-    .r {
-        margin-left: auto;
-    }
-    
-    
+.r {
+  margin-left: auto;
+}

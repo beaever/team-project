@@ -4,28 +4,19 @@ import useInput from '../../hooks/useInput';
 import { useState } from 'react';
 import CheckBox from '../../components/input/checkbox';
 
-const Join = () => {
+const SnsJoin = () => {
 	const router = useRouter();
 
 	const userid = useInput('');
 	const password = useInput('');
 	const userphone = useInput('');
-
-	// const [checkEmail,setCheckEmail] = useState<string>('');
-	// const [checkEmailError,setCheckEmailError] = useState<boolean>(false);
 	const [passwordCheck, setPasswordCheck] = useState<string>('');
 	const [passwordError, setPasswordError] = useState<boolean>(false);
 
 	const [term, setTerm] = useState<boolean>(false); //약관 동의여부
 	const [termError, setTermError] = useState<boolean>(false);
 
-	//   const handleEmail=(event)=>{
-	//     const {
-	//       target: { value },
-	//   } = event;
-	//   setCheckEmail(event.target.value)
-	//   setCheckEmailError(event.target.value === '')
-	//  }
+	
 
 	const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const {
@@ -105,17 +96,10 @@ const Join = () => {
 					<form onSubmit={(e) => handleSubmit(e)}>
 						<div className="join_section">
 							<div>
-								<h2>회원가입</h2>
+								<h2>SNS 회원가입</h2>
 								<div>
 									<h3>이메일주소</h3>
-									<input
-										className="joinInput"
-										id="id"
-										type="email"
-										{...userid}
-										onBlur={(e) => onBlurValidCheck(e)}
-										placeholder="예) fromby@email.co.kr"
-									></input>
+									<span>logo@gmail.com</span>
 									<h3>비밀번호</h3>
 									<input
 										className="joinInput"
@@ -199,4 +183,4 @@ const Join = () => {
 		</>
 	);
 };
-export default Join;
+export default SnsJoin;

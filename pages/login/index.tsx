@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import API from '../../service/api';
 import UserMemberInfoResponseDataModel from '../../service/api/user/model/user-member-info-response-data-model';
+import Link from 'next/link'
 
 import MainButton from "../../components/button/main-button"; 
 
@@ -10,6 +11,10 @@ const Login = () => {
 
 	const onMove = () => {
 		router.push('/join');
+	};
+
+	const GoSnsJoin = () => {
+     router.push('/join/snsjoin')
 	};
 
 	const getMemberInfo = () => {
@@ -51,14 +56,18 @@ const Login = () => {
 							<input className="loginInput" type="password" />
 							<button className="login_btn">로그인</button>
 							<div className="sns_btn">
-								<button>카카오</button>
-								<button>구글</button>
-								<button>네이버</button>
+								<button onClick={()=> GoSnsJoin()}>카카오</button>
+								<button onClick={()=> GoSnsJoin()}>구글</button>
+								<button onClick={()=> GoSnsJoin()}>네이버</button>
 							</div>
 							<div className="util_btn">
 								<button onClick={() => onMove()}>회원가입</button>
-								<button >아이디찾기</button>
-								<button>비밀번호찾기</button>
+							<Link href='/find' as="/find">
+									<a>
+										<button >아이디찾기</button>
+										<button>비밀번호찾기</button>
+									</a>
+							</Link>
 							</div>
 						</div>
 					</div>
