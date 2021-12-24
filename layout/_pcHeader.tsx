@@ -14,23 +14,23 @@ const PcHeader = () => {
                 <ul>
                     <Link href="/" as="/">     
                             <a >
-                                <h1>LOGO</h1>
+                                <h1>BOING GOING</h1>
                             </a>
                     </Link>
                     <ul>
                         <Link href="" as="">
-                            <a>
-                                <li>좋아요</li>
+                            <a >
+                                <li className="bell-icon">종</li>
                             </a>
                         </Link>
                         <Link href="/admin" as="/admin">
                             <a>
-                                <li>MyPage</li>
+                                <li>설정</li>
                             </a>
                         </Link>
                         <Link href="/login" as="/login">
                             <a>
-                                <li>Login</li>
+                                <li className="aferNone">로그인</li>
                             </a>
                         </Link>
                     </ul>
