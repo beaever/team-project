@@ -3,9 +3,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import InputModel from '../../model/inputModel';
 
-const calendar = require('../static/img/icons/calendar.png');
+const calendar = require('../../static/img/icons/calendar.png');
 
-import { click, monthFormat, numberFormat } from '../script/function';
+import { click, monthFormat, numberFormat } from '../../shared/function';
 
 const YEAR = new Date().getFullYear();
 

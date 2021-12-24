@@ -1,17 +1,165 @@
 // 전역으로 사용하는 Style 선언
-@import "../styles/palette.scss";
+@import '../styles/palette.scss';
 // -------------------------------------------------------------------------------- RESET //
 body {
-    margin: 0;
+	margin: 0;
 }
 ul {
-    list-style: none;
+	list-style: none;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
-
-
 // -------------------------------------------------------------------------------- RESET //
+// -------------------------------------------------------------------------------- COMMON //
+section {
+	min-height: calc(100vh - 243px);
+}
+
+.container {
+	margin: 70px auto 0;
+	padding: 0;
+	max-width: 350px;
+}
+
+.backF6 {
+	background: #f6f6f6;
+}
+
+.nodata {
+	text-align: center;
+	color: #d2d2d8;
+	font-size: 15px;
+	margin-top: 185px;
+	img {
+		width: 52px;
+		height: 52px;
+		margin-bottom: 21px;
+	}
+}
+
+.search_input {
+	position: relative;
+	width: max-content;
+
+	input {
+		height: 40px;
+		padding-right: 40px;
+	}
+
+	button {
+		height: 40px;
+		width: 40px;
+		text-align: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		img {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}
+
+.clearfix:after,
+.clearfix2:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.clearfix > * {
+	float: left;
+}
+.clearfix2 > *:first-child {
+	float: left;
+}
+.clearfix2 > *:nth-child(2) {
+	float: right;
+}
+
+.none {
+	display: none;
+}
+
+.mb_10px {
+	margin-bottom: 10px;
+}
+
+.wd_49per {
+	width: 49% !important;
+}
+.wd_48per {
+	width: 48% !important;
+}
+.wd_47per {
+	width: 47% !important;
+}
+.wd_100per {
+	width: 100% !important;
+}
+.wd_110px {
+	width: 110px !important;
+}
+
+.dis_ib {
+	display: inline-block;
+}
+
+.rel {
+	position: relative;
+}
+
+.abs {
+	position: absolute;
+}
+.abs_center {
+	position: absolute;
+	top: 50%;
+	top: 45%;
+	left: 50%;
+	max-width: 90%;
+	max-height: 60vh;
+	transform: translate(-50%, -50%);
+	transform: translate(-50%, -45%);
+}
+.abs_top_center {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.bottom_z {
+	bottom: 0;
+}
+.left_z {
+	left: 0;
+}
+
+$border_bottom_line_color: #dddfe8;
+.dotted_line {
+	border: none;
+	border-bottom: $border_bottom_line_color 2px dotted;
+}
+.dashed_line {
+	border: none;
+	border-bottom: $border_bottom_line_color 2px dashed;
+}
+.solid_ine {
+	border: none;
+	border-bottom: $border_bottom_line_color 2px solid;
+}
+
+.arrow {
+	transition: 0.2s;
+	transform: rotate(180deg);
+
+	&.open {
+		transform: rotate(0deg);
+	}
+}
+
+.cursor_p {
+	cursor: pointer;
+}
