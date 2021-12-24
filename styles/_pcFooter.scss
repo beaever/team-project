@@ -1,107 +1,69 @@
 .footer {
     width: 100%;
     margin: 0 auto;
-    
     position: relative;
     top: 12px;
     border-top: 1px solid #ebebeb;
-}
-
-.footer h3 {
-  font-size: 14px;
-  font-weight: bold;
+    text-align: center;
+    ul {
+        list-style: none;
+        text-align: left;
+        padding: 10px;
+       
+    }
+    li {
+        padding: 10px 0;
+    }
+    h2 {
+        opacity: 0.2;
+       
+    }
+    a {
+        text-decoration: none;
+    }
 }
 
 .footerinner {
     position: relative;
-}
-
-.service_area {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    
-}
-
-.footerbox {
-    width: 160px;
-    margin-left: 50px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 
-
-.footer ul {
-    list-style: none;
-    text-align: left;
-    padding: 0;
-   
-}
-
-.footer ul a {
-    color: rgba(34,34,34,.5);
-    text-decoration: none;
-}
-
-.footer li {
-    padding: 10px 0;
-}
-
-.footeraddr {
-    margin-left: auto;
-}
-
-.footeraddr a {
-    color: black;
-}
-
-.footeraddr p {
-    color: rgba(34,34,34,.5);
-}
-
-.footeraddr span {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.footeraddr button {
-    margin-top: 20px;
-    height: 35px;
-    padding: 10px;
-    display: block;
-    border-style: none ;
-    background-color: #222;
-    border-radius: 5px;
-}
-
-.footeraddr button a {
-    color: white;
-}
 
 .corporation_area {
     position: relative;
-    border-top: 1px solid #ebebeb;
-}
-.corporation_area ul {
-    display: inline-flex;
-    margin-left: 50px;
+    ul {
+        margin: 0 auto;
+        display: inline-flex;
+        li {
+            padding: 0 10px 0 0;
+        }
+        li::after {
+            content: "|";
+            opacity: 0.2;
+            padding-left: 10px;
+        }
+        .aferNone::after  {
+            content: "";
+           
+        }
+    }
+    a{
+        color: $font-color2
+    }
 }
 
-.corporation_area ul li {
-    padding: 0 20px 0 0;
+.copyright {
+    p {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: -.06px;
+        color: rgba(34,34,34,.3);
+        padding: 10px;
+    }
 }
 
-.corporation_area ul li a {
-    color: #333;
-   
-}
-
-.copyright p {
-    max-width: 605px;
-    margin-left: 50px;
-    font-size: 12px;
-    letter-spacing: -.06px;
-    color: rgba(34,34,34,.3);
-}
 
 
 @media screen and (max-width: 768px) {

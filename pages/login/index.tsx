@@ -43,8 +43,8 @@ const Login = () => {
 					{/* <form> */}
 					<div className="login_section">
 						<div>
-							<h2>LOGO</h2>
-							<h3>아이디</h3>
+							<h2>로그인</h2>
+							<h3>이메일</h3>
 							<input
 								className="loginInput"
 								type="email"
@@ -53,17 +53,16 @@ const Login = () => {
 							<h3>비밀번호</h3>
 							<input className="loginInput" type="password" />
 							<button className="login_btn">로그인</button>
+							 <div className="hr-sect"> 소셜 로그인 </div>
 							<div className="sns_btn">
-								<button onClick={() => GoSnsJoin()}>카카오</button>
-								<button onClick={() => GoSnsJoin()}>구글</button>
-								<button onClick={() => GoSnsJoin()}>네이버</button>
+								<button className="kakao_btn" onClick={() => GoSnsJoin()}>카카오</button>
+								<button className="naver_btn" onClick={() => GoSnsJoin()}>네이버</button>
+								<button onClick={() => onMove()}>회원가입</button>
 							</div>
 							<div className="util_btn">
-								<button onClick={() => onMove()}>회원가입</button>
 								<Link href="/find" as="/find">
 									<a>
-										<button>아이디찾기</button>
-										<button>비밀번호찾기</button>
+										<button>이메일 / 비밀번호 찾기</button>
 									</a>
 								</Link>
 							</div>
