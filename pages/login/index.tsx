@@ -57,7 +57,7 @@ const Login = () => {
 							<div className="sns_btn">
 								<button className="kakao_btn" onClick={() => GoSnsJoin()}>카카오</button>
 								<button className="naver_btn" onClick={() => GoSnsJoin()}>네이버</button>
-								<button onClick={() => onMove()}>회원가입</button>
+								<button className="join_btn"onClick={() => onMove()}>회원가입</button>
 							</div>
 							<div className="util_btn">
 								<Link href="/find" as="/find">

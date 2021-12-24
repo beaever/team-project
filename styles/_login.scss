@@ -1,20 +1,20 @@
+
+
 .LoginPage{
     width: 100%;
-    height: 1000px;
+    height: 800px;
     background-color: $color-white;
 }
 
 .Login_Container{
     position: absolute;
     background-color: $color-white;
-    top: 50%;
+    top: 35%;
     left: 50%;
     text-align: center;
     margin-left: -266px;
     margin-top: -190px;
     width: 532px;
-    // border-radius: 15px;
-    // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     h2 {
         font-size: 35px;
         font-weight: bold;
@@ -29,7 +29,7 @@
     }
     button{
        border: none;
-    //    color: $color-white;
+       cursor: pointer;
     }
 }
 
@@ -41,8 +41,7 @@
         height: 35px;
         margin: 0 0 10px 0;
         background-color: $color-white;
-        border: 1px solid #707070;
-        // border-bottom: 1px solid #707070 ;
+        border: 1px solid $color-gray;
         opacity: 0.3;
 
     }
@@ -63,8 +62,7 @@
 
 .login_btn {
     display: block;
-    width: 100%;
-    height: 40px;
+    @include login_btn;
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: $button-color2;
@@ -76,28 +74,20 @@
     flex-direction: column;
     margin-top: 10px;
     button{
-        display: inline-block;
         margin: 10px;
-        width: 100%;
-        height: 40px;
+        @include login_btn;
     }
 }
 
 .util_btn{
-   
     button{
-        display: inline-block;
         width: 50%;
         height: 15px;
         font-size: 13px;
         background-color: $color-white;
         color: $font-color1;
         margin-bottom: 30px;
-        cursor: pointer;
     }
-    button:nth-child(3){
-        border: none;
-  }
 }
 
 .kakao_btn {
@@ -109,6 +99,10 @@
 .naver_btn {
     background-color: $button-naver;
     color: $color-white;
+}
+
+.join_btn {
+    background-color: $color-white1;
 }
 
 .hr-sect {

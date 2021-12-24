@@ -28,17 +28,18 @@ const Find = () => {
     const tabContArr=[
         {
             tabTitle:(
-                <li className={activeIndex===0 ? "is-active tabs_select" : ""} onClick={()=>tabClickHandler(0)}> 아이디찾기 </li>
+                <li className={activeIndex===0 ? "is-active tabs_select" : ""} onClick={()=>tabClickHandler(0)}> 이메일찾기 </li>
             ),
             tabCont:(
                 <div className="id_findContainer"> 
                     <div className="find_inputcontainer">
-                        <h3>휴대폰번호*</h3>
-                        <div> 
-                           <input type="tel" placeholder="휴대폰 번호" />    
-                           <button className="find_btn" type="button">인증번호발송</button>                
+                        <h3 className="find_h3_rig">필수입력항목</h3>
+                        <div className="find_name"> 
+                            <h3 className="find_h3_left">이름</h3>
+                            <input type="text" placeholder="이름" />    
                         </div>
-                        <div> 
+                        <div className="find_tell"> 
+                           <h3 className="find_h3_left">휴대폰 번호</h3>
                            <input type="tel"  placeholder="휴대폰 인증번호"  />    
                            <button className="find_btn" type="button" >인증확인</button>                
                         </div>
@@ -56,22 +57,19 @@ const Find = () => {
                 <div> 
                     <div className="id_findContainer"> 
                         <div className="find_inputcontainer">
-                            <div className="find_emailInner">
-                                <h3>이메일주소*</h3>
-                                <input type="text" />
-                            </div>
-                            <h3>휴대폰번호*</h3>
-                            <div> 
+                            <h3 className="find_h3_rig">필수입력항목</h3>
+                            <div className="find_name">
+                                <h3 className="find_h3_left">이름</h3>
+                                <input type="text" placeholder="이름" />
+                            </div>  
+                            <div className="find_tell"> 
+                                <h3 className="find_h3_left">휴대폰번호</h3>
                                 <input type="tel" placeholder="휴대폰 번호" />    
                                 <button className="find_btn" type="button">인증번호발송</button>                
-                                </div>
-                                <div> 
-                                <input type="tel"  placeholder="휴대폰 인증번호"  />    
-                                <button className="find_btn" type="button">인증확인</button>                
                             </div>
                         </div>
 
-                        <button className="find_e_submitBtn" type="submit" onClick={()=> PassStepGo()}>확인</button>
+                        <button className="find_submitBtn" type="submit" onClick={()=> PassStepGo()}>확인</button>
                     </div>
                 </div>
             )
