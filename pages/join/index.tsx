@@ -84,7 +84,7 @@ const Join = () => {
 
 	const onClick = () => {
 		if (termError === false && passwordError === false) {
-			router.push('/');
+			router.push('/join/joinStep2');
 		}
 	};
 
