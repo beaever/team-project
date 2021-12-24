@@ -38,6 +38,6 @@
 
 # Demo <a id="demo">
 
-[DEMO](#Project) / (미개발)
+[DEMO](#Project) _미개발_
 
 ---
