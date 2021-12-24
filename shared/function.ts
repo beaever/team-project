@@ -5,7 +5,7 @@ export const qs = (_: string): Element | null => {
 export const click = (selector: string): void => {
 	if (document.querySelector(selector) === null) return;
 	qs(selector)!.dispatchEvent(
-		new MouseEvent("click", {
+		new MouseEvent('click', {
 			view: window,
 			bubbles: true,
 			cancelable: true,
@@ -21,10 +21,10 @@ export const getHour = (e: number): number => {
 
 // 핸드폰 Format Function
 export const phoneFormat = (_x: string): string => {
-	var number = _x.replace(/-/gi, "");
-	var tel = "";
+	var number = _x.replace(/-/gi, '');
+	var tel = '';
 
-	if (number.replace(/[ 0-9 | \- ]/g, "").length) {
+	if (number.replace(/[ 0-9 | \- ]/g, '').length) {
 		number = number.substr(0, number.length - 1);
 	}
 
@@ -32,19 +32,19 @@ export const phoneFormat = (_x: string): string => {
 		return number;
 	} else if (number.length < 7) {
 		tel += number.substr(0, 3);
-		tel += "-";
+		tel += '-';
 		tel += number.substr(3);
 	} else if (number.length < 11) {
 		tel += number.substr(0, 3);
-		tel += "-";
+		tel += '-';
 		tel += number.substr(3, 3);
-		tel += "-";
+		tel += '-';
 		tel += number.substr(6);
 	} else {
 		tel += number.substr(0, 3);
-		tel += "-";
+		tel += '-';
 		tel += number.substr(3, 4);
-		tel += "-";
+		tel += '-';
 		tel += number.substr(7);
 	}
 
@@ -52,10 +52,10 @@ export const phoneFormat = (_x: string): string => {
 };
 
 export const brithFormat = (b: string): string => {
-	let birth = b.replace(/\s/gi, "");
-	let formatBirth = "";
+	let birth = b.replace(/\s/gi, '');
+	let formatBirth = '';
 
-	formatBirth = birth.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
+	formatBirth = birth.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
 
 	return formatBirth;
 };
@@ -102,10 +102,10 @@ export const resizeBase64 = (base64: string) => {
 		const MAX_WIDTH = 433;
 		const MAX_HEIGHT = 433;
 
-		const canvas_origin = document.createElement("canvas");
-		const canvas_resize = document.createElement("canvas");
-		const canvas_origin_context = canvas_origin.getContext("2d");
-		const canvas_resize_context = canvas_resize.getContext("2d");
+		const canvas_origin = document.createElement('canvas');
+		const canvas_resize = document.createElement('canvas');
+		const canvas_origin_context = canvas_origin.getContext('2d');
+		const canvas_resize_context = canvas_resize.getContext('2d');
 
 		const img = new Image();
 
@@ -157,7 +157,7 @@ export const rotateBase64 = (
 			degree += 360;
 		}
 
-		if (degree % 90 !== 0) reject("degree단위는 90도만 가능합니다.");
+		if (degree % 90 !== 0) reject('degree단위는 90도만 가능합니다.');
 
 		const count = degree / 90;
 
@@ -175,8 +175,8 @@ function rorateImage(base64: string): Promise<string> {
 	return new Promise((resolve, reject) => {
 		const image = new Image();
 		image.onload = function () {
-			const canvas = document.createElement("canvas");
-			const context = canvas.getContext("2d");
+			const canvas = document.createElement('canvas');
+			const context = canvas.getContext('2d');
 			document.body.appendChild(canvas);
 
 			const width = image.height;
@@ -198,3 +198,33 @@ function rorateImage(base64: string): Promise<string> {
 		image.src = base64;
 	});
 }
+
+export const numberFormat = (num: number): string => {
+	return num < 10 ? `0${num}` : `${num}`;
+};
+
+export const monthFormat = (m: number): string => {
+	return m === 1
+		? '1월'
+		: m === 2
+		? '2월'
+		: m === 3
+		? '3월'
+		: m === 4
+		? '4월'
+		: m === 5
+		? '5월'
+		: m === 6
+		? '6월'
+		: m === 7
+		? '7월'
+		: m === 8
+		? '8월'
+		: m === 9
+		? '9월'
+		: m === 10
+		? '10월'
+		: m === 11
+		? '11월'
+		: '12월';
+};
