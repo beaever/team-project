@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from "next/dist/client/router";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -13,6 +13,10 @@ const PcHeader = () => {
     const toggleMenu = () => {
         setMenu(isOpen => !isOpen); 
     }
+
+    useEffect(() => {
+        setMenu(isOpen => !isOpen); 
+    },[]);
 
 
     return (
