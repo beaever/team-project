@@ -5,6 +5,7 @@ import UserMemberInfoResponseDataModel from '../../service/api/user/model/user-m
 import Link from 'next/link';
 import Input from '../../components/input/input';
 import InputText from '../../components/input/inputText';
+import MarginBottom from '../../components/layout/margin-bottom';
 
 const Login = () => {
 	const router = useRouter();
@@ -41,6 +42,7 @@ const Login = () => {
 							setEmail(e.currentTarget.value);
 						}}
 					/>
+					<MarginBottom margin={24} />
 					<div style={{ marginTop: '27px' }} />
 					<InputText
 						label="비밀번호"
@@ -51,8 +53,7 @@ const Login = () => {
 							setPassword(e.currentTarget.value);
 						}}
 					/>
-
-					<div style={{ marginTop: '40px' }} />
+					<MarginBottom margin={24} />
 					<button
 						onClick={() => alert('로그인 버튼')}
 						className="btn m_w_100"

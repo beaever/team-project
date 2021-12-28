@@ -1,7 +1,7 @@
 import React from 'react';
 import { MarginModel } from '../../model/layout/margin-model';
 
-const MarginTop = (props: MarginModel) => {
+const MarginBottom = (props: MarginModel) => {
 	return (
 		<>
 			<div style={{ marginBottom: props.margin }} />
@@ -9,4 +9,4 @@ const MarginTop = (props: MarginModel) => {
 	);
 };
 
-export default MarginTop;
+export default MarginBottom;
