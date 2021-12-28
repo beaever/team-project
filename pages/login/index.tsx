@@ -4,6 +4,7 @@ import API from '../../service/api';
 import UserMemberInfoResponseDataModel from '../../service/api/user/model/user-member-info-response-data-model';
 import Link from 'next/link';
 import Input from '../../components/input/input';
+import InputText from '../../components/input/inputText';
 
 const Login = () => {
 	const router = useRouter();
@@ -11,26 +12,11 @@ const Login = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 
-	// const getMemberInfo = () => {
-	// 	API.user
-	// 		.memberInfo({ token: 'token' })
-	// 		.then((res) => {
-	// 			const data = res.data as UserMemberInfoResponseDataModel;
-	// 			if (data.code === 200) {
-	// 				console.log(data.data);
-	// 				router.push('/');
-	// 			} else {
-	// 				alert(data.msg);
-	// 			}
-	// 		})
-	// 		.catch((err) => {
-	// 			console.error(err);
-	// 		});
-	// };
-
-	// useEffect(() => {
-	// 	getMemberInfo();
-	// }, []);
+	const onClickMove = (type: string) => {
+		if (type === 'sign') {
+			router.push('/join');
+		}
+	};
 
 	return (
 		<>
@@ -46,34 +32,27 @@ const Login = () => {
 						</a>
 					</Link>
 
-					<Input
+					<InputText
 						label="이메일"
 						type="text"
+						side_type="type1"
 						value={email}
-						onKeyup={() => {}}
-						onChange={() => {}}
-						className="has_rd"
-						id="email"
-						maxLength={100}
-						disabled={false}
-						margin={{ bottom: 25 }}
-						placeholder="이메일을 입력해주세요."
+						onChange={(e) => {
+							setEmail(e.currentTarget.value);
+						}}
 					/>
-
-					<Input
+					<div style={{ marginTop: '27px' }} />
+					<InputText
 						label="비밀번호"
 						type="password"
+						side_type="type1"
 						value={password}
-						onKeyup={() => {}}
-						onChange={() => {}}
-						className="has_rd"
-						id="password"
-						maxLength={100}
-						disabled={false}
-						margin={{ bottom: 40 }}
-						placeholder="비밀번호를 입력해주세요."
+						onChange={(e) => {
+							setPassword(e.currentTarget.value);
+						}}
 					/>
 
+					<div style={{ marginTop: '40px' }} />
 					<button
 						onClick={() => alert('로그인 버튼')}
 						className="btn m_w_100"
@@ -82,7 +61,12 @@ const Login = () => {
 						로그인
 					</button>
 
-					<button className="btn m_w_100 line_btn" onClick={() => {}}>
+					<button
+						className="btn m_w_100 line_btn"
+						onClick={() => {
+							onClickMove('sign');
+						}}
+					>
 						회원가입
 					</button>
 
