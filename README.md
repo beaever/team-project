@@ -1,7 +1,7 @@
 ## Navigation
 
 1. [Project](#Project)
-2. [Tech Stack](#Stack)
+2. [TechStack](#TechStack)
 3. [Demo](#demo)
 
 # Project
@@ -13,7 +13,7 @@
 
 ---
 
-## Tech Stack
+## TechStack
 
 - 프로젝트에서 사용할 기술 스텍을 정리합니다.
 
@@ -35,6 +35,8 @@
 <img src="https://img.shields.io/badge/next-000000?style=for-the-badge&logo=next.js&logoColor=white">
 
 ---
+
+**Server**
 
 # Demo <a id="demo">
 
