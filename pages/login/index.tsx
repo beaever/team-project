@@ -59,7 +59,9 @@ const Login = () => {
 					<Button
 						className="btn_login siginup"
 						label=" 회원가입"
-						onClick={() => {}}
+						onClick={() => {
+							onClickMove('signup');
+						}}
 					/>
 
 					<Link href="/find">
@@ -77,12 +79,18 @@ const Login = () => {
 								className="kakao"
 								label="카카오"
 								img={true}
-								src="icon/kakao_logo.png"
+								src="icon/kakao.svg"
 								onClick={() => {}}
 								marginBottom={10}
 							/>
 
-							<Button className="naver" label=" 네이버" onClick={() => {}} />
+							<Button
+								className="naver"
+								label=" 네이버"
+								img={true}
+								src="icon/naver.svg"
+								onClick={() => {}}
+							/>
 						</div>
 					</div>
 				</div>
