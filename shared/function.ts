@@ -228,3 +228,14 @@ export const monthFormat = (m: number): string => {
 		? '11월'
 		: '12월';
 };
+
+export const termsTitle = (title: string) => {
+	switch (title) {
+		case '1':
+			return '이용약관';
+		case '2':
+			return '개인정보처리방침';
+		default:
+			return 'NOT FOUND PAGE';
+	}
+};

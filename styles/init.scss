@@ -21,3 +21,30 @@
 @import '../styles/components/button/pulldelete.scss';
 @import '../styles/components/input/checkbox.scss';
 @import '../styles/components/input/selectbox.scss';
+
+// ---------------------------------------------------
+input[type='password']::-ms-clear {
+	display: none;
+}
+* {
+	font-family: 'Noto Sans KR', 'Noto Sans KR2';
+	font-size: 14px;
+	word-break: keep-all;
+	color: #170f00;
+}
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+input::placeholder {
+	color: #e0e0e0;
+}
+input:focus {
+	border-color: #202020;
+}
+input:disabled {
+	background: #f5f5f5;
+}
+input.has_rd {
+	border-radius: 4px;
+}

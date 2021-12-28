@@ -241,7 +241,7 @@ class Input extends React.Component<InputModel, STATE> {
 				className={this.props.parent_className ?? ''}
 			>
 				{this.props.label && <p className="input_label">{this.props.label}</p>}
-				<div className="rel">
+				<div id="input_component" className="rel">
 					<input
 						type={this.props.type === 'password' ? 'password' : 'text'}
 						value={this.props.value ?? ''}

@@ -1,7 +1,7 @@
 ## Navigation
 
 1. [Project](#Project)
-2. [Tech Stack](#Stack)
+2. [TechStack](#TechStack)
 3. [Demo](#demo)
 
 # Project
@@ -13,7 +13,7 @@
 
 ---
 
-## Tech Stack
+## TechStack
 
 - 프로젝트에서 사용할 기술 스텍을 정리합니다.
 
@@ -36,8 +36,10 @@
 
 ---
 
+**Server**
+
 # Demo <a id="demo">
 
-[DEMO](#Project) / (미개발)
+[DEMO](#Project) _미개발_
 
 ---

@@ -1,5 +1,5 @@
 // 전역으로 사용하는 Style 선언
-@import '../styles/palette.scss';
+@import '../styles/_palette.scss';
 // -------------------------------------------------------------------------------- RESET //
 body {
 	margin: 0;
@@ -162,4 +162,103 @@ $border_bottom_line_color: #dddfe8;
 
 .cursor_p {
 	cursor: pointer;
+}
+
+/*========================================================================
+   InputText Component
+========================================================================*/
+.input_text_wrap {
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	width: 100%;
+	> div {
+		display: flex;
+		width: 100%;
+
+		.input_text {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			position: relative;
+
+			&.side {
+				width: calc(100% - 120px);
+				input[type='text'] {
+					width: 100%;
+					font-size: 16px;
+				}
+				& + button {
+					width: 110px;
+				}
+			}
+			&.side2 {
+				width: calc(100% - 70px);
+				& + button {
+					width: 60px;
+				}
+			}
+			.label {
+				display: inline-block;
+				margin-bottom: 7px;
+				b {
+					color: red;
+				}
+			}
+			.scale-wrap {
+				display: flex;
+				align-items: center;
+				border: 1px solid $border;
+				background: #fff;
+				border-radius: 6px;
+				height: 44px;
+				transition: 0.21s;
+				&.focus {
+					border: 1px solid $prime;
+				}
+				&.disabled {
+					color: #c6c7cb;
+					background: #f0f0f0;
+				}
+				input[type='text'],
+				input[type='password'] {
+					border: 0;
+					padding: 0px 12px;
+					// transition: 0.21s;
+					font-size: 16px;
+					transform: scale(0.875) translateX(-6%);
+					outline: none;
+					width: 100%;
+					font-size: 16px;
+					&::placeholder {
+						color: #e4e4e4;
+					}
+				}
+			}
+		}
+		button {
+			margin-left: 10px;
+			text-align: center;
+			border-radius: 12px;
+		}
+	}
+	.error {
+		display: inline-block;
+		margin-top: 6px;
+		color: $color-red;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.input_text_wrap {
+		> div {
+			.input_text {
+				.scale-wrap {
+					input[type='text'] {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
 }

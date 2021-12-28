@@ -1,84 +1,117 @@
+@import '../styles/palette';
+
 #login {
 	min-height: calc(100vh - 313px);
 
-	.logo {
-		text-align: center;
-		display: block;
-		margin: 70px 0 0;
+	#login-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-		.title {
+		h1 {
 			font-size: 24px;
-			font-weight: bold;
 		}
 	}
-
-
 	.to_find {
 		font-size: 13px;
 		color: #ababab;
-		margin-top: 21px;
+		margin-top: 30px;
 		text-align: center;
 		display: block;
 		cursor: pointer;
 	}
 
-	.sns_title {
-		position: relative;
-		width: 100%;
-		margin-top: 62px;
-		height: 18px;
-		div.line {
-			position: absolute;
-			left: 0;
-			top: 50%;
-			transform: translateY(-50%);
+	div.sns_container {
+		.sns_title {
+			position: relative;
 			width: 100%;
-			height: 1px;
-			background: #cfd0d4;
+			margin-top: 30px;
+			height: 18px;
+			div.line {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 100%;
+				height: 1px;
+				background: #cfd0d4;
+			}
+			div.guide {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 13px;
+				color: #666;
+				background: #fff;
+				text-align: center;
+				width: auto;
+				padding: 0 16px;
+			}
 		}
-		div.guide {
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			font-size: 13px;
-			color: #666;
-			background: #fff;
-			text-align: center;
-			width: auto;
-			padding: 0 16px;
+
+		.sns_wrap {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			button {
+				justify-content: center;
+				align-items: center;
+				height: 40px;
+				border: 0px;
+				cursor: pointer;
+				&.kakao {
+					background: #f7e317;
+					color: #381e1f;
+				}
+				&.naver {
+					background: #1ec800;
+					color: #fff;
+				}
+				img {
+					margin-left: 5px;
+					height: 12px;
+				}
+			}
 		}
 	}
 
-	.sns_wrap {
-		width: max-content;
-		margin: 25px auto 0;
-		button {
-			width: 56px;
-			height: 56px;
-			cursor: pointer;
-			border-radius: 50%;
-			margin-right: 20px;
-			text-align: center;
-			&:last-child {
-				margin-right: 0;
-			}
-			&.apple {
-				background: #202020;
-			}
-			&.kakao {
-				background: #f7e317;
-			}
-			&.naver {
-				background: #1ec800;
-			}
-			&.google {
-				border: #dbdbdb solid 1px;
-			}
-			img {
-				height: 21px;
-				width: auto;
-			}
+	#input_component {
+		width: 100%;
+		height: 44px;
+
+		input {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.btn_login {
+		width: 100%;
+		height: 44px;
+		cursor: pointer;
+		&.prime {
+			background-color: $login-prime;
+			color: #fff;
+			border: 0px;
+		}
+		&.disabled {
+			background-color: $login-disabled;
+			color: #202020;
+			border: 0px;
+		}
+		&.siginup {
+			border: solid 1px #202020;
+			background-color: $signup;
+			color: #202020;
+		}
+		&.kakao {
+			background: #f7e317;
+			border: 0px;
+		}
+		&.naver {
+			background: #1ec800;
+			border: 0px;
 		}
 	}
 }
