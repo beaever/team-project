@@ -11,11 +11,8 @@ $gray-400: #525255;
 $gray-500: #737477;
 $black-100: #4b4c4f;
 
-
-
-
 // ----------------------------------------
-$color-brwon: #381E1F;
+$color-brwon: #381e1f;
 $color-black: #111;
 $color-white: #fff;
 $color-white1: #f0f0f0;
@@ -25,48 +22,39 @@ $color-red: #ff326a;
 
 $nav: #fff;
 
-
-
-
 //-------------------------
 $button-color: #ff6347;
-$button-color2: #31516D;
-$button-kakao: #F7E335;
-$button-naver: #1EC82B;
+$button-color2: #31516d;
+$button-kakao: #f7e335;
+$button-naver: #1ec82b;
 
-
-
-
-
-
-
+//------------------------ BUTTON
+$login-prime: #31516d;
+$login-disabled: #efefef;
+$signup: #fff;
 
 // --------------------------------------------
 
 $font-color1: #666;
 $font-color2: #808080;
 $font-color3: #707070;
-$font-color4:  #444;
+$font-color4: #444;
 
 $font-size1: 13px;
 $font-size2: 14px;
 $font-size3: 15px;
 
-
-
-
 // -----------------------------------------------
 
 @mixin login_btn {
-    width: 100%;
-    height: 40px;
+	width: 100%;
+	height: 40px;
 }
 
-
 @mixin input {
-    width: 100%;
-    height: 40px;
-    background-color: $color-white;
-    border: 1px solid $color-gray ;
-    opacity: 0.3;
+	width: 100%;
+	height: 40px;
+	background-color: $color-white;
+	border: 1px solid $color-gray;
+	opacity: 0.3;
 }

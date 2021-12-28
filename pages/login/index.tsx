@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Input from '../../components/input/input';
 import InputText from '../../components/input/inputText';
 import MarginBottom from '../../components/layout/margin-bottom';
+import Button from '../../components/input/button';
 
 const Login = () => {
 	const router = useRouter();
@@ -23,15 +24,9 @@ const Login = () => {
 		<>
 			<section id="login">
 				<div className="container">
-					<Link href="/">
-						<a className="logo">
-							<img
-								src={'??'}
-								alt="로고 이미지"
-								style={{ marginBottom: 60, height: 44 }}
-							/>
-						</a>
-					</Link>
+					<div id="login-title">
+						<h1>로그인</h1>
+					</div>
 
 					<InputText
 						label="이메일"
@@ -54,30 +49,41 @@ const Login = () => {
 						}}
 					/>
 					<MarginBottom margin={24} />
-					<button
-						onClick={() => alert('로그인 버튼')}
-						className="btn m_w_100"
-						style={{ marginBottom: 12 }}
-					>
-						로그인
-					</button>
+					<Button
+						className="btn_login disabled"
+						label="로그인"
+						onClick={() => {}}
+						marginBottom={10}
+					/>
 
-					<button
-						className="btn m_w_100 line_btn"
-						onClick={() => {
-							onClickMove('sign');
-						}}
-					>
-						회원가입
-					</button>
+					<Button
+						className="btn_login siginup"
+						label=" 회원가입"
+						onClick={() => {}}
+					/>
 
 					<Link href="/find">
 						<a className="to_find">이메일/비밀번호 찾기</a>
 					</Link>
 
-					<div className="sns_title">
-						<div className="line"></div>
-						<div className="guide">소셜 로그인</div>
+					<div className="sns_container">
+						<div className="sns_title">
+							<div className="line"></div>
+							<div className="guide">소셜 로그인</div>
+						</div>
+						<MarginBottom margin={22} />
+						<div className="sns_wrap">
+							<Button
+								className="kakao"
+								label="카카오"
+								img={true}
+								src="icon/kakao_logo.png"
+								onClick={() => {}}
+								marginBottom={10}
+							/>
+
+							<Button className="naver" label=" 네이버" onClick={() => {}} />
+						</div>
 					</div>
 				</div>
 			</section>
