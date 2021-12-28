@@ -1,3 +1,4 @@
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -5,10 +6,19 @@ const Footer = () => {
         <div className="footerinner">
             <h2>GOING BUYING</h2>
             <div className="corporation_area">
-                <ul>
-                    <li><a href="/">공지사항</a></li>
-                    <li><a href="/">이용약관</a></li>
-                    <li className="aferNone"><a href="/">개인정보처리방침</a></li>        
+                <ul>       
+                            <Link href="/notice" as="/notice">
+                                <a> 
+                                    <li>공지사항</li>
+                                </a>
+                            </Link>
+                            <Link href="/terms" as="/terms">
+                                <a> 
+                                    <li>이용약관</li>
+                                </a>
+                            </Link>
+                            <li className="aferNone">개인정보처리방침</li>     
+               
                 </ul>
             </div>
             <div className="copyright">

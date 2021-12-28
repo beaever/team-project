@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import ItemSlider from "../layout/_itemSlider";
 import Slider from "../layout/_slider";
+import ItemList from "../layout/_itemList";
 
 
 
@@ -32,9 +33,13 @@ export default function Home() {
 	// RETURN
 	return (
 		<>
-			<Slider />
-			<ItemSlider />
-		    <Div>1</Div>
+			<section className="mainPage">
+				<div className="mainContainer">
+					<Slider />
+					<ItemSlider />
+				    <ItemList />
+				</div>
+			</section>
 			
 		</>
 	);

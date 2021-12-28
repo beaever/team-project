@@ -84,7 +84,7 @@ const Join = () => {
 
 	const onClick = () => {
 		if (termError === false && passwordError === false) {
-			router.push('/');
+			router.push('/join/joinStep2');
 		}
 	};
 
@@ -107,7 +107,8 @@ const Join = () => {
 							<div>
 								<h2>회원가입</h2>
 								<div>
-									<h3>이메일주소</h3>
+									<h3 className="h3_rig">필수입력항목</h3>
+									<h3 className="h3_left">이메일</h3>
 									<input
 										className="joinInput"
 										id="id"
@@ -116,7 +117,7 @@ const Join = () => {
 										onBlur={(e) => onBlurValidCheck(e)}
 										placeholder="예) fromby@email.co.kr"
 									></input>
-									<h3>비밀번호</h3>
+									<h3 className="h3_left">비밀번호</h3>
 									<input
 										className="joinInput"
 										id="password"
@@ -140,13 +141,15 @@ const Join = () => {
 										</div>
 									)}
 								</div>
+								<div className="nameBox">
+									<h3 className="h3_left">이름</h3>
+									<input type="text" placeholder="이름" />
+								</div>
 								<div className="phoneBox">
-									<h3>연락처</h3>
 									<form className="telInputBox">
-										<input type="tel" name="phone1" />
-										<button className="Join_Container_btn" type="submit">
-											인증요청
-										</button>
+										<h3 className="h3_left">휴대폰번호</h3>
+										<input type="tel" name="phone1" placeholder="ex)01012345678" />
+										<button className="Join_Container_btn" type="submit">인증번호 발송</button>
 									</form>
 								</div>
 								<div className="termCheckBox">
@@ -192,11 +195,7 @@ const Join = () => {
 										<div style={{ color: 'red' }}>약관 동의 바람</div>
 									)}
 								</div>
-								<button
-									className="Join_Container_btn btn"
-									type="submit"
-									onClick={() => onClick()}
-								>
+								<button className="btn" type="submit" onClick={() => onClick()}>
 									회원가입완료
 								</button>
 							</div>

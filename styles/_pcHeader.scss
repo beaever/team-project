@@ -30,21 +30,41 @@
             padding: 10px 0px 10px 10px;
             // border-right: 1px solid rgba(0,0,0,0.2); 
         }
-        li::after {
-            content: "│";
-            padding-left: 10px;
-            color:rgba(0,0,0,0.2);  ;
-        }  
-        .aferNone::after {
-            content: "";
-        }
-        
         a{
          color: $color-black;
          display: block;
         }
     }
 }
+
+.Gnb_li::after {
+    content: "│";
+    padding-left: 10px;
+    color:rgba(0,0,0,0.2);  ;
+}  
+
+.proflieContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    h4{
+     margin: 10px 0 10px 0;
+    }
+    span {
+        display: block;
+        color: $font-color3;
+        opacity: 0.7;
+    }
+}
+
+.proflieBox {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid black;
+    margin: 20px;
+}
+
 
 // .bell-icon{
 //     position: relative;
@@ -57,6 +77,52 @@
     height: 56px;
     width: 70%;
     margin: 0 auto;
+}
+
+.toggle_btn {
+    border: none;
+    background-color: $color-white;
+    cursor: pointer;
+}
+
+.show-Btn-menu{
+    width: 17%;
+    position: absolute;
+    flex-direction: column;
+    background-color: $color-white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: none;
+    top: 100%;
+    right: 125px;
+    transition: 0.5s;
+    z-index: 101;
+    li {
+        display: block;
+        border-bottom: 1px solid rgba(0,0,0,0.1) ;
+        margin-bottom: 0;
+        color: $font-color2;
+        font-size: $font-size2;
+    }
+    li::after {
+        content: ">";
+        color: $color-gray;
+        opacity: 0.5;
+        float: right;
+        margin-right: 10px;
+    }
+}
+    
+.hide-Btn-menu{
+    width: 20%;
+    top: -10%;
+    position: absolute;
+    transition: 1s;
+    z-index: 101;
+    li {
+        display: none;
+        color: $font-color2;
+        font-size: $font-size2;
+    }
 }
 
 @media screen and (max-width: 768px) {
