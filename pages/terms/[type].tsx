@@ -1,21 +1,25 @@
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import useWidth from '../../hooks/useWitdh';
+import { termsTitle } from '../../shared/function';
 
 const Terms = (props) => {
 	const router = useRouter();
 	const { mediaQuery } = useWidth();
 	const router_type = props.type as string;
 
+	useEffect(() => {
+		console.log(router_type);
+	}, []);
+
 	return (
 		<>
 			<section className="termPage">
 				<div className="termConainer">
-					<h2>이용약관</h2>
+					<h2>{termsTitle(router_type)}</h2>
 					<div>
 						<p>
-							{' '}
 							<strong>제 1 조 (목적)</strong>
 							<br />
 							주식회사 카카오(이하 ‘회사’)가 제공하는 서비스를 이용해 주셔서
