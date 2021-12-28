@@ -1,38 +1,28 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 const useWidth = () => {
-	const [width, setWidth] = useState(window.innerWidth);
-
-	const is_320 = width <= 320;
-	const is_340 = width <= 340;
-	const is_480 = width <= 480;
-	const is_750 = width <= 750;
-	const is_mobile = width <= 768;
-	const is_1024 = width <= 1024;
-	const is_1080 = width <= 1080;
-
-	const onResize = useCallback(() => {
-		setWidth(window.innerWidth);
-	}, []);
+	const [width, setWidth] = useState(process.browser ? window.innerWidth : 0);
+	const [mediaQuery, setMediaQuery] = useState<'P' | 'T' | 'M'>('P');
 
 	useEffect(() => {
+		const onResize = () => {
+			setWidth(window.innerWidth);
+		};
+
 		onResize();
 		window.addEventListener('resize', onResize);
-
 		return () => {
 			window.removeEventListener('resize', onResize);
 		};
 	}, []);
 
+	useEffect(() => {
+		setMediaQuery(
+			1024 < width ? 'P' : 480 < width ? 'T' : 380 < width ? 'M' : 'M',
+		);
+	}, [width]);
 	return {
-		width,
-		is_320,
-		is_340,
-		is_480,
-		is_750,
-		is_mobile,
-		is_1024,
-		is_1080,
+		mediaQuery,
 	};
 };
 
