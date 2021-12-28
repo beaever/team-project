@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import API from '../../service/api';
-import UserMemberInfoResponseDataModel from '../../service/api/user/model/user-member-info-response-data-model';
 import Link from 'next/link';
-import Input from '../../components/input/input';
 import InputText from '../../components/input/inputText';
 import MarginBottom from '../../components/layout/margin-bottom';
 import Button from '../../components/input/button';
+import MobileHeader from '../../layout/_mobileHeader';
+import PcHeader from '../../layout/_pcHeader';
+import useWidth from '../../hooks/useWitdh';
 
 const Login = () => {
 	const router = useRouter();
+	const { mediaQuery } = useWidth();
+
 	// USESTATE
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
@@ -22,6 +24,7 @@ const Login = () => {
 
 	return (
 		<>
+			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
 			<section id="login">
 				<div className="container">
 					<div id="login-title">
@@ -37,8 +40,7 @@ const Login = () => {
 							setEmail(e.currentTarget.value);
 						}}
 					/>
-					<MarginBottom margin={24} />
-					<div style={{ marginTop: '27px' }} />
+					<MarginBottom margin={20} />
 					<InputText
 						label="비밀번호"
 						type="password"
@@ -48,7 +50,7 @@ const Login = () => {
 							setPassword(e.currentTarget.value);
 						}}
 					/>
-					<MarginBottom margin={24} />
+					<MarginBottom margin={30} />
 					<Button
 						className="btn_login disabled"
 						label="로그인"
