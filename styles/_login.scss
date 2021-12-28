@@ -58,6 +58,7 @@
 			button {
 				height: 40px;
 				border: 0px;
+				cursor: pointer;
 				&.kakao {
 					background: #f7e317;
 					color: #381e1f;
@@ -86,6 +87,7 @@
 	.btn_login {
 		width: 100%;
 		height: 44px;
+		cursor: pointer;
 		&.prime {
 			background-color: $login-prime;
 			color: #fff;
