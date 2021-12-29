@@ -17,7 +17,7 @@ const Login = () => {
 	const [password, setPassword] = useState<string>('');
 
 	const onClickMove = (type: string) => {
-		if (type === 'sign') {
+		if (type === 'signup') {
 			router.push('/join');
 		}
 	};
@@ -60,9 +60,7 @@ const Login = () => {
 					<Button
 						className="btn_login siginup"
 						label=" 회원가입"
-						onClick={() => {
-							onClickMove('signup');
-						}}
+						onClick={() => onClickMove('signup')}
 					/>
 
 					<Link href="/find">
