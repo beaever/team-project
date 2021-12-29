@@ -6,7 +6,6 @@ import CheckBox from '../../components/input/checkbox';
 
 const SnsJoin = () => {
 	const router = useRouter();
-
 	const userid = useInput('');
 	const password = useInput('');
 	const userphone = useInput('');

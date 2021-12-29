@@ -22,7 +22,9 @@ const Find = () => {
 		{
 			tabTitle: (
 				<li
-					className={activeIndex === 0 ? 'is-active tabs_select' : ''}
+					className={
+						activeIndex === 0 ? 'is-active tabs_select' : 'tabs_noneSelect'
+					}
 					onClick={() => tabClickHandler(0)}
 				>
 					이메일 찾기{' '}
@@ -58,7 +60,9 @@ const Find = () => {
 		{
 			tabTitle: (
 				<li
-					className={activeIndex === 1 ? 'is-active tabs_select' : ''}
+					className={
+						activeIndex === 1 ? 'is-active tabs_select' : 'tabs_noneSelect'
+					}
 					onClick={() => tabClickHandler(1)}
 				>
 					비밀번호 찾기{' '}
