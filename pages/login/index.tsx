@@ -7,6 +7,9 @@ import Button from '../../components/input/button';
 import MobileHeader from '../../layout/_mobileHeader';
 import PcHeader from '../../layout/_pcHeader';
 import useWidth from '../../hooks/useWitdh';
+import MobileFooter from '../../layout/_mobileFooter';
+import Footer from '../../layout/_Footer';
+import MarginTop from '../../components/layout/margin-top';
 
 const Login = () => {
 	const router = useRouter();
@@ -17,13 +20,19 @@ const Login = () => {
 	const [password, setPassword] = useState<string>('');
 
 	const onClickMove = (type: string) => {
-		if (type === 'sign') {
+		if (type === 'signup') {
 			router.push('/join');
 		}
 	};
 
+	useEffect(() => {
+		console.log(email);
+	}, []);
+
 	return (
 		<>
+			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
+			<MarginTop margin={100} />
 			<section id="login">
 				<div className="container">
 					<div id="login-title">
@@ -60,9 +69,7 @@ const Login = () => {
 					<Button
 						className="btn_login siginup"
 						label=" 회원가입"
-						onClick={() => {
-							onClickMove('signup');
-						}}
+						onClick={() => onClickMove('signup')}
 					/>
 
 					<Link href="/find">
@@ -97,6 +104,7 @@ const Login = () => {
 				</div>
 			</section>
 			<MarginBottom margin={100} />
+			{mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
 		</>
 	);
 };

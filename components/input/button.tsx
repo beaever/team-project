@@ -6,7 +6,7 @@ import MarginBottom from '../layout/margin-bottom';
 const Button = (props: ButtonModel) => {
 	return (
 		<>
-			<button className={props.className} onClick={() => props.onClick}>
+			<button className={props.className} onClick={() => props.onClick()}>
 				<span>
 					{props.label}
 					{props.img && <img src={props.src} />}
