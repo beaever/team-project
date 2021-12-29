@@ -1,41 +1,39 @@
 .imgBox {
-    width: 1080px;
-    height: 30vh;
-    background-color: $button-color;
+	width: 1080px;
+	height: 30vh;
+	background-color: $button-color;
 }
 
 .container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    top: 56px;
+	width: 100%;
+	overflow: hidden;
+	top: 56px;
 }
-.slider_btnBox{
-    position: relative;
-    display: flex;
-    bottom: 113px;
+.slider_btnBox {
+	position: relative;
+	display: flex;
+	bottom: 113px;
 }
 
 .sliderContainner {
-    width: 100%;
-    display: flex;
+	width: 100%;
+	display: flex;
 }
 
 .slider_btn {
-all: unset;
-  border: 1px solid $color-white;
-  padding: 0.5em 2em;
-  color: $color-black;
-  border-radius: 10px;
- 
-  &:hover {
-    transition: all 0.3s ease-in-out;
-    background-color: $color-black;
-    color: #fff;
-  }
+	all: unset;
+	border: 1px solid $color-white;
+	padding: 0.5em 2em;
+	color: $color-black;
+	border-radius: 10px;
+
+	&:hover {
+		transition: all 0.3s ease-in-out;
+		background-color: $color-black;
+		color: #fff;
+	}
 }
 
 .r {
-    margin-left: auto;
+	margin-left: auto;
 }
-
