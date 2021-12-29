@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import React, { useEffect } from 'react';
+import MarginBottom from '../../components/layout/margin-bottom';
 import useWidth from '../../hooks/useWitdh';
 import { termsText, termsTitle } from '../../shared/function';
 
@@ -17,9 +18,12 @@ const Terms = (props) => {
 		<>
 			<section className="termPage">
 				<div className="termConainer">
-					<h2>{termsTitle(router_type)}</h2>
-					<div>
-						<p dangerouslySetInnerHTML={{ __html: termsText(router_type) }}></p>
+					<h1>{termsTitle(router_type)}</h1>
+					<MarginBottom margin={40} />
+					<div className="terms_text">
+						<span
+							dangerouslySetInnerHTML={{ __html: termsText(router_type) }}
+						></span>
 					</div>
 				</div>
 			</section>
