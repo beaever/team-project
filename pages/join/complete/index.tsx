@@ -1,13 +1,13 @@
 import { useRouter } from 'next/dist/client/router';
-import MarginBottom from '../../components/layout/margin-bottom';
-import MarginTop from '../../components/layout/margin-top';
-import useWidth from '../../hooks/useWitdh';
-import Footer from '../../layout/_Footer';
-import MobileFooter from '../../layout/_mobileFooter';
-import MobileHeader from '../../layout/_mobileHeader';
-import PcHeader from '../../layout/_pcHeader';
+import MarginBottom from '../../../components/layout/margin-bottom';
+import MarginTop from '../../../components/layout/margin-top';
+import useWidth from '../../../hooks/useWitdh';
+import Footer from '../../../layout/_Footer';
+import MobileFooter from '../../../layout/_mobileFooter';
+import MobileHeader from '../../../layout/_mobileHeader';
+import PcHeader from '../../../layout/_pcHeader';
 
-const JoinStep2 = () => {
+const JoinComplete = () => {
 	const router = useRouter();
 	const { mediaQuery } = useWidth();
 	const onClick = () => {
@@ -30,4 +30,4 @@ const JoinStep2 = () => {
 	);
 };
 
-export default JoinStep2;
+export default JoinComplete;

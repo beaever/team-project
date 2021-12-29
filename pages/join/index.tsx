@@ -84,7 +84,7 @@ const Join = () => {
 
 	const onClick = () => {
 		if (termError === false && passwordError === false) {
-			router.push('/join/joinStep2');
+			router.push('/join/complete');
 		}
 	};
 
@@ -148,8 +148,14 @@ const Join = () => {
 								<div className="phoneBox">
 									<form className="telInputBox">
 										<h3 className="h3_left">휴대폰번호</h3>
-										<input type="tel" name="phone1" placeholder="ex)01012345678" />
-										<button className="Join_Container_btn" type="submit">인증번호 발송</button>
+										<input
+											type="tel"
+											name="phone1"
+											placeholder="ex)01012345678"
+										/>
+										<button className="Join_Container_btn" type="submit">
+											인증번호 발송
+										</button>
 									</form>
 								</div>
 								<div className="termCheckBox">

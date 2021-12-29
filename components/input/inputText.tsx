@@ -74,6 +74,7 @@ export default function InputText(props: InputTextTypes) {
 							onClick={() => {
 								props.onClick ? props.onClick() : {};
 							}}
+							autoComplete="off"
 						/>
 					</div>
 					{props.img_search && !props.gameSearch ? (

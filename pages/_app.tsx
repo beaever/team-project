@@ -11,9 +11,7 @@ function MyApp(Props: AppProps) {
 
 	return (
 		<>
-			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
 			<Props.Component {...Props.pageProps} />
-			{mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
 		</>
 	);
 }
