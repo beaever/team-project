@@ -1,52 +1,49 @@
-
 .noticePage {
-    width: 100%;
-    height: 1000px;
-    background-color: $color-white;
+	width: 100%;
 }
 
-
 .noticeContainer {
-    position: absolute;
-    background-color: $color-white;
-    top: 40%;
-    left: 46%;
-    margin-left: -266px;
-    margin-top: -190px;
-    width: 532px;
-    h2 {
-        text-align: center;
-    }
-    a{
-        text-decoration: none;
-        text-align: left;
-       
-        li {
-            display: inline-flex;
-            align-items: center;
-            color: $font-color4;
-            font-size: $font-size2;
-            width: 100%;
-            height: 56px;
-            border-top: 1px solid $color-gray1;
-            padding-left: 20px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
-    button {
-        display: block;
-        margin: 0 auto;
-        background-color: $color-white;
-        border: none;
-        opacity: 0.5;
-        cursor: pointer;
-    }
+	position: absolute;
+	background-color: $color-white;
+	top: 40%;
+	left: 46%;
+	margin-left: -266px;
+	margin-top: -190px;
+	width: 532px;
+	max-height: 600px;
+	overflow-y: scroll;
+	h2 {
+		text-align: center;
+	}
+	a {
+		text-decoration: none;
+		text-align: left;
+
+		li {
+			display: inline-flex;
+			align-items: center;
+			color: $font-color4;
+			font-size: $font-size2;
+			width: 100%;
+			height: 56px;
+			border-top: 1px solid $color-gray1;
+			padding-left: 20px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
+	button {
+		display: block;
+		margin: 0 auto;
+		background-color: $color-white;
+		border: none;
+		opacity: 0.5;
+		cursor: pointer;
+	}
 }
 
 .notice_ul {
-    padding-left: 0;
-    font-size: $font-size3;
-  
+	padding-left: 0;
+	font-size: $font-size3;
 }

@@ -26,12 +26,20 @@ const PcHeader = () => {
 					<ul>
 						<Link href="" as="">
 							<a>
-								<li className="bell-icon Gnb_li">종</li>
+								<li className="bell-icon Gnb_li">
+									<img src="img/bell.svg" alt="" />
+								</li>
 							</a>
 						</Link>
-						<button onClick={() => toggleMenu()} className="Gnb_li toggle_btn">
-							설정
-						</button>
+						<li>
+							<button
+								onClick={() => toggleMenu()}
+								className="Gnb_li toggle_btn"
+							>
+								설정
+							</button>
+						</li>
+
 						<ul className={isOpen ? 'hide-Btn-menu' : 'show-Btn-menu'}>
 							<Link href="/" as="/">
 								<a>

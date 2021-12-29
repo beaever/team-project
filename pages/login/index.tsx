@@ -24,7 +24,6 @@ const Login = () => {
 
 	return (
 		<>
-			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
 			<section id="login">
 				<div className="container">
 					<div id="login-title">
@@ -97,6 +96,7 @@ const Login = () => {
 					</div>
 				</div>
 			</section>
+			<MarginBottom margin={100} />
 		</>
 	);
 };
