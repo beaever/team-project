@@ -1,8 +1,16 @@
 import React from 'react';
 import { useRouter } from 'next/dist/client/router';
 import useInput from '../../hooks/useInput';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CheckBox from '../../components/input/checkbox';
+
+import useWidth from '../../hooks/useWitdh';
+import MarginTop from '../../components/layout/margin-top';
+import MarginBottom from '../../components/layout/margin-bottom';
+import PcHeader from '../../layout/_pcHeader';
+import MobileHeader from '../../layout/_mobileHeader';
+import MobileFooter from '../../layout/_mobileFooter';
+import Footer from '../../layout/_Footer';
 
 const Join = () => {
 	const router = useRouter();
@@ -11,21 +19,13 @@ const Join = () => {
 	const password = useInput('');
 	const userphone = useInput('');
 
-	// const [checkEmail,setCheckEmail] = useState<string>('');
-	// const [checkEmailError,setCheckEmailError] = useState<boolean>(false);
+	const { mediaQuery } = useWidth();
+
 	const [passwordCheck, setPasswordCheck] = useState<string>('');
 	const [passwordError, setPasswordError] = useState<boolean>(false);
 
 	const [term, setTerm] = useState<boolean>(false); //약관 동의여부
 	const [termError, setTermError] = useState<boolean>(false);
-
-	//   const handleEmail=(event)=>{
-	//     const {
-	//       target: { value },
-	//   } = event;
-	//   setCheckEmail(event.target.value)
-	//   setCheckEmailError(event.target.value === '')
-	//  }
 
 	const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const {
@@ -54,18 +54,6 @@ const Join = () => {
 		// setAgree(e.target.checked);
 	};
 
-	// const allhandleTrem = (e: React.ChangeEvent<HTMLInputElement>) => {
-	// 	const current_agree = agree1 && agree2 && agree3;
-
-	// 	setAgree({
-	// 		agree1: !current_agree,
-	// 		agree2: !current_agree,
-	// 		agree3: !current_agree,
-	// 		agree4: !current_agree,
-	//         agree5: !current_agree,
-	// 	});
-	// }
-
 	const onBlurValidCheck = (e: React.FocusEvent<HTMLInputElement>) => {
 		const id = e.currentTarget.id;
 		const value = (e.currentTarget.value as string) ?? '';
@@ -88,23 +76,19 @@ const Join = () => {
 		}
 	};
 
-	// const [agree, setAgree] = useState({
-	// 	agree1: false,
-	// 	agree2: false,
-	// 	agree3: false,
-	// 	agree4: false,
-	// 	agree5: false,
-	// });
-
-	// const  { agree1, agree2, agree3 } = agree;
-
+	const [modalOpen, setModalOpen] = useState(false);
+	const modalClose = () => {
+		setModalOpen(!modalOpen);
+	};
 	return (
 		<>
+			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
+			<MarginTop margin={100} />
 			<section className="JoinPage">
 				<div className="Join_Container">
 					<form onSubmit={(e) => handleSubmit(e)}>
 						<div className="join_section">
-							<div>
+							<div className="join_div">
 								<h2>회원가입</h2>
 								<div>
 									<h3 className="h3_rig">필수입력항목</h3>
@@ -193,9 +177,6 @@ const Join = () => {
 											checked={term}
 											onChange={(e) => () => {}}
 										/>
-										<label htmlFor="term3" id="term3">
-											이용약관 동의3
-										</label>
 									</button>
 									{termError && (
 										<div style={{ color: 'red' }}>약관 동의 바람</div>
@@ -209,6 +190,8 @@ const Join = () => {
 					</form>
 				</div>
 			</section>
+			<MarginBottom margin={100} />
+			{mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
 		</>
 	);
 };

@@ -1,0 +1,40 @@
+.notice_boardPage {
+	width: 100%;
+	height: 850px;
+	margin: 0 auto;
+}
+
+.boardContainer {
+	position: absolute;
+	background-color: $color-white;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	margin-left: -400px;
+	margin-top: -190px;
+	width: 800px;
+	height: 688px;
+}
+
+.board_title {
+	margin: 20px;
+	font-size: 18px;
+	font-weight: 500;
+	color: $color-black2;
+}
+
+.board_day {
+	color: $font-color5;
+}
+.board_title::before {
+	content: '';
+}
+
+.board_textArey {
+	text-align: left;
+	margin-top: 40px;
+	width: 800px;
+	height: 586px;
+	background-color: $color-gray2;
+	padding: 50px;
+}
