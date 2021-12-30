@@ -120,7 +120,6 @@ const Login = () => {
 					</div>
 				</div>
 			</section>
-			<MarginBottom margin={100} />
 			{mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
 		</>
 	);
