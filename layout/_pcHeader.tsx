@@ -28,25 +28,18 @@ const PcHeader = () => {
 	return (
 		<header className="pc_header">
 			<Link href="/">
-				<a className="logo floatL">
-					<img src="icons/logo.svg" alt="" />
+				<a className="logo">
+					<img src="icon/logo.svg" alt="" />
 				</a>
 			</Link>
 
 			<div className="top_menu right_menu floatR clearfix">
-				{/* {member && member.idx ? (
+				{member && member.idx ? (
 					<>
 						<li>
 							<Link href="/alert">
 								<a>
-									<img
-										src={
-											member.push_count > 0
-												? alarmOn.default.src
-												: alarmOff.default.src
-										}
-										alt="알람이미지"
-									/>
+									<img src="img/bell.svg" alt="알람이미지" />
 								</a>
 							</Link>
 						</li>
@@ -55,7 +48,7 @@ const PcHeader = () => {
 						</li>
 						<li>
 							<Link href="#">
-								<a onClick={() => setIsShow(!drop)}>내정보</a>
+								<a onClick={() => {}}>내정보</a>
 							</Link>
 						</li>
 						<li>
@@ -63,13 +56,7 @@ const PcHeader = () => {
 						</li>
 						<li>
 							<Link href="#">
-								<a
-									onClick={() => {
-										logout(member);
-									}}
-								>
-									로그아웃
-								</a>
+								<a onClick={() => {}}>로그아웃</a>
 							</Link>
 						</li>
 					</>
@@ -85,7 +72,7 @@ const PcHeader = () => {
 							<Link href="/join">회원가입</Link>
 						</li>
 					</>
-				)} */}
+				)}
 				<li>
 					<Link href="/login">로그인</Link>
 				</li>
