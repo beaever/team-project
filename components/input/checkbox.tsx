@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import Modal from '../../pages/join/modal/modal';
 
 type CheckboxTypes = {
 	id: string;
@@ -9,6 +11,11 @@ type CheckboxTypes = {
 	checked?: boolean;
 };
 export default function CheckBox(props: CheckboxTypes) {
+	const [modalOpen, setModalOpen] = useState(false);
+	const modalClose = () => {
+		setModalOpen(!modalOpen);
+	};
+
 	return (
 		<div className="chekcbox_item">
 			<input
@@ -20,6 +27,8 @@ export default function CheckBox(props: CheckboxTypes) {
 				checked={props.checked}
 			/>
 			<label htmlFor={props.id} className={props.className}></label>
+			<button onClick={modalClose}>이용약관보기</button>
+			{modalOpen && <Modal modalClose={modalClose}></Modal>}
 		</div>
 	);
 }
