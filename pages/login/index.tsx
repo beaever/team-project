@@ -10,11 +10,12 @@ import useWidth from '../../hooks/useWitdh';
 import MobileFooter from '../../layout/_mobileFooter';
 import Footer from '../../layout/_Footer';
 import MarginTop from '../../components/layout/margin-top';
+import useLoginState from '../../hooks/useLoginState';
 
 const Login = () => {
 	const router = useRouter();
 	const { mediaQuery } = useWidth();
-
+	const { loginForm, setLoginForm } = useLoginState('load-login');
 	// USESTATE
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
@@ -23,6 +24,12 @@ const Login = () => {
 		if (type === 'signup') {
 			router.push('/join');
 		}
+	};
+
+	const onClickLogin = () => {
+		setLoginForm({
+			['login']: true,
+		});
 	};
 
 	useEffect(() => {
@@ -50,7 +57,7 @@ const Login = () => {
 						type="text"
 						side_type="type1"
 						value={email}
-						placeholder="ex) goingbuying@gmail.com"
+						placeholder="goingbuying@gmail.com"
 						onChange={(e) => {
 							setEmail(e.currentTarget.value);
 						}}
@@ -61,6 +68,7 @@ const Login = () => {
 						type="password"
 						side_type="type1"
 						value={password}
+						placeholder="*****"
 						onChange={(e) => {
 							setPassword(e.currentTarget.value);
 						}}
@@ -69,7 +77,7 @@ const Login = () => {
 					<Button
 						className="btn_login disabled"
 						label="로그인"
-						onClick={() => {}}
+						onClick={onClickLogin}
 						marginBottom={10}
 					/>
 
