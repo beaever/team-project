@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect, useRef, useState } from 'react';
+import useLoginState from '../hooks/useLoginState';
 
 const PcHeader = () => {
 	const router = useRouter();
+	const { loginForm } = useLoginState('load-login');
 	const [isOpen, setMenu] = useState<boolean>(false);
 	const [drop, setDrop] = useState<boolean>(false);
 	const drop_ref = useRef(null);
@@ -16,6 +18,10 @@ const PcHeader = () => {
 	useEffect(() => {
 		setMenu((isOpen) => !isOpen);
 	}, []);
+
+	useEffect(() => {
+		console.log(loginForm?.login);
+	}, [loginForm]);
 
 	return (
 		<div className="Gnb">
@@ -46,11 +52,6 @@ const PcHeader = () => {
 						<ul className={isOpen ? 'hide-Btn-menu' : 'show-Btn-menu'}>
 							<Link href="/" as="/">
 								<a>
-									{/* <div className="proflieContainer">
-                                            <div className="proflieBox"></div>
-                                            <h4>홍길동</h4>
-                                            <span>gogo@gmail.com</span>
-                                        </div> */}
 									<li>계정정보변경</li>
 								</a>
 							</Link>
