@@ -33,7 +33,7 @@ const PcHeader = () => {
 				</a>
 			</Link>
 
-			<div className="top_menu right_menu floatR clearfix">
+			<div className="top_menu right_menu clearfix">
 				{member && member.idx ? (
 					<>
 						<li>
@@ -73,15 +73,6 @@ const PcHeader = () => {
 						</li>
 					</>
 				)}
-				<li>
-					<Link href="/login">로그인</Link>
-				</li>
-				<li>
-					<div className="line" />
-				</li>
-				<li>
-					<Link href="/join">회원가입</Link>
-				</li>
 			</div>
 
 			{member && member.idx && (

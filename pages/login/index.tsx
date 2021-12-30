@@ -27,7 +27,13 @@ const Login = () => {
 
 	useEffect(() => {
 		console.log(email);
+	}, [email]);
+
+	useEffect(() => {
+		localStorage.clear();
 	}, []);
+
+	useEffect(() => {}, []);
 
 	return (
 		<>
@@ -44,6 +50,7 @@ const Login = () => {
 						type="text"
 						side_type="type1"
 						value={email}
+						placeholder="ex) goingbuying@gmail.com"
 						onChange={(e) => {
 							setEmail(e.currentTarget.value);
 						}}
@@ -79,7 +86,9 @@ const Login = () => {
 					<div className="sns_container">
 						<div className="sns_title">
 							<div className="line"></div>
-							<div className="guide">소셜 로그인</div>
+							<div className="guide">
+								<span>SNS 로그인 / 회원가입</span>
+							</div>
 						</div>
 						<MarginBottom margin={22} />
 						<div className="sns_wrap">

@@ -2,6 +2,8 @@
 	HEADER
 ============================================================================*/
 header {
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	height: 70px;
 	border-bottom: #ececec 1px solid;
