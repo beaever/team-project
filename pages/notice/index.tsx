@@ -99,7 +99,7 @@ const Notice = () => {
 						{noticeList?.map((item) => {
 							return (
 								<>
-									<Link href="/" as="">
+									<Link href="/notice/board" as="/notice/board">
 										<a>
 											<li key={item.idx}>{item.title}</li>
 										</a>

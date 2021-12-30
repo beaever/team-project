@@ -1,8 +1,17 @@
 import { useRouter } from 'next/dist/client/router';
 import { useState } from 'react';
+import useWidth from '../../hooks/useWitdh';
+import PcHeader from '../../layout/_pcHeader';
+import MobileHeader from '../../layout/_mobileHeader';
+import MobileFooter from '../../layout/_mobileFooter';
+import Footer from '../../layout/_Footer';
+import MarginTop from '../../components/layout/margin-top';
+import MarginBottom from '../../components/layout/margin-bottom';
 
 const Find = () => {
 	const router = useRouter();
+
+	const { mediaQuery } = useWidth();
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [telTerm, setTelTerm] = useState('');
 
@@ -99,16 +108,22 @@ const Find = () => {
 		},
 	];
 	return (
-		<section className="findPage">
-			<div className="findContainer">
-				<ul className="tabs_boxed">
-					{tabContArr.map((section, index) => {
-						return section.tabTitle;
-					})}
-				</ul>
-				<div>{tabContArr[activeIndex].tabCont}</div>
-			</div>
-		</section>
+		<>
+			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
+			<MarginTop margin={100} />
+			<section className="findPage">
+				<div className="findContainer">
+					<ul className="tabs_boxed">
+						{tabContArr.map((section, index) => {
+							return section.tabTitle;
+						})}
+					</ul>
+					<div>{tabContArr[activeIndex].tabCont}</div>
+				</div>
+			</section>
+			<MarginBottom margin={100} />
+			{mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
+		</>
 	);
 };
 

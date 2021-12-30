@@ -24,6 +24,11 @@
 	}
 }
 
+.join_div {
+	margin: 0 auto;
+	width: 300px;
+}
+
 h3::before {
 	content: '*';
 	color: $color-red;
@@ -44,8 +49,6 @@ h3::before {
 		@include input;
 	}
 	div {
-		margin: 0 auto;
-		width: 300px;
 		h3 {
 			padding-top: 10px;
 			font-size: $font-size1;
