@@ -352,7 +352,7 @@ header {
 	.aside {
 		background: #fff;
 		z-index: 100;
-		transition: all 0.21s;
+		transition: box-shadow 0.21s ease-in-out;
 		border: none;
 		padding: 0;
 		&:hover {
@@ -362,7 +362,6 @@ header {
 		position: fixed;
 		right: 10%;
 		top: 60px;
-		transition: all 0.4s ease-in-out;
 		overflow-y: hidden;
 
 		&.show {
@@ -532,12 +531,6 @@ header {
 					border-bottom: none;
 				}
 			}
-		}
-	}
-
-	@media all and (max-width: 768px) {
-		.aside {
-			// display: none;
 		}
 	}
 }

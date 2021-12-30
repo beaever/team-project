@@ -19,12 +19,18 @@ const PcHeader = () => {
 		});
 	};
 
-	const toggleMenu = () => {
-		setMenu((isOpen) => !isOpen);
-	};
-
 	useEffect(() => {
-		setMenu((isOpen) => !isOpen);
+		const contOutsideClickDetector = (e: MouseEvent) => {
+			if (drop_container_ref.current?.contains(e.target as Node) === false) {
+				setDrop(false);
+			}
+		};
+
+		window.addEventListener('mousedown', contOutsideClickDetector);
+
+		return () => {
+			window.removeEventListener('mousedown', contOutsideClickDetector);
+		};
 	}, []);
 
 	useEffect(() => {
@@ -85,6 +91,7 @@ const PcHeader = () => {
 
 			{loginForm && loginForm?.login && (
 				<div
+					ref={drop_container_ref}
 					className={`aside ${drop ? 'show' : ''}`}
 					style={{ height: drop ? 'auto' : 0 }}
 				>
