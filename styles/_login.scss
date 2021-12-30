@@ -105,11 +105,17 @@
 			background-color: $login-prime;
 			color: #fff;
 			border: 0px;
+			span {
+				color: #fff;
+			}
 		}
 		&.disabled {
 			background-color: $login-disabled;
 			color: #202020;
 			border: 0px;
+			span {
+				color: #202020;
+			}
 		}
 		&.siginup {
 			border: solid 1px #202020;

@@ -15,10 +15,11 @@ import useLoginState from '../../hooks/useLoginState';
 const Login = () => {
 	const router = useRouter();
 	const { mediaQuery } = useWidth();
-	const { loginForm, setLoginForm } = useLoginState('load-login');
+	const { setLoginForm } = useLoginState('load-login');
 	// USESTATE
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
+	const [validation, setValidation] = useState<boolean>(false);
 
 	const onClickMove = (type: string) => {
 		if (type === 'signup') {
@@ -31,16 +32,13 @@ const Login = () => {
 			['login']: true,
 		});
 	};
-
 	useEffect(() => {
-		console.log(email);
-	}, [email]);
-
-	useEffect(() => {
-		localStorage.clear();
-	}, []);
-
-	useEffect(() => {}, []);
+		if (email?.length > 0 && password?.length > 0) {
+			setValidation(true);
+		} else {
+			setValidation(false);
+		}
+	}, [email, password]);
 
 	return (
 		<>
@@ -75,7 +73,8 @@ const Login = () => {
 					/>
 					<MarginBottom margin={30} />
 					<Button
-						className="btn_login disabled"
+						className="btn_login prime"
+						disabled={!validation}
 						label="로그인"
 						onClick={onClickLogin}
 						marginBottom={10}
