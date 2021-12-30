@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const PcHeader = () => {
 	const router = useRouter();
-
 	const [isOpen, setMenu] = useState<boolean>(false);
+	const [drop, setDrop] = useState<boolean>(false);
+	const drop_ref = useRef(null);
+	const drop_container_ref = useRef<HTMLDivElement>(null);
+
 	const toggleMenu = () => {
 		setMenu((isOpen) => !isOpen);
 	};
