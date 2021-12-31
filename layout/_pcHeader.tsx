@@ -41,7 +41,7 @@ const PcHeader = () => {
 		<header className="pc_header">
 			<Link href="/">
 				<a className="logo">
-					<img src="icon/logo.svg" alt="" />
+					<img src="../icon/logo.svg" alt="" />
 				</a>
 			</Link>
 
@@ -51,7 +51,7 @@ const PcHeader = () => {
 						<li>
 							<Link href="/alert">
 								<a>
-									<img src="img/bell.svg" alt="알람이미지" />
+									<img src="../img/bell.svg" alt="알람이미지" />
 								</a>
 							</Link>
 						</li>
@@ -99,7 +99,7 @@ const PcHeader = () => {
 						<div className="profile-img-wrap">
 							<div className="profile-img-holder">
 								<img
-									src="icon/noprofile.png"
+									src="../icon/noprofile.png"
 									alt="프로필이미지"
 									id="profile_img"
 								/>
@@ -108,10 +108,10 @@ const PcHeader = () => {
 								type="file"
 								style={{ display: 'none' }}
 								name="profile"
-								// onChange={changeProfileFile}
+								onChange={() => {}}
 							/>
 							<button className="pencil-img-holder" onClick={() => {}}>
-								<img src="icon/pencil.png" alt="프로필이미지수정아이콘" />
+								<img src="../icon/pencil.png" alt="프로필이미지수정아이콘" />
 							</button>
 						</div>
 						<div className="text-wrap">
@@ -131,21 +131,21 @@ const PcHeader = () => {
 						<Link href="/setting/mypage">
 							<a className="clearfix drop-item">
 								<span>마이페이지</span>
-								<img src={'icon/arrow_right.png'} alt="화살표아이콘" />
+								<img src="../icon/arrow_right.png" alt="화살표아이콘" />
 							</a>
 						</Link>
 
 						<Link href="/history/payment">
 							<a className="clearfix drop-item">
 								<span>채팅</span>
-								<img src={'icon/arrow_right.png'} alt="화살표아이콘" />
+								<img src="../icon/arrow_right.png" alt="화살표아이콘" />
 							</a>
 						</Link>
 
 						<Link href="/inquiry">
 							<a className="clearfix drop-item">
 								<span>1:1문의</span>
-								<img src={'icon/arrow_right.png'} alt="화살표아이콘" />
+								<img src="../icon/arrow_right.png" alt="화살표아이콘" />
 							</a>
 						</Link>
 					</div>
