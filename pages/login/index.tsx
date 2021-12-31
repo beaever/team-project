@@ -28,9 +28,11 @@ const Login = () => {
 	};
 
 	const onClickLogin = () => {
+		alert('로그인 완료');
 		setLoginForm({
 			['login']: true,
 		});
+		router.push('/');
 	};
 	useEffect(() => {
 		if (email?.length > 0 && password?.length > 0) {
