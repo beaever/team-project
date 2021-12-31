@@ -128,7 +128,7 @@ const PcHeader = () => {
 
 					<MarginBottom margin={20} />
 					<div className="drop-list">
-						<Link href="/setting/profile">
+						<Link href="/setting/mypage">
 							<a className="clearfix drop-item">
 								<span>마이페이지</span>
 								<img src={'icon/arrow_right.png'} alt="화살표아이콘" />
