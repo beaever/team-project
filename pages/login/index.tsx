@@ -10,14 +10,16 @@ import useWidth from '../../hooks/useWitdh';
 import MobileFooter from '../../layout/_mobileFooter';
 import Footer from '../../layout/_Footer';
 import MarginTop from '../../components/layout/margin-top';
+import useLoginState from '../../hooks/useLoginState';
 
 const Login = () => {
 	const router = useRouter();
 	const { mediaQuery } = useWidth();
-
+	const { setLoginForm } = useLoginState('load-login');
 	// USESTATE
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
+	const [validation, setValidation] = useState<boolean>(false);
 
 	const onClickMove = (type: string) => {
 		if (type === 'signup') {
@@ -25,15 +27,20 @@ const Login = () => {
 		}
 	};
 
+	const onClickLogin = () => {
+		alert('로그인 완료');
+		setLoginForm({
+			['login']: true,
+		});
+		router.push('/');
+	};
 	useEffect(() => {
-		console.log(email);
-	}, [email]);
-
-	useEffect(() => {
-		localStorage.clear();
-	}, []);
-
-	useEffect(() => {}, []);
+		if (email?.length > 0 && password?.length > 0) {
+			setValidation(true);
+		} else {
+			setValidation(false);
+		}
+	}, [email, password]);
 
 	return (
 		<>
@@ -50,7 +57,7 @@ const Login = () => {
 						type="text"
 						side_type="type1"
 						value={email}
-						placeholder="ex) goingbuying@gmail.com"
+						placeholder="goingbuying@gmail.com"
 						onChange={(e) => {
 							setEmail(e.currentTarget.value);
 						}}
@@ -61,15 +68,17 @@ const Login = () => {
 						type="password"
 						side_type="type1"
 						value={password}
+						placeholder="*****"
 						onChange={(e) => {
 							setPassword(e.currentTarget.value);
 						}}
 					/>
 					<MarginBottom margin={30} />
 					<Button
-						className="btn_login disabled"
+						className="btn_login prime"
+						disabled={!validation}
 						label="로그인"
-						onClick={() => {}}
+						onClick={onClickLogin}
 						marginBottom={10}
 					/>
 
@@ -112,7 +121,6 @@ const Login = () => {
 					</div>
 				</div>
 			</section>
-			<MarginBottom margin={100} />
 			{mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
 		</>
 	);

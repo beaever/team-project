@@ -1,12 +1,17 @@
 import React from 'react';
-import { isParameterPropertyDeclaration } from 'typescript';
 import { ButtonModel } from '../../model/input/button-model';
 import MarginBottom from '../layout/margin-bottom';
 
 const Button = (props: ButtonModel) => {
 	return (
 		<>
-			<button className={props.className} onClick={() => props.onClick()}>
+			<button
+				className={
+					props.disabled ? props.className + ' ' + 'disabled' : props.className
+				}
+				onClick={() => props.onClick()}
+				disabled={props.disabled}
+			>
 				<span>
 					{props.label}
 					{props.img && <img src={props.src} />}

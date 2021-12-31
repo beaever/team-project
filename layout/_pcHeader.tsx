@@ -6,19 +6,31 @@ import MarginBottom from '../components/layout/margin-bottom';
 
 const PcHeader = () => {
 	const router = useRouter();
-	const { loginForm } = useLoginState('load-login');
+	const { loginForm, setLoginForm } = useLoginState('load-login');
 	const [isOpen, setMenu] = useState<boolean>(false);
 	const [drop, setDrop] = useState<boolean>(false);
 	const drop_ref = useRef(null);
 	const drop_container_ref = useRef<HTMLDivElement>(null);
 	const member = null;
 
-	const toggleMenu = () => {
-		setMenu((isOpen) => !isOpen);
+	const onClickLogout = () => {
+		setLoginForm({
+			['login']: false,
+		});
 	};
 
 	useEffect(() => {
-		setMenu((isOpen) => !isOpen);
+		const contOutsideClickDetector = (e: MouseEvent) => {
+			if (drop_container_ref.current?.contains(e.target as Node) === false) {
+				setDrop(false);
+			}
+		};
+
+		window.addEventListener('mousedown', contOutsideClickDetector);
+
+		return () => {
+			window.removeEventListener('mousedown', contOutsideClickDetector);
+		};
 	}, []);
 
 	useEffect(() => {
@@ -29,17 +41,17 @@ const PcHeader = () => {
 		<header className="pc_header">
 			<Link href="/">
 				<a className="logo">
-					<img src="icon/logo.svg" alt="" />
+					<img src="../icon/logo.svg" alt="" />
 				</a>
 			</Link>
 
 			<div className="top_menu right_menu clearfix">
-				{member && member.idx ? (
+				{loginForm && loginForm.login ? (
 					<>
 						<li>
 							<Link href="/alert">
 								<a>
-									<img src="img/bell.svg" alt="알람이미지" />
+									<img src="../img/bell.svg" alt="알람이미지" />
 								</a>
 							</Link>
 						</li>
@@ -47,17 +59,19 @@ const PcHeader = () => {
 							<div className="line" />
 						</li>
 						<li>
-							<Link href="#">
-								<a onClick={() => {}}>내정보</a>
-							</Link>
+							<button
+								onClick={() => {
+									setDrop(!drop);
+								}}
+							>
+								내정보
+							</button>
 						</li>
 						<li>
 							<div className="line" />
 						</li>
 						<li>
-							<Link href="#">
-								<a onClick={() => {}}>로그아웃</a>
-							</Link>
+							<button onClick={onClickLogout}>로그아웃</button>
 						</li>
 					</>
 				) : (
@@ -69,14 +83,15 @@ const PcHeader = () => {
 							<div className="line" />
 						</li>
 						<li>
-							<Link href="/join">회원가입</Link>
+							<Link href="/login">회원가입</Link>
 						</li>
 					</>
 				)}
 			</div>
 
-			{member && member.idx && (
+			{loginForm && loginForm?.login && (
 				<div
+					ref={drop_container_ref}
 					className={`aside ${drop ? 'show' : ''}`}
 					style={{ height: drop ? 'auto' : 0 }}
 				>
@@ -84,151 +99,53 @@ const PcHeader = () => {
 						<div className="profile-img-wrap">
 							<div className="profile-img-holder">
 								<img
-									src="icons/noprofile.png"
+									src="../icon/noprofile.png"
 									alt="프로필이미지"
 									id="profile_img"
 								/>
 							</div>
 							<input
 								type="file"
-								className="hidden"
+								style={{ display: 'none' }}
 								name="profile"
-								// onChange={changeProfileFile}
+								onChange={() => {}}
 							/>
 							<button className="pencil-img-holder" onClick={() => {}}>
-								<img src="icons/pencle" alt="프로필이미지수정아이콘" />
+								<img src="../icon/pencil.png" alt="프로필이미지수정아이콘" />
 							</button>
 						</div>
 						<div className="text-wrap">
 							<div className="name-wrap">
-								{member.is_pro && (
-									<div className="pro-icon-wrap clearfix">
-										<div className="pro-img-holder">
-											<img src="icons/crown.png" alt="프로아이콘" />
-										</div>
-										<span>Pro</span>
-									</div>
-								)}
 								<div className="name-company">
-									<span className="name">
-										{member.name ? member.name : 'Apple 회원'}
-									</span>
-									{member.type === 'C' && member.company_name && (
-										<>
-											<div className="vertical-line"></div>
-											<span className="company">{member.company_name}</span>
-										</>
-									)}
+									<span className="name">김진영</span>
 								</div>
 							</div>
 							<div className="email-wrap">
-								<span>{member.email ? member.email : '비공개'}</span>
+								<span>kjy@gmail.com</span>
 							</div>
 						</div>
-						{member.type !== 'C' && member.is_profile == false && (
-							<>
-								<MarginBottom margin={20} />
-								<div className="btn-wrap">
-									<button
-										className="btn"
-										onClick={() => router.push('/setting/profile')}
-									>
-										프로필 등록하러가기
-									</button>
-								</div>
-							</>
-						)}
 					</div>
-					<div className="list">
-						{member.type !== 'C' && member.is_profile && (
-							<>
-								<Link href="/setting/profile">
-									<a className="clearfix item">
-										<span>프로필 관리</span>
-										<img
-											className="floatR"
-											src={'icons/arrow_right.png'}
-											alt="화살표아이콘"
-										/>
-									</a>
-								</Link>
-								{!member?.is_pro && (
-									<Link
-										href={`/apply/pro/${
-											member.type === 'M' ? 'model' : 'photo'
-										}`}
-									>
-										<a className="clearfix item">
-											<span>프로신청하기</span>
-											<img
-												className="floatR"
-												src={'icons/arrow_right.png'}
-												alt="화살표아이콘"
-											/>
-										</a>
-									</Link>
-								)}
 
-								<Link href={`/apply/calculate`}>
-									<a className="clearfix item">
-										<span>정산신청하기</span>
-										<img
-											className="floatR"
-											src={'icons/arrow_right.png'}
-											alt="화살표아이콘"
-										/>
-									</a>
-								</Link>
-							</>
-						)}
-						<Link href="/setting/info">
-							<a className="clearfix item">
-								<span>계정정보 변경</span>
-								<img
-									className="floatR"
-									src={'icons/arrow_right.png'}
-									alt="화살표아이콘"
-								/>
+					<MarginBottom margin={20} />
+					<div className="drop-list">
+						<Link href="/setting/mypage">
+							<a className="clearfix drop-item">
+								<span>마이페이지</span>
+								<img src="../icon/arrow_right.png" alt="화살표아이콘" />
 							</a>
 						</Link>
+
 						<Link href="/history/payment">
-							<a className="clearfix item">
-								<span>결제내역</span>
-								<img
-									className="floatR"
-									src={'icons/arrow_right.png'}
-									alt="화살표아이콘"
-								/>
+							<a className="clearfix drop-item">
+								<span>채팅</span>
+								<img src="../icon/arrow_right.png" alt="화살표아이콘" />
 							</a>
 						</Link>
-						<Link href="/bookmark">
-							<a className="clearfix item">
-								<span>북마크</span>
-								<img
-									className="floatR"
-									src={'icons/arrow_right.png'}
-									alt="화살표아이콘"
-								/>
-							</a>
-						</Link>
-						<Link href="/coupon">
-							<a className="clearfix item">
-								<span>쿠폰함</span>
-								<img
-									className="floatR"
-									src={'icons/arrow_right.png'}
-									alt="화살표아이콘"
-								/>
-							</a>
-						</Link>
+
 						<Link href="/inquiry">
-							<a className="clearfix item">
+							<a className="clearfix drop-item">
 								<span>1:1문의</span>
-								<img
-									className="floatR"
-									src={'icons/arrow_right.png'}
-									alt="화살표아이콘"
-								/>
+								<img src="../icon/arrow_right.png" alt="화살표아이콘" />
 							</a>
 						</Link>
 					</div>

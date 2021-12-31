@@ -19,6 +19,10 @@
 
 @import '../styles/find';
 
+// SETTING (DROP) -------------------------------------
+@import '../styles/layout/setting';
+
+// COMPONENT ------------------------------------------
 @import '../styles/components/button/main-button.scss';
 @import '../styles/components/button/pulldelete.scss';
 @import '../styles/components/input/checkbox.scss';
