@@ -135,7 +135,7 @@ const PcHeader = () => {
 							</a>
 						</Link>
 
-						<Link href="/history/payment">
+						<Link href="/setting/chat">
 							<a className="clearfix drop-item">
 								<span>채팅</span>
 								<img src="../icon/arrow_right.png" alt="화살표아이콘" />

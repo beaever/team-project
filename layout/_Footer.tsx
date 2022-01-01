@@ -12,12 +12,12 @@ const Footer = () => {
 								<li>공지사항</li>
 							</a>
 						</Link>
-						<Link href="/terms" as="/terms">
+						<Link href="/terms/1" as="/terms/1">
 							<a>
 								<li>이용약관</li>
 							</a>
 						</Link>
-						<Link href="/terms" as="/terms">
+						<Link href="/terms/2" as="/terms/2">
 							<li className="aferNone">개인정보처리방침</li>
 						</Link>
 					</ul>
