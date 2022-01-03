@@ -42,7 +42,22 @@ const MobileFooter = (props: FooterModel) => {
 						alt=""
 					/>
 					<br />
-					빠른견적
+					마켓
+				</div>
+				<div
+					onClick={() => onClickGNB('/message')}
+					className={now_location === 'message' ? 'active' : ''}
+				>
+					<img
+						src={
+							now_location === 'message'
+								? '../icon/mobile-footer/message.png'
+								: '../icon/mobile-footer/message_off.png'
+						}
+						alt="GNB 아이콘"
+					/>
+					<br />
+					메세지
 				</div>
 				<div
 					onClick={() => onClickGNB('/project')}
@@ -60,21 +75,6 @@ const MobileFooter = (props: FooterModel) => {
 					1:1문의
 				</div>
 				<div
-					onClick={() => onClickGNB('/message')}
-					className={now_location === 'message' ? 'active' : ''}
-				>
-					<img
-						src={
-							now_location === 'message'
-								? '../icon/mobile-footer/message.png'
-								: '../icon/mobile-footer/message_off.png'
-						}
-						alt="GNB 아이콘"
-					/>
-					<br />
-					채팅
-				</div>
-				<div
 					onClick={() => onClickGNB('/setting')}
 					className={now_location === 'setting' ? 'active' : ''}
 				>
@@ -87,7 +87,7 @@ const MobileFooter = (props: FooterModel) => {
 						alt="GNB 아이콘"
 					/>
 					<br />
-					마이페이지
+					설정
 				</div>
 			</footer>
 		</>
