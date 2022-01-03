@@ -1,14 +1,96 @@
-const MobileFooter = () => {
+import { useRouter } from 'next/router';
+import React from 'react';
+
+interface FooterModel {
+	now_location?: string;
+}
+
+const MobileFooter = (props: FooterModel) => {
+	const router = useRouter();
+	const { now_location } = props;
+
+	const onClickGNB = (url: string) => {
+		router.push(url);
+	};
 	return (
-		<footer className="m_footer">
-			<ul>
-				<li>홈</li>
-				<li>마켓</li>
-				<li>메세지</li>
-				<li>알림</li>
-				<li>설정</li>
-			</ul>
-		</footer>
+		<>
+			<footer className="mobile_footer">
+				<div
+					onClick={() => onClickGNB('/')}
+					className={now_location === 'home' ? 'active' : ''}
+				>
+					<img
+						src={
+							now_location === 'home'
+								? '../icon/mobile-footer/main.png'
+								: '../icon/mobile-footer/main_off.png'
+						}
+						alt="HOME-ICON"
+					/>
+					<br />홈
+				</div>
+				<div
+					onClick={() => onClickGNB('/estimate')}
+					className={now_location === 'estimate' ? 'active' : ''}
+				>
+					<img
+						src={
+							now_location === 'estimate'
+								? '../icon/mobile-footer/estimate.png'
+								: '../icon/mobile-footer/estimate_off.png'
+						}
+						alt=""
+					/>
+					<br />
+					빠른견적
+				</div>
+				<div
+					onClick={() => onClickGNB('/project')}
+					className={now_location === 'project' ? 'active' : ''}
+				>
+					<img
+						src={
+							now_location === 'project'
+								? '../icon/mobile-footer/project.png'
+								: '../icon/mobile-footer/project_off.png'
+						}
+						alt=""
+					/>
+					<br />
+					프로젝트
+				</div>
+				<div
+					onClick={() => onClickGNB('/message')}
+					className={now_location === 'message' ? 'active' : ''}
+				>
+					<img
+						src={
+							now_location === 'message'
+								? '../icon/mobile-footer/message.png'
+								: '../icon/mobile-footer/message_off.png'
+						}
+						alt="GNB 아이콘"
+					/>
+					<br />
+					메시지
+				</div>
+				<div
+					onClick={() => onClickGNB('/setting')}
+					className={now_location === 'setting' ? 'active' : ''}
+				>
+					<img
+						src={
+							now_location === 'setting'
+								? '../icon/mobile-footer/setting.png'
+								: '../icon/mobile-footer/setting_off.png'
+						}
+						alt="GNB 아이콘"
+					/>
+					<br />
+					내정보
+				</div>
+			</footer>
+		</>
 	);
 };
 

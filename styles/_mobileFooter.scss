@@ -1,27 +1,30 @@
-@import "./palette";
+@import './palette';
 
-@media screen and (min-width: 768px) {
-    .m_footer{
-       display: none;
-    }
-}
-@media screen and (max-width: 768px) {
-    .m_footer{
-       display: flex;
-       width: 100%;
-       position: fixed;
-       justify-content: space-around;
-       bottom: 0;
-       height: 50px;
-    //    border-top: 1px solid rgba(112,112,112,0.2) ;
-       box-shadow: 0 -1px 10px 0 rgba(0,0,0,0.2);
-       background-color: $nav;
-       ul{
-           padding: 0;
-       }
-       li{
-           padding: 0 15px;
-           display: inline-block;
-       }
-    }
+.mobile_footer {
+	width: 100%;
+	height: 77px;
+	z-index: 10;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	border-top: #e8e8e8 1px solid;
+
+	div {
+		width: 20%;
+		height: 100%;
+		display: inline-block;
+		text-align: center;
+		color: #cfd0d4;
+		font-size: 11px;
+		padding-top: 10px;
+
+		img {
+			height: 25px;
+			margin-bottom: 7px;
+		}
+
+		&.active {
+			color: #202020;
+		}
+	}
 }
