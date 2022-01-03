@@ -57,7 +57,7 @@ const MobileFooter = (props: FooterModel) => {
 						alt=""
 					/>
 					<br />
-					프로젝트
+					1:1문의
 				</div>
 				<div
 					onClick={() => onClickGNB('/message')}
@@ -72,7 +72,7 @@ const MobileFooter = (props: FooterModel) => {
 						alt="GNB 아이콘"
 					/>
 					<br />
-					메시지
+					채팅
 				</div>
 				<div
 					onClick={() => onClickGNB('/setting')}
@@ -87,7 +87,7 @@ const MobileFooter = (props: FooterModel) => {
 						alt="GNB 아이콘"
 					/>
 					<br />
-					내정보
+					마이페이지
 				</div>
 			</footer>
 		</>
