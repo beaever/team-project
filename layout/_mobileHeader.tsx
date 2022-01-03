@@ -70,11 +70,9 @@ const MobileHeader = React.memo((props: HeaderModel) => {
 				'&';
 			s += 'g=' + (fd?.mFilter?.m_gender ?? 'A') + '&';
 		}
-
 		s = s.substr(0, s.length - 1);
 
 		const sessionData = parseFilterSession() as any;
-
 		const mFilter = sessionData?.mFilter ? sessionData.mFilter : null;
 		const pFilter = sessionData?.pFilter ? sessionData.pFilter : null;
 
