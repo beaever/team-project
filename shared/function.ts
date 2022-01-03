@@ -1,7 +1,19 @@
-import { title } from 'process';
+import HeaderParameterModel from '../model/headerParameterModel';
 
 export const qs = (_: string): Element | null => {
 	return document.querySelector(_) ?? null;
+};
+
+export const getQuery = (_h: string): HeaderParameterModel => {
+	let o = {};
+	const h = _h.split('?');
+	if (typeof h[1] === 'undefined') return o;
+	for (const x of h[1].split('&')) {
+		const k: string = x.split('=')[0],
+			v: string = x.split('=')[1];
+		o = { ...o, [k]: v };
+	}
+	return o;
 };
 
 export const click = (selector: string): void => {
