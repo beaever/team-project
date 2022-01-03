@@ -1,6 +1,7 @@
 import React, { FunctionComponentElement } from 'react';
 
 export default interface HeaderModel {
+	member: any;
 	scroll_y?: number;
 	is_lock?: boolean;
 	title?: string;
