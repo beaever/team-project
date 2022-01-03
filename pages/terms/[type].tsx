@@ -2,7 +2,12 @@ import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import React, { useEffect } from 'react';
 import MarginBottom from '../../components/layout/margin-bottom';
+import MarginTop from '../../components/layout/margin-top';
 import useWidth from '../../hooks/useWitdh';
+import Footer from '../../layout/_Footer';
+import MobileFooter from '../../layout/_mobileFooter';
+import MobileHeader from '../../layout/_mobileHeader';
+import PcHeader from '../../layout/_pcHeader';
 import { termsText, termsTitle } from '../../shared/function';
 
 const Terms = (props) => {
@@ -16,6 +21,8 @@ const Terms = (props) => {
 
 	return (
 		<>
+			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
+			<MarginTop margin={100} />
 			<section className="termPage">
 				<div className="termConainer">
 					<h1>{termsTitle(router_type)}</h1>
@@ -27,6 +34,8 @@ const Terms = (props) => {
 					</div>
 				</div>
 			</section>
+			<MarginBottom margin={100} />
+			{mediaQuery === 'M' ? <MobileFooter now_location="home" /> : <Footer />}
 		</>
 	);
 };
