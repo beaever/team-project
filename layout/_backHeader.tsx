@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { getQuery } from '../shared/function';
 import HeaderModel from '../model/headerModel';
 
 let prev_scroll_y = global.window && window.scrollY;
+
 const BackHeader = React.memo((props: HeaderModel) => {
 	const { title, is_lock, scroll_y, right_button } = props;
 	const router = useRouter();
