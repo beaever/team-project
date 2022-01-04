@@ -12,6 +12,7 @@ import MobileHeader from '../../layout/_mobileHeader';
 import MobileFooter from '../../layout/_mobileFooter';
 import Footer from '../../layout/_Footer';
 import InputText from '../../components/input/inputText';
+import Agree from '../../components/join/agree';
 
 let authCount = 0;
 const Join = () => {
@@ -101,47 +102,57 @@ const Join = () => {
 						<span className="required">*</span>필수입력항목
 					</p>
 					<MarginBottom margin={1} />
-					<InputText
-						required
-						label="이메일"
-						id="join-email"
-						type="text"
-						placeholder="goingbuying@gmail.com"
-						error={'등록된 이메일 주소 입니다.'}
-					/>
+					<div>
+						<InputText
+							required
+							label="이메일"
+							id="join-email"
+							type="text"
+							placeholder="goingbuying@gmail.com"
+							error={'등록된 이메일 주소 입니다.'}
+						/>
+					</div>
 					<MarginBottom margin={27} />
-					<InputText
-						required
-						label="비밀번호"
-						id="join-password1"
-						type="text"
-						placeholder="**********"
-					/>
+					<div>
+						<InputText
+							required
+							label="비밀번호"
+							id="join-password1"
+							type="text"
+							placeholder="**********"
+						/>
+					</div>
 					<MarginBottom margin={10} />
-					<InputText
-						id="join-password2"
-						type="text"
-						placeholder="**********"
-						error={'비밀번호가 일치 하지 않습니다.'}
-					/>
+					<div>
+						<InputText
+							id="join-password2"
+							type="text"
+							placeholder="**********"
+							error={'비밀번호가 일치 하지 않습니다.'}
+						/>
+					</div>
 					<MarginBottom margin={27} />
-					<InputText
-						required
-						label="이름"
-						id="join-name"
-						type="text"
-						placeholder="고잉바잉"
-					/>
+					<div>
+						<InputText
+							required
+							label="이름"
+							id="join-name"
+							type="text"
+							placeholder="고잉바잉"
+						/>
+					</div>
 					<MarginBottom margin={10} />
-					<InputText
-						required
-						label="닉네임"
-						id="join-nickname"
-						type="text"
-						placeholder="닉네임"
-					/>
+					<div>
+						<InputText
+							required
+							label="닉네임"
+							id="join-nickname"
+							type="text"
+							placeholder="닉네임"
+						/>
+					</div>
 					<MarginBottom margin={27} />
-					<div className="join-certifycation">
+					<div>
 						<InputText
 							required
 							label="휴대폰번호"
@@ -173,31 +184,37 @@ const Join = () => {
 											인증번호 받기
 										</button>
 									)}
-									{status === 1 && (
-										<InputText
-											name="auth"
-											type="text"
-											side_type="type1"
-											side={
-												<>
-													<button
-														type="button"
-														className={status === 1 ? `confirm` : 'inactive'}
-														onClick={() => {}}
-													>
-														인증확인
-													</button>
-												</>
-											}
-											error={`${authtimmer()}`}
-											onChange={(e) => {}}
-											disabled={validation ? false : true}
-										/>
-									)}
 								</>
 							}
 						/>
+						{status === 1 && (
+							<>
+								<div>
+									<MarginBottom margin={10} />
+									<InputText
+										name="auth"
+										type="text"
+										side_type="type1"
+										side={
+											<>
+												<button
+													type="button"
+													className={status === 1 ? `confirm` : 'inactive'}
+													onClick={() => {}}
+												>
+													인증확인
+												</button>
+											</>
+										}
+										error={`${authtimmer()}`}
+										onChange={(e) => {}}
+										disabled={validation ? false : true}
+									/>
+								</div>
+							</>
+						)}
 					</div>
+					<Agree />
 				</div>
 			</section>
 			<MarginBottom margin={100} />
