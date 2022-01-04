@@ -45,8 +45,8 @@ export default function InputText(props: InputTextTypes) {
 				>
 					{props.label && (
 						<span className="fs-l fw500 label">
-							{props.label}
 							{props.required ? <b className="fs-l"> *</b> : <></>}
+							{props.label}
 						</span>
 					)}
 

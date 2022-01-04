@@ -337,6 +337,7 @@ $border_bottom_line_color: #dddfe8;
 	width: 100%;
 	> div {
 		display: flex;
+		align-items: flex-end;
 		width: 100%;
 
 		.input_text {
@@ -365,7 +366,7 @@ $border_bottom_line_color: #dddfe8;
 				display: inline-block;
 				margin-bottom: 7px;
 				b {
-					color: red;
+					color: $required;
 				}
 			}
 			.scale-wrap {
@@ -373,7 +374,6 @@ $border_bottom_line_color: #dddfe8;
 				align-items: center;
 				border: 1px solid $border;
 				background: #fff;
-				border-radius: 6px;
 				height: 44px;
 				transition: 0.21s;
 				&.focus {
@@ -402,13 +402,12 @@ $border_bottom_line_color: #dddfe8;
 		button {
 			margin-left: 10px;
 			text-align: center;
-			border-radius: 12px;
 		}
 	}
 	.error {
 		display: inline-block;
 		margin-top: 6px;
-		color: $color-red;
+		color: $required;
 	}
 }
 

@@ -27,7 +27,7 @@ export default function CheckBox(props: CheckboxTypes) {
 				checked={props.checked}
 			/>
 			<label htmlFor={props.id} className={props.className}></label>
-			<button onClick={modalClose}>이용약관보기</button>
+			<button onClick={modalClose}></button>
 			{modalOpen && <Modal modalClose={modalClose}></Modal>}
 		</div>
 	);

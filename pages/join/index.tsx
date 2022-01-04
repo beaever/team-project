@@ -11,48 +11,24 @@ import PcHeader from '../../layout/_pcHeader';
 import MobileHeader from '../../layout/_mobileHeader';
 import MobileFooter from '../../layout/_mobileFooter';
 import Footer from '../../layout/_Footer';
+import InputText from '../../components/input/inputText';
 
+let authCount = 0;
 const Join = () => {
 	const router = useRouter();
-
-	const userid = useInput('');
-	const password = useInput('');
-	const userphone = useInput('');
-
 	const { mediaQuery } = useWidth();
 
 	const [passwordCheck, setPasswordCheck] = useState<string>('');
 	const [passwordError, setPasswordError] = useState<boolean>(false);
-
 	const [term, setTerm] = useState<boolean>(false); //약관 동의여부
 	const [termError, setTermError] = useState<boolean>(false);
-
-	const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const {
-			target: { value },
-		} = e;
-		setPasswordError(password.value !== value); //같으면 false 다르면 true
-		setPasswordCheck(value);
-	};
-
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		if (password.value !== passwordCheck) {
-			setPasswordError(true);
-		} else {
-			setPasswordError(false);
-		}
-
-		if (!term) {
-			setTermError(true);
-		}
-	};
-
-	const handleTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTermError(e.target.checked !== true);
-		setTerm(e.target.checked);
-		// setAgree(e.target.checked);
-	};
+	const [modalOpen, setModalOpen] = useState(false);
+	const [phone, setPhone] = useState<string>('');
+	const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
+	const [validTimer, setValidTimer] = useState<boolean>(false); // Validation Time
+	const [validCount, setValidCount] = useState<number>(-1); // Validation
+	const [validation, setValidation] = useState<boolean>(true);
+	const [status, setStatus] = useState(0);
 
 	const onBlurValidCheck = (e: React.FocusEvent<HTMLInputElement>) => {
 		const id = e.currentTarget.id;
@@ -70,124 +46,158 @@ const Join = () => {
 		}
 	};
 
-	const onClick = () => {
-		if (termError === false && passwordError === false) {
-			router.push('/join/complete');
+	const onClickPhoneAuth = () => {
+		authCount++;
+		setStatus(1);
+	};
+
+	const stateChange = () => {
+		if (status === 0) {
+			if (checkPhoneNumber === '') {
+				// 휴대폰 인증 API Function
+				onClickPhoneAuth();
+			}
+			setValidCount(180); //------ 인증번호 체크 유효시간 // 3분
+			setValidTimer(true);
+		} else if (status === 1) {
+			onClickResend();
+			if (authCount < 3) {
+				setValidCount(180); //------- 인증번호 체크 유효시간 // 3분
+				setValidTimer(true); //------ 인증번호 체크 타이머 on/off
+				setValidation(true); //------ 유효성 검사 validation
+			}
+		} else if (status === 2) {
+			setStatus(0);
 		}
 	};
 
-	const [modalOpen, setModalOpen] = useState(false);
-	const modalClose = () => {
-		setModalOpen(!modalOpen);
+	// 인증번호 재발송
+	const onClickResend = () => {
+		if (authCount < 3) {
+			// 휴대폰 인증 API Function
+		} else {
+			alert('휴대폰인증 재발송은 최대 3회 가능합니다.');
+		}
 	};
+
+	// AuthTimer
+	const authtimmer = () => {
+		if (validCount > 0) {
+			return `남은 시간 : ${parseInt('' + validCount / 60)}분
+				${validCount % 60 < 10 ? '0' + (validCount % 60) : validCount % 60}초`;
+		} else {
+			return '인증시간이 만료 되었습니다.';
+		}
+	};
+
 	return (
 		<>
 			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
-			<MarginTop margin={100} />
-			<section className="JoinPage">
-				<div className="Join_Container">
-					<form onSubmit={(e) => handleSubmit(e)}>
-						<div className="join_section">
-							<div className="join_div">
-								<h2>회원가입</h2>
-								<div>
-									<h3 className="h3_rig">필수입력항목</h3>
-									<h3 className="h3_left">이메일</h3>
-									<input
-										className="joinInput"
-										id="id"
-										type="email"
-										{...userid}
-										onBlur={(e) => onBlurValidCheck(e)}
-										placeholder="예) fromby@email.co.kr"
-									></input>
-									<h3 className="h3_left">비밀번호</h3>
-									<input
-										className="joinInput"
-										id="password"
-										type="password"
-										onBlur={(e) => onBlurValidCheck(e)}
-										{...password}
-										maxLength={20}
-										placeholder="비밀번호를 입력해주세요"
-									/>
-									<input
-										className="joinInput"
-										id="password"
-										type="password"
-										value={passwordCheck}
-										onChange={(e) => handlePassword(e)}
-										placeholder="비밀번호를 다시 입력해주세요"
-									/>
-									{passwordError && (
-										<div style={{ color: 'red' }}>
-											비밀번호가 일치하지 않습니다.
-										</div>
-									)}
-								</div>
-								<div className="nameBox">
-									<h3 className="h3_left">이름</h3>
-									<input type="text" placeholder="이름" />
-								</div>
-								<div className="phoneBox">
-									<form className="telInputBox">
-										<h3 className="h3_left">휴대폰번호</h3>
-										<input
-											type="tel"
-											name="phone1"
-											placeholder="ex)01012345678"
-										/>
-										<button className="Join_Container_btn" type="submit">
-											인증번호 발송
+			<MarginTop margin={160} />
+			<section id="join">
+				<div className="join-container">
+					<h2 className="join-title">회원가입</h2>
+					<p className="join-text right">
+						<span className="required">*</span>필수입력항목
+					</p>
+					<MarginBottom margin={1} />
+					<InputText
+						required
+						label="이메일"
+						id="join-email"
+						type="text"
+						placeholder="goingbuying@gmail.com"
+						error={'등록된 이메일 주소 입니다.'}
+					/>
+					<MarginBottom margin={27} />
+					<InputText
+						required
+						label="비밀번호"
+						id="join-password1"
+						type="text"
+						placeholder="**********"
+					/>
+					<MarginBottom margin={10} />
+					<InputText
+						id="join-password2"
+						type="text"
+						placeholder="**********"
+						error={'비밀번호가 일치 하지 않습니다.'}
+					/>
+					<MarginBottom margin={27} />
+					<InputText
+						required
+						label="이름"
+						id="join-name"
+						type="text"
+						placeholder="고잉바잉"
+					/>
+					<MarginBottom margin={10} />
+					<InputText
+						required
+						label="닉네임"
+						id="join-nickname"
+						type="text"
+						placeholder="닉네임"
+					/>
+					<MarginBottom margin={27} />
+					<div className="join-certifycation">
+						<InputText
+							required
+							label="휴대폰번호"
+							id="join-phone"
+							type="text"
+							placeholder="ex) 010 - 1234 - 5678"
+							max_length={13}
+							side_type="type1"
+							side={
+								<>
+									{phone?.length >= 11 ? (
+										<button
+											type="button"
+											className="second"
+											onClick={stateChange}
+										>
+											{status === 1
+												? '재발송'
+												: status === 2
+												? '수정'
+												: '인증번호 받기'}
 										</button>
-									</form>
-								</div>
-								<div className="termCheckBox">
-									<button className="term_btn">
-										<CheckBox
-											name={'모두 동의'}
-											id={'term'}
-											checked={term}
-											onChange={(e) => handleTerm(e)}
-										/>
-										{/* <label htmlFor="term">모든 이용약관 동의</label> */}
-									</button>
-									<button className="term_btn">
-										<CheckBox
-											name={''}
-											id={'term1'}
-											checked={term}
-											onChange={(e) => e}
-										/>
-										{/* <label htmlFor="term1">이용약관 동의1</label> */}
-									</button>
-									<button className="term_btn">
-										<CheckBox
-											name={'모두 동의'}
-											id={'term2'}
-											checked={term}
-											onChange={(e) => handleTerm(e)}
-										/>
-										{/* <label htmlFor="term2">이용약관 동의2</label> */}
-									</button>
-									<button className="term_btn">
-										<CheckBox
-											name=""
-											id={'term3'}
-											checked={term}
-											onChange={(e) => () => {}}
-										/>
-									</button>
-									{termError && (
-										<div style={{ color: 'red' }}>약관 동의 바람</div>
+									) : (
+										<button
+											type="button"
+											className="inactive"
+											onClick={stateChange}
+										>
+											인증번호 받기
+										</button>
 									)}
-								</div>
-								<button className="btn" type="submit" onClick={() => onClick()}>
-									회원가입완료
-								</button>
-							</div>
-						</div>
-					</form>
+									{status === 1 && (
+										<InputText
+											name="auth"
+											type="text"
+											side_type="type1"
+											side={
+												<>
+													<button
+														type="button"
+														className={status === 1 ? `confirm` : 'inactive'}
+														onClick={() => {}}
+													>
+														인증확인
+													</button>
+												</>
+											}
+											error={`${authtimmer()}`}
+											onChange={(e) => {}}
+											disabled={validation ? false : true}
+										/>
+									)}
+								</>
+							}
+						/>
+					</div>
 				</div>
 			</section>
 			<MarginBottom margin={100} />
