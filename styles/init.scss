@@ -1,28 +1,26 @@
 // 모든 Style 은 init.scss 파일안에서 @import
 @import '../styles/common.scss';
-@import '../styles/pcHeader.scss';
-@import '../styles/pcFooter.scss';
-@import '../styles/mainPage';
+@import '../styles/layout/pcHeader.scss';
+@import '../styles/layout/pcFooter.scss';
+@import '../styles/layout/mobileHeader';
+@import '../styles/layout/mobileFooter';
 
-@import '../styles/join';
-@import '../styles/login';
-@import '../styles/mobileHeader';
-@import '../styles/mobileFooter';
-@import '../styles/itemList';
-@import '../styles/notice';
-@import '../styles/terms';
-@import '../styles/modal';
-@import '../styles/board';
-
-@import '../styles/carousel';
-@import '../styles/itemSlide';
-
-@import '../styles/find';
-
+@import '../styles/pages/join';
+@import '../styles/pages/login';
+@import '../styles/pages/mainPage';
+@import '../styles/pages/itemList';
+@import '../styles/pages/notice';
+@import '../styles/pages/terms';
+@import '../styles/pages/modal';
+@import '../styles/pages/board';
+@import '../styles/pages/find';
 // SETTING (DROP) -------------------------------------
 @import '../styles/layout/setting';
 
+@import '../styles/itemSlide';
+
 // COMPONENT ------------------------------------------
+@import '../styles/components/carousel';
 @import '../styles/components/button/main-button.scss';
 @import '../styles/components/button/pulldelete.scss';
 @import '../styles/components/input/checkbox.scss';
@@ -30,27 +28,27 @@
 
 // ---------------------------------------------------
 input[type='password']::-ms-clear {
-	display: none;
+  display: none;
 }
 * {
-	font-family: 'Noto Sans KR', 'Noto Sans KR2';
-	font-size: 14px;
-	word-break: keep-all;
-	color: #170f00;
+  font-family: 'Noto Sans KR', 'Noto Sans KR2';
+  font-size: 14px;
+  word-break: keep-all;
+  color: #170f00;
 }
 * {
-	-webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 input::placeholder {
-	color: #e0e0e0;
+  color: #e0e0e0;
 }
 input:focus {
-	border-color: #202020;
+  border-color: #202020;
 }
 input:disabled {
-	background: #f5f5f5;
+  background: #f5f5f5;
 }
 input.has_rd {
-	border-radius: 4px;
+  border-radius: 4px;
 }
