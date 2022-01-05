@@ -16,6 +16,10 @@ const PcHeader = () => {
     });
   };
 
+  const clickProfile = () => {
+    document.getElementsByName('profile')[0].click();
+  };
+
   useEffect(() => {
     const contOutsideClickDetector = (e: MouseEvent) => {
       if (drop_container_ref.current?.contains(e.target as Node) === false) {
@@ -90,7 +94,7 @@ const PcHeader = () => {
                 <img src='../icon/noprofile.png' alt='프로필이미지' id='profile_img' />
               </div>
               <input type='file' style={{ display: 'none' }} name='profile' onChange={() => {}} />
-              <button className='pencil-img-holder' onClick={() => {}}>
+              <button className='pencil-img-holder' onClick={clickProfile}>
                 <img src='../icon/pencil.png' alt='프로필이미지수정아이콘' />
               </button>
             </div>
