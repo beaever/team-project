@@ -218,14 +218,21 @@ h3::before {
   flex: 1;
   padding-top: 40px;
   .terms_agree {
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
     li {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 12.5px;
       p {
-        color: #4b4c4f;
+        color: #808080;
+        span.required {
+          color: $required;
+        }
+      }
+      &:last-child {
+        margin-left: 5px;
       }
 
       &.all_agree {
@@ -292,6 +299,38 @@ h3::before {
     span {
       margin-top: 30px;
       margin-bottom: 12px;
+    }
+  }
+}
+
+div.join-btn {
+  .btn-join {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    cursor: pointer;
+    &.prime {
+      background-color: $login-prime;
+      color: #fff;
+      border: 0px;
+      span {
+        color: #fff;
+      }
+    }
+    &.disabled {
+      background-color: $login-disabled;
+      color: #202020;
+      border: 0px;
+      span {
+        color: #202020;
+      }
+    }
+    &.siginup {
+      border: solid 1px #202020;
+      background-color: $signup;
+      color: #202020;
     }
   }
 }

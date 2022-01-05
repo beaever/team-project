@@ -49,17 +49,15 @@ const Agree = () => {
           <p className='fs-xl fw500 '>전체 동의</p>
           <CheckBox checked={allcheck()} id='all_agree' name='all_agree' onChange={checkedAllHandler} />
         </li>
-        <MarginBottom margin={23} />
         <li>
-          <p className='underline2'>
-            <span className='requried'>*</span>만 14세 이상
+          <p>
+            <span className='required'>*</span>만 14세 이상
           </p>
           <CheckBox onChange={checkedHandler} checked={!!form?.service} id='term1' name='age' value='age' className='reverse' />
         </li>
-        <MarginBottom margin={15} />
         <li>
-          <p className='underline2'>
-            <span className='requried'>*</span>서비스 이용약관 동의
+          <p>
+            <span className='required'>*</span>서비스 이용약관 동의
           </p>
           <CheckBox
             onChange={checkedHandler}
@@ -70,16 +68,14 @@ const Agree = () => {
             className='reverse'
           />
         </li>
-        <MarginBottom margin={15} />
         <li>
-          <p className='underline2'>
-            <span className='requried'>*</span>개인정보 수집 · 이용 동의
+          <p>
+            <span className='required'>*</span>개인정보 수집 · 이용 동의
           </p>
           <CheckBox onChange={checkedHandler} checked={!!form?.privacy} id='term2' name='privacy' value='privacy' className='reverse' />
         </li>
-        <MarginBottom margin={15} />
         <li>
-          <p className='underline2'>마케팅 정보 수신 동의</p>
+          <p>마케팅 정보 수신 동의</p>
           <CheckBox onChange={checkedHandler} checked={!!form?.marketing} id='term4' name='marketing' value='marketing' className='reverse' />
         </li>
       </ul>
