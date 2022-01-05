@@ -92,6 +92,23 @@ const Join = () => {
     }
   };
 
+  // 인증번호 유효시간 TIMER
+  useEffect(() => {
+    if (!validTimer) return undefined;
+    const vTick = setTimeout(() => {
+      if (validCount > 0) {
+        setValidCount(validCount - 1);
+        setValidation(true);
+      } else {
+        setValidTimer(false);
+        setValidation(false);
+      }
+    }, 1000);
+    return () => {
+      clearTimeout(vTick);
+    };
+  }, [validCount]);
+
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
@@ -129,8 +146,9 @@ const Join = () => {
               label='휴대폰번호'
               id='join-phone'
               type='text'
-              placeholder='ex)010-1234-5678'
+              placeholder='010-1234-5678'
               max_length={13}
+              value={phone}
               side_type='type1'
               side={
                 <>
@@ -172,7 +190,7 @@ const Join = () => {
           <div>
             <Agree />
           </div>
-
+          <MarginBottom margin={10} />
           <div className='join-btn'>
             <Button className={`btn-join disabled`} label=' 회원가입' onClick={() => {}} />
           </div>

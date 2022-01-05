@@ -76,7 +76,7 @@ const PcHeader = () => {
               <div className='line' />
             </li>
             <li>
-              <Link href='/login'>회원가입</Link>
+              <Link href='/join'>회원가입</Link>
             </li>
           </>
         )}
