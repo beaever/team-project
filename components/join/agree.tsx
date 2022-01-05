@@ -44,10 +44,10 @@ const Agree = () => {
           <CheckBox onChange={checkedHandler} checked={!!form?.age} id='age' name='age' value='age' className='reverse' />
         </li>
         <li>
-          <p>
+          <label htmlFor='service'>
             <span className='required'>*</span>서비스 이용약관 동의
-          </p>
-          <CheckBox onChange={checkedHandler} checked={form?.service} id='term3' name='service' value='service' className='reverse' />
+          </label>
+          <CheckBox onChange={checkedHandler} checked={form?.service} id='service' name='service' value='service' className='reverse' />
         </li>
         <li>
           <p>
