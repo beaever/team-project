@@ -172,7 +172,7 @@ const Join = () => {
           <div>
             <Agree />
           </div>
-          <MarginBottom margin={40} />
+
           <div className='join-btn'>
             <Button className={`btn-join disabled`} label=' 회원가입' onClick={() => {}} />
           </div>

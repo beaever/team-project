@@ -227,6 +227,10 @@ h3::before {
       padding: 0 12.5px;
       label {
         color: #808080;
+        &.agree-all {
+          margin-left: 2px;
+          color: #202020;
+        }
         span.required {
           color: $required;
         }
