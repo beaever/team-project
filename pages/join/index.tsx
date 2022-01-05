@@ -13,6 +13,7 @@ import MobileFooter from '../../layout/_mobileFooter';
 import Footer from '../../layout/_Footer';
 import InputText from '../../components/input/inputText';
 import Agree from '../../components/join/agree';
+import Button from '../../components/input/button';
 
 let authCount = 0;
 const Join = () => {
@@ -168,7 +169,13 @@ const Join = () => {
               </>
             )}
           </div>
-          <Agree />
+          <div>
+            <Agree />
+          </div>
+
+          <div className='join-btn'>
+            <Button className={`btn-join disabled`} label=' 회원가입' onClick={() => {}} />
+          </div>
         </div>
       </section>
       <MarginBottom margin={100} />
