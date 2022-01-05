@@ -19,12 +19,6 @@ let authCount = 0;
 const Join = () => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
-
-  const [passwordCheck, setPasswordCheck] = useState<string>('');
-  const [passwordError, setPasswordError] = useState<boolean>(false);
-  const [term, setTerm] = useState<boolean>(false); //약관 동의여부
-  const [termError, setTermError] = useState<boolean>(false);
-  const [modalOpen, setModalOpen] = useState(false);
   const [phone, setPhone] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
   const [validTimer, setValidTimer] = useState<boolean>(false); // Validation Time
@@ -46,6 +40,10 @@ const Join = () => {
         alert('비밀번호는 6 ~ 20 사이로 설정해주세요.');
       }
     }
+  };
+
+  const onClickSuccess = () => {
+    router.push('/join/complete');
   };
 
   const onClickPhoneAuth = () => {
@@ -192,7 +190,7 @@ const Join = () => {
           </div>
           <MarginBottom margin={10} />
           <div className='join-btn'>
-            <Button className={`btn-join disabled`} label=' 회원가입' onClick={() => {}} />
+            <Button className={`btn-join disabled`} label=' 회원가입' onClick={onClickSuccess} />
           </div>
         </div>
       </section>
