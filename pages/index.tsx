@@ -13,36 +13,36 @@ import MobileFooter from '../layout/_mobileFooter';
 import Footer from '../layout/_Footer';
 
 const Div = styled.div`
-	width: 100%;
-	height: 100vh;
-	background-color: gray;
-	top: 13px;
-	position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: gray;
+  top: 13px;
+  position: relative;
 `;
 
 export default function Home() {
-	const router = useRouter();
-	const { mediaQuery } = useWidth();
+  const router = useRouter();
+  const { mediaQuery } = useWidth();
 
-	// useEffect
-	useEffect(() => {
-		console.log(mediaQuery);
-	}, [mediaQuery]);
+  // useEffect
+  useEffect(() => {
+    console.log(mediaQuery);
+  }, [mediaQuery]);
 
-	// RETURN
-	return (
-		<>
-			{mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
-			<MarginTop margin={100} />
-			<section className="mainPage">
-				<div className="mainContainer">
-					<Slider />
-					<ItemSlider />
-					<ItemList />
-				</div>
-			</section>
-			<MarginBottom margin={100} />
-			{mediaQuery === 'M' ? <MobileFooter now_location="home" /> : <Footer />}
-		</>
-	);
+  // RETURN
+  return (
+    <>
+      {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
+      <MarginTop margin={100} />
+      <section className='mainPage'>
+        <div className='mainContainer'>
+          <Slider />
+          <ItemSlider />
+          <ItemList />
+        </div>
+      </section>
+      <MarginBottom margin={100} />
+      {mediaQuery === 'M' ? <MobileFooter now_location='home' /> : <Footer />}
+    </>
+  );
 }

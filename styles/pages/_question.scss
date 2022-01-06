@@ -1,0 +1,193 @@
+.questionPage {
+  width: 100%;
+}
+.questionContainer {
+  position: absolute;
+  background-color: $color-white;
+  top: 40%;
+  left: 46%;
+  margin-left: -266px;
+  margin-top: -190px;
+  width: 610px;
+  max-height: 600px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.question_h2 {
+  font-size: $font-size4;
+  text-align: center;
+  margin-bottom: 30px;
+  color: $color-black3;
+}
+
+.question_ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.question_li {
+  border-top: 1px solid $color-gray1;
+  padding-left: 14px;
+  padding: 20px 0 20px 14px;
+  height: 60px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $color-black2;
+}
+
+.question_li:hover {
+  background-color: $color-gray3;
+}
+
+.question_button {
+  display: block;
+  margin: 0 auto;
+  background-color: $color-white;
+  border: none;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+//---------------------- board
+
+.questionBoardContainer {
+  position: absolute;
+  background-color: $color-white;
+  top: 40%;
+  left: 46%;
+  margin-left: -266px;
+  margin-top: -190px;
+  width: 610px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.questionBoard_top {
+  border-bottom: 1px solid $color-gray1;
+  padding: 10px;
+  width: 100%;
+  p {
+    margin: 10px 0 10px 0;
+  }
+  span {
+    color: $font-color5;
+  }
+}
+
+.questionBoard_top_h2 {
+  font-size: 18px;
+  color: $color-black2;
+}
+
+.questionBoard_top_span {
+  margin: 10px 0 10px 0;
+  display: inline-block;
+}
+
+.questionBoard_top_span::after {
+  content: '|';
+  margin: 0 5px 0 5px;
+  color: $color-black2;
+  opacity: 0.5;
+}
+
+.questionBoard_textBox {
+  width: 100%;
+  height: 365px;
+  background-color: $color-gray3;
+  padding: 20px;
+}
+
+.questionBoard_textBox {
+  span {
+    line-height: 27px;
+    font-size: $font-size2;
+    color: $font-color2;
+  }
+}
+
+.questionBoard_h3 {
+  font-size: $font-size3;
+  color: $font-color4;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.questionBoard_h3::before {
+  content: '';
+}
+
+.questionBoard_queBox {
+  padding: 20px 0 0 10px;
+  height: 140px;
+}
+
+///-------------------------------
+
+.questionNoteContainer {
+  position: absolute;
+  background-color: $color-white;
+  top: 40%;
+  left: 46%;
+  margin-left: -335px;
+  margin-top: -190px;
+  width: 800px;
+  max-height: 630px;
+  overflow: hidden;
+}
+
+.questionNote_h2 {
+  text-align: center;
+  font-size: $font-size4;
+  margin-bottom: 38px;
+}
+
+.questionNote_h3 {
+  color: $font-color1;
+}
+
+.questionNote_h3::after {
+  content: '*';
+  color: $color-black;
+}
+
+.questionNote_h3::before {
+  content: '';
+}
+
+.questionNote_input {
+  display: block;
+  border: 1px solid $color-gray4;
+  width: 100%;
+  height: 46px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.questionNote_textArea {
+  width: 100%;
+  margin-top: 10px;
+  display: block;
+  height: 330px;
+  border: 1px solid $color-gray4;
+  padding: 10px;
+  text-align: start;
+}
+
+.questionNote_textArea::placeholder {
+  color: $color-gray4;
+  font-size: $font-size2;
+}
+
+.questionNote_btn {
+  background-color: $button-color2;
+  display: block;
+  color: $color-white;
+  margin: 0 auto;
+  width: 160px;
+  height: 52px;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
+}
