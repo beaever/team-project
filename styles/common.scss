@@ -425,3 +425,48 @@ $border_bottom_line_color: #dddfe8;
     }
   }
 }
+
+/*========================================================================
+   휴대폰 인증
+========================================================================*/
+
+div.phone-button {
+  button {
+    transition: 0.21s;
+    box-sizing: border-box;
+    width: 120px;
+    height: 44px;
+    &.inactive {
+      color: #b4b6c2;
+      background: #f0f0f1;
+    }
+    &.second {
+      color: #fff;
+      background: #4b4c4f;
+    }
+    &.confirm {
+      background: #fff;
+      color: #4b4c4f;
+      border: 1px solid #4b4c4f;
+    }
+  }
+}
+
+.global-button {
+  width: 100%;
+  height: 44px;
+  text-align: center;
+
+  &.prime {
+    background-color: $prime;
+    span {
+      color: #fff;
+    }
+  }
+  &.disabled {
+    background-color: $disabled;
+    span {
+      color: #fff;
+    }
+  }
+}

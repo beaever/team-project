@@ -99,7 +99,7 @@ const Question = () => {
             <ul className='question_ul'>
               {questionList?.map((item) => {
                 return (
-                  <Link href='/question/board' as='/question/board'>
+                  <Link href='/inquiry/board' as='/inquiry/board'>
                     <a>
                       <li className='question_li' key={item.idx}>
                         {item.title}

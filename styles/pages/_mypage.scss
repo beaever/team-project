@@ -1,0 +1,29 @@
+#mypage {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    .title {
+      font-size: 24px;
+      text-align: center;
+    }
+    .item {
+      width: 100%;
+      &.inner-btn {
+        display: flex;
+        justify-content: flex-end;
+        span {
+          font-size: 13px;
+          color: #ababab;
+          align-items: center;
+          justify-content: center;
+          img {
+            padding-left: 2px;
+            padding-bottom: 2px;
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
+}
