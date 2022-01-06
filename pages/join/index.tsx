@@ -19,12 +19,6 @@ let authCount = 0;
 const Join = () => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
-
-  const [passwordCheck, setPasswordCheck] = useState<string>('');
-  const [passwordError, setPasswordError] = useState<boolean>(false);
-  const [term, setTerm] = useState<boolean>(false); //약관 동의여부
-  const [termError, setTermError] = useState<boolean>(false);
-  const [modalOpen, setModalOpen] = useState(false);
   const [phone, setPhone] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
   const [validTimer, setValidTimer] = useState<boolean>(false); // Validation Time
@@ -46,6 +40,10 @@ const Join = () => {
         alert('비밀번호는 6 ~ 20 사이로 설정해주세요.');
       }
     }
+  };
+
+  const onClickSuccess = () => {
+    router.push('/join/complete');
   };
 
   const onClickPhoneAuth = () => {
@@ -92,6 +90,23 @@ const Join = () => {
     }
   };
 
+  // 인증번호 유효시간 TIMER
+  useEffect(() => {
+    if (!validTimer) return undefined;
+    const vTick = setTimeout(() => {
+      if (validCount > 0) {
+        setValidCount(validCount - 1);
+        setValidation(true);
+      } else {
+        setValidTimer(false);
+        setValidation(false);
+      }
+    }, 1000);
+    return () => {
+      clearTimeout(vTick);
+    };
+  }, [validCount]);
+
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
@@ -129,8 +144,9 @@ const Join = () => {
               label='휴대폰번호'
               id='join-phone'
               type='text'
-              placeholder='ex)010-1234-5678'
+              placeholder='010-1234-5678'
               max_length={13}
+              value={phone}
               side_type='type1'
               side={
                 <>
@@ -172,9 +188,9 @@ const Join = () => {
           <div>
             <Agree />
           </div>
-
+          <MarginBottom margin={10} />
           <div className='join-btn'>
-            <Button className={`btn-join disabled`} label=' 회원가입' onClick={() => {}} />
+            <Button className={`btn-join disabled`} label=' 회원가입' onClick={onClickSuccess} />
           </div>
         </div>
       </section>
