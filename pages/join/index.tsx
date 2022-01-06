@@ -164,24 +164,22 @@ const Join = () => {
             />
             {status === 1 && (
               <>
-                <div>
-                  <MarginBottom margin={10} />
-                  <InputText
-                    name='auth'
-                    type='text'
-                    side_type='type1'
-                    side={
-                      <>
-                        <button type='button' className={status === 1 ? `confirm` : 'inactive'} onClick={() => {}}>
-                          인증확인
-                        </button>
-                      </>
-                    }
-                    error={`${authtimmer()}`}
-                    onChange={(e) => {}}
-                    disabled={validation ? false : true}
-                  />
-                </div>
+                <MarginBottom margin={10} />
+                <InputText
+                  name='auth'
+                  type='text'
+                  side_type='type1'
+                  side={
+                    <>
+                      <button type='button' className={status === 1 ? `confirm` : 'inactive'} onClick={() => {}}>
+                        인증확인
+                      </button>
+                    </>
+                  }
+                  error={`${authtimmer()}`}
+                  onChange={(e) => {}}
+                  disabled={validation ? false : true}
+                />
               </>
             )}
           </div>
