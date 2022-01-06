@@ -4,6 +4,7 @@ import InputText from './inputText';
 
 interface PhoneCertifycationModel {
   required: boolean;
+  state?: boolean;
 }
 
 let authCount = 0;
@@ -93,7 +94,7 @@ const PhoneCertification = (props: PhoneCertifycationModel) => {
           <>
             {phone?.length >= 11 ? (
               <button type='button' className='second' onClick={stateChange}>
-                {status === 1 ? '재발송' : status === 2 ? '수정' : '인증번호 받기'}
+                {status === 1 ? '재발송' : status === 2 || props.state === true ? '수정' : '인증번호 받기'}
               </button>
             ) : (
               <button type='button' className='inactive' onClick={stateChange}>

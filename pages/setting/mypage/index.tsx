@@ -28,23 +28,23 @@ const Mypage = () => {
           </div>
           <MarginBottom margin={30} />
           <div>
-            <InputText type='password' label='비밀번호' />
+            <InputText type='password' label='비밀번호' placeholder='*****' />
             <MarginBottom margin={10} />
-            <InputText type='password' />
+            <InputText type='password' placeholder='*****' />
           </div>
           <MarginBottom margin={30} />
           <div className='item'>
             <InputText type='text' readonly disabled label='이름' value='이름' />
-            <MarginBottom margin={10} />
+            <MarginBottom margin={15} />
             <InputText type='text' label='닉네임' />
           </div>
           <MarginBottom margin={30} />
           <div className='item'>
-            <PhoneCertification required={false} />
+            <PhoneCertification required={false} state={true} />
           </div>
-          <MarginBottom margin={10} />
+          <MarginBottom margin={15} />
           <div className='item inner-btn'>
-            <button className='item-button'>
+            <button className='item-button' onClick={() => {}}>
               <span>
                 탈퇴하기
                 <img src='../icon/arrow_right.png' alt='오른쪽 화살표' />
@@ -53,9 +53,10 @@ const Mypage = () => {
           </div>
           <MarginBottom margin={20} />
           <div className='item'>
-            <Button className='prime' label='수정하기' onClick={() => {}} />
+            <Button label='수정하기' onClick={() => {}} />
           </div>
         </div>
+        <MarginBottom margin={100} />
       </section>
       {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
       <MarginBottom margin={100} />

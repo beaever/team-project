@@ -6,7 +6,7 @@ const Button = (props: ButtonModel) => {
   return (
     <>
       <button
-        className={`global-button ${props.disabled ? props.className + ' ' + 'disabled' : props.className}`}
+        className={`global-button ${props.disabled ? props.className + ' ' + 'disabled' : 'prime ' + props.className}`}
         onClick={() => props.onClick()}
         disabled={props.disabled}
       >
