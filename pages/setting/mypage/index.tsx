@@ -9,6 +9,7 @@ import MobileFooter from '../../../layout/_mobileFooter';
 import MobileHeader from '../../../layout/_mobileHeader';
 import PcHeader from '../../../layout/_pcHeader';
 import PhoneCertification from '../../../components/input/phone-Certification';
+import Button from '../../../components/input/button';
 
 const Mypage = () => {
   const router = useRouter();
@@ -47,6 +48,10 @@ const Mypage = () => {
                 <img src='../icon/arrow_right.png' alt='오른쪽 화살표' />
               </span>
             </p>
+          </div>
+          <MarginBottom margin={17} />
+          <div className='item'>
+            <Button className='prime' label='수정하기' onClick={() => {}} />
           </div>
         </div>
       </section>
