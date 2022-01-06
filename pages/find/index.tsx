@@ -31,7 +31,7 @@ const Find = () => {
     {
       tabTitle: (
         <li className={activeIndex === 0 ? 'is-active tabs_select' : 'tabs_noneSelect'} onClick={() => tabClickHandler(0)}>
-          이메일 찾기{' '}
+          이메일 찾기
         </li>
       ),
       tabCont: (
@@ -60,7 +60,7 @@ const Find = () => {
     {
       tabTitle: (
         <li className={activeIndex === 1 ? 'is-active tabs_select' : 'tabs_noneSelect'} onClick={() => tabClickHandler(1)}>
-          비밀번호 찾기{' '}
+          비밀번호 찾기
         </li>
       ),
       tabCont: (
@@ -95,7 +95,7 @@ const Find = () => {
       <MarginTop margin={100} />
       <section className='findPage'>
         <div className='findContainer'>
-          <h2>이메일찾기</h2>
+          <h2>{activeIndex === 0 ? '이메일 찾기' : '비밀번호 찾기'}</h2>
           <ul className='tabs_boxed'>
             {tabContArr.map((section, index) => {
               return section.tabTitle;
