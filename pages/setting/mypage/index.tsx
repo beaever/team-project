@@ -22,34 +22,36 @@ const Mypage = () => {
       <section id='mypage'>
         <div className='container'>
           <h2 className='title'>계정정보 변경</h2>
-          <MarginBottom margin={17} />
+          <MarginBottom margin={30} />
           <div className='item'>
             <InputText type='text' label='이메일' readonly disabled value='kjy29350@gmail.com' />
           </div>
-          <MarginBottom margin={17} />
+          <MarginBottom margin={30} />
           <div>
             <InputText type='password' label='비밀번호' />
             <MarginBottom margin={10} />
             <InputText type='password' />
           </div>
-          <MarginBottom margin={17} />
+          <MarginBottom margin={30} />
           <div className='item'>
             <InputText type='text' readonly disabled label='이름' value='이름' />
+            <MarginBottom margin={10} />
             <InputText type='text' label='닉네임' />
           </div>
-          <MarginBottom margin={17} />
+          <MarginBottom margin={30} />
           <div className='item'>
             <PhoneCertification required={false} />
           </div>
-          <div className='item'>
-            <p>
+          <MarginBottom margin={10} />
+          <div className='item inner-btn'>
+            <button className='item-button'>
               <span>
                 탈퇴하기
                 <img src='../icon/arrow_right.png' alt='오른쪽 화살표' />
               </span>
-            </p>
+            </button>
           </div>
-          <MarginBottom margin={17} />
+          <MarginBottom margin={20} />
           <div className='item'>
             <Button className='prime' label='수정하기' onClick={() => {}} />
           </div>

@@ -434,6 +434,7 @@ div.phone-button {
   button {
     transition: 0.21s;
     box-sizing: border-box;
+    width: 120px;
     height: 44px;
     &.inactive {
       color: #b4b6c2;
