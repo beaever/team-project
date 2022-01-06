@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import InputCertification from '../../../components/input/input-Certification';
 import InputText from '../../../components/input/inputText';
 import MarginBottom from '../../../components/layout/margin-bottom';
 import MarginTop from '../../../components/layout/margin-top';
@@ -9,6 +8,7 @@ import Footer from '../../../layout/_Footer';
 import MobileFooter from '../../../layout/_mobileFooter';
 import MobileHeader from '../../../layout/_mobileHeader';
 import PcHeader from '../../../layout/_pcHeader';
+import PhoneCertification from '../../../components/input/phone-Certification';
 
 const Mypage = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ const Mypage = () => {
           </div>
           <MarginBottom margin={17} />
           <div className='item'>
-            <InputCertification required={false} />
+            <PhoneCertification required={false} />
           </div>
           <div className='item'>
             <p>

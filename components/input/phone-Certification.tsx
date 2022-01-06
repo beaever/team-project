@@ -7,7 +7,7 @@ interface PhoneCertifycationModel {
 }
 
 let authCount = 0;
-const InputCertification = (props: PhoneCertifycationModel) => {
+const PhoneCertification = (props: PhoneCertifycationModel) => {
   // useState
   const [phone, setPhone] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
@@ -127,4 +127,4 @@ const InputCertification = (props: PhoneCertifycationModel) => {
   );
 };
 
-export default InputCertification;
+export default PhoneCertification;
