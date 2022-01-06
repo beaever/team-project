@@ -1,144 +1,147 @@
 .findPage {
-	width: 100%;
-	height: 850px;
-	background-color: $color-white;
+  width: 100%;
+  height: 850px;
+  background-color: $color-white;
 }
 
 .findContainer {
-	position: absolute;
-	background-color: $color-white;
-	top: 50%;
-	left: 50%;
-	text-align: center;
-	margin-left: -266px;
-	margin-top: -190px;
-	// width: 532px;
-	width: 350px;
-	height: 532px;
+  position: absolute;
+  background-color: $color-white;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  margin-left: -266px;
+  margin-top: -190px;
+  width: 350px;
+  height: 532px;
+  h2 {
+    font-size: 24px;
+    margin-bottom: 17px;
+  }
 }
 
 .tabs_boxed {
-	display: flex;
-	justify-content: space-around;
-	padding: 0;
-	li {
-		width: 50%;
-		padding: 30px 30px 10px 30px;
-		cursor: pointer;
-	}
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  li {
+    width: 50%;
+    padding: 30px 30px 10px 30px;
+    cursor: pointer;
+  }
 }
 
 // ------------------------------------------------
 
 .id_findContainer {
-	// width: 77%;
-	// margin: 0 auto;
-	text-align: left;
-	color: $font-color3;
-	input {
-		width: 67%;
-		height: 46px;
-	}
+  // width: 77%;
+  // margin: 0 auto;
+  text-align: left;
+  color: $font-color3;
+  input {
+    width: 67%;
+    height: 46px;
+  }
 }
 
 .find_name {
-	margin-bottom: 30px;
-	input {
-		@include input;
-	}
+  margin-bottom: 30px;
+  input {
+    @include input;
+  }
 }
 
 .find_h3_left {
-	margin-left: 1px;
-	font-size: $font-size2;
-	font-weight: 500;
-	margin-bottom: 12px;
+  margin-left: 1px;
+  font-size: $font-size2;
+  font-weight: 500;
+  margin-bottom: 12px;
 }
 
 .find_h3_rig {
-	margin-top: 15px;
-	text-align: right;
-	font-size: $font-size2;
-	font-weight: 500;
+  margin-top: 15px;
+  text-align: right;
+  font-size: $font-size2;
+  font-weight: 500;
 }
 
 .tabs_select {
-	border-bottom: 2px solid $color-black;
-	transition: opacity 0.3s ease;
+  border-bottom: 2px solid $color-black;
+  transition: opacity 0.3s ease;
 }
 
 .tabs_noneSelect {
-	border-bottom: 1px solid $color-black;
-	opacity: 0.3;
+  border-bottom: 1px solid $color-black;
+  opacity: 0.3;
 }
 
 .find_tell {
-	input {
-		width: 68%;
-		height: 46px;
-		background-color: $color-white;
-		border: 1px solid $color-gray;
-		opacity: 0.3;
-	}
+  input {
+    width: 68%;
+    height: 46px;
+    background-color: $color-white;
+    border: 1px solid $color-gray;
+    opacity: 0.3;
+  }
 }
 
 .find_btn {
-	width: 100px;
-	height: 46px;
-	border: none;
-	text-align: center;
-	margin-left: 10px;
-	color: $color-white;
-	background-color: $button-color2;
+  width: 100px;
+  height: 46px;
+  border: none;
+  text-align: center;
+  margin-left: 10px;
+  color: $color-white;
+  background-color: $button-color2;
 }
 
 .find_submitBtn {
-	display: block;
-	margin: 0 auto;
-	border: none;
-	position: relative;
-	color: $color-white;
-	background-color: $button-color2;
-	margin-top: 40px;
-	width: 100%;
-	height: 46px;
-	text-align: center;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  position: relative;
+  color: $color-white;
+  background-color: $button-color2;
+  margin-top: 40px;
+  width: 100%;
+  height: 46px;
+  text-align: center;
 }
 
 //-------------------------
 
 .idStepContainer {
-	width: 77%;
-	margin: 0 auto;
-	position: relative;
-	top: 130px;
-	margin-top: 30px;
-	h2 {
-		margin-bottom: 30px;
-	}
+  width: 77%;
+  margin: 0 auto;
+  position: relative;
+  top: 130px;
+  margin-top: 30px;
+  h2 {
+    margin-bottom: 30px;
+  }
 }
 
 .idStep_btnBox {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 .idStep_btn {
-	display: block;
-	margin: 0 auto;
-	border: none;
-	position: relative;
-	border-radius: 10px;
-	color: $color-white;
-	background-color: $button-color;
-	margin-top: 30px;
-	width: 100%;
-	height: 30px;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  color: $color-white;
+  background-color: $button-color;
+  margin-top: 30px;
+  width: 100%;
+  height: 30px;
 }
 
 // ------------------
 
 .find_pass_h2 {
-	text-align: center;
-	color: $color-black;
-	margin-bottom: 50px;
+  text-align: center;
+  color: $color-black;
+  margin-bottom: 50px;
 }
