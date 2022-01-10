@@ -1,37 +1,21 @@
 .noticePage {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 1000px;
+  height: 900px;
 }
 
 .noticeContainer {
   position: absolute;
-  background-color: $color-white;
-  top: 40%;
-  left: 46%;
-  margin-left: -266px;
-  margin-top: -190px;
   width: 532px;
+  margin: 0 auto;
   max-height: 600px;
   overflow-y: scroll;
-  h2 {
-    text-align: center;
-  }
+
   a {
     text-decoration: none;
     text-align: left;
-
-    li {
-      display: inline-flex;
-      align-items: center;
-      color: $font-color4;
-      font-size: $font-size2;
-      width: 100%;
-      height: 56px;
-      border-top: 1px solid $color-gray1;
-      padding-left: 20px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
   }
   button {
     display: block;
@@ -43,9 +27,24 @@
   }
 }
 
+.noticePage_h2 {
+  text-align: center;
+}
+
 .notice_ul {
   padding-left: 0;
   font-size: $font-size3;
+  display: flex;
+  flex-direction: column;
+  li {
+    color: $font-color4;
+    font-size: $font-size2;
+    width: 100%;
+    height: 56px;
+    border-top: 1px solid $color-gray1;
+    padding: 20px;
+    text-overflow: ellipsis;
+  }
 }
 
 /////////////----------------
