@@ -76,7 +76,7 @@ const Login = () => {
           <MarginBottom margin={30} />
           <Button className='btn_login prime' disabled={!validation} label='로그인' onClick={onClickLogin} marginBottom={10} />
 
-          <Button className='btn_login siginup' label=' 회원가입' onClick={() => onClickMove('signup')} />
+          <Button className='btn_login siginup' span='signup' label=' 회원가입' onClick={() => onClickMove('signup')} />
 
           <Link href='/find'>
             <a className='to_find'>이메일/비밀번호 찾기</a>
@@ -92,7 +92,6 @@ const Login = () => {
             <MarginBottom margin={22} />
             <div className='sns_wrap'>
               <Button className='kakao' label='카카오' img={true} src='icon/kakao.svg' onClick={() => {}} marginBottom={10} />
-
               <Button className='naver' label=' 네이버' img={true} src='icon/naver.svg' onClick={() => {}} />
             </div>
           </div>

@@ -3,6 +3,9 @@
 .chekcbox_item {
   display: flex;
   align-items: center;
+  button {
+    height: 44px;
+  }
   label {
     display: inline-block;
     border: 1px solid $border;
