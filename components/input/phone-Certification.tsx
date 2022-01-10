@@ -5,12 +5,15 @@ import InputText from './inputText';
 interface PhoneCertifycationModel {
   required: boolean;
   state?: boolean;
+  phone: string;
+  setPhone: Function;
+  auth: string;
+  setAuth: Function;
 }
 
 let authCount = 0;
 const PhoneCertification = (props: PhoneCertifycationModel) => {
   // useState
-  const [phone, setPhone] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
   const [validTimer, setValidTimer] = useState<boolean>(false); // Validation Time
   const [validCount, setValidCount] = useState<number>(-1); // Validation
@@ -88,11 +91,12 @@ const PhoneCertification = (props: PhoneCertifycationModel) => {
         type='text'
         placeholder='010-1234-5678'
         max_length={13}
-        value={phone}
+        value={props.phone}
+        onChange={(e) => props.setPhone(e.currentTarget.value)}
         side_type='type1'
         side={
           <>
-            {phone?.length >= 11 ? (
+            {props.phone?.length >= 11 ? (
               <button type='button' className='second' onClick={stateChange}>
                 {status === 1 ? '재발송' : status === 2 || props.state === true ? '수정' : '인증번호 받기'}
               </button>
@@ -110,6 +114,8 @@ const PhoneCertification = (props: PhoneCertifycationModel) => {
           <InputText
             name='auth'
             type='text'
+            value={props.auth}
+            onChange={(e) => props.setAuth(e.currentTarget.value)}
             side_type='type1'
             side={
               <>
@@ -119,7 +125,6 @@ const PhoneCertification = (props: PhoneCertifycationModel) => {
               </>
             }
             error={`${authtimmer()}`}
-            onChange={(e) => {}}
             disabled={validation ? false : true}
           />
         </>
