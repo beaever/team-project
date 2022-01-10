@@ -20,8 +20,8 @@ const Mypage = () => {
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
+      <MarginTop margin={100} />
       <main>
-        <MarginTop margin={100} />
         <section id='mypage'>
           <div className='container'>
             <h2 className='title'>계정정보 변경</h2>
@@ -61,9 +61,9 @@ const Mypage = () => {
           </div>
           <MarginBottom margin={100} />
         </section>
-        {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
-        <MarginBottom margin={100} />
       </main>
+      {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
+      <MarginBottom margin={100} />
     </>
   );
 };
