@@ -68,14 +68,18 @@
           justify-content: center;
           align-items: center;
           background: #f7e317;
-          color: #381e1f;
+          span {
+            color: #381e1f;
+          }
         }
         &.naver {
           display: flex;
           justify-content: center;
           align-items: center;
           background: #1ec800;
-          color: #fff;
+          span {
+            color: #fff;
+          }
         }
         img {
           margin-left: 5px;
@@ -105,9 +109,6 @@
       background-color: $login-prime;
       color: #fff;
       border: 0px;
-      span {
-        color: #fff;
-      }
     }
     &.disabled {
       background-color: $login-disabled;

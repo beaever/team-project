@@ -10,7 +10,7 @@ const Button = (props: ButtonModel) => {
         onClick={() => props.onClick()}
         disabled={props.disabled}
       >
-        <span>
+        <span className={props.span}>
           {props.label}
           {props.img && <img src={props.src} />}
         </span>

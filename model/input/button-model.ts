@@ -8,4 +8,5 @@ export interface ButtonModel {
   marginBottom?: number;
   img?: boolean;
   src?: string;
+  span?: string;
 }
