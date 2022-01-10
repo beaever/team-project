@@ -16,16 +16,15 @@ const FindSuccess = (props) => {
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
-      <main>
-        <section>
-          <div>
-            <h2>LOGO</h2>
-            <p>
-              <span></span>
-            </p>
-          </div>
-        </section>
-      </main>
+
+      <section>
+        <div>
+          <h2>LOGO</h2>
+          <p>
+            <span></span>
+          </p>
+        </div>
+      </section>
       {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
       <MarginBottom margin={100} />
     </>
