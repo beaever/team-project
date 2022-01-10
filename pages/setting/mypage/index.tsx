@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import InputText from '../../../components/input/inputText';
 import MarginBottom from '../../../components/layout/margin-bottom';
 import MarginTop from '../../../components/layout/margin-top';
@@ -14,6 +14,8 @@ import Button from '../../../components/input/button';
 const Mypage = () => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
+  const [phone, setPhone] = useState<string>('');
+  const [auth, setAuth] = useState<string>('');
 
   return (
     <>
@@ -41,7 +43,7 @@ const Mypage = () => {
             </div>
             <MarginBottom margin={30} />
             <div className='item'>
-              <PhoneCertification required={false} state={true} />
+              <PhoneCertification phone={phone} setPhone={setPhone} auth={auth} setAuth={setAuth} required={false} state={true} />
             </div>
             <MarginBottom margin={15} />
             <div className='item inner-btn'>
