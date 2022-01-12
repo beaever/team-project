@@ -13,6 +13,9 @@ const Custom404Page = () => {
 
   useEffect(() => {
     backgroundColorChange('on');
+    return () => {
+      backgroundColorChange('off');
+    };
   }, []);
   return (
     <>
