@@ -1,78 +1,66 @@
 .footer {
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    top: 12px;
-    border-top: 1px solid #ebebeb;
-    text-align: center;
-    ul {
-        list-style: none;
-        text-align: left;
-        padding: 10px;
-       
-    }
-    li {
-        padding: 10px 0;
-    }
-    h2 {
-        opacity: 0.2;
-       
-    }
-    a {
-        text-decoration: none;
-    }
+  background-color: $color-white;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: 12px;
+  border-top: 1px solid #ebebeb;
+  text-align: center;
+  ul {
+    list-style: none;
+    text-align: left;
+    padding: 10px;
+  }
+  li {
+    padding: 10px 0;
+  }
+  h2 {
+    opacity: 0.2;
+  }
+  a {
+    text-decoration: none;
+  }
 }
 
 .footerinner {
-    position: relative;
-    width: 70%;
-    margin: 0 auto;
-    h2 {
-        font-size: 22px;
-        margin: 15px;
-    }
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  h2 {
+    font-size: 22px;
+    margin: 15px;
+  }
 }
 
-
-
 .corporation_area {
-    position: relative;
-    ul {
-        margin: 0 auto;
-        display: inline-flex;
-        li {
-            padding: 0 10px 0 0;
-        }
-        li::after {
-            content: "|";
-            opacity: 0.2;
-            padding-left: 10px;
-        }
-        .aferNone::after  {
-            content: "";
-           
-        }
+  position: relative;
+  ul {
+    margin: 0 auto;
+    display: inline-flex;
+    li {
+      padding: 0 10px 0 0;
     }
-    a{
-        font-size: 14px;
-        color: $font-color2
+    li::after {
+      content: '|';
+      opacity: 0.2;
+      padding-left: 10px;
     }
+    .aferNone::after {
+      content: '';
+    }
+  }
+  a {
+    font-size: 14px;
+    color: $font-color2;
+  }
 }
 
 .copyright {
-    p {
-        margin: 0;
-        font-size: 12px;
-        letter-spacing: -.06px;
-        color: rgba(34,34,34,.3);
-        padding: 10px;
-    }
-}
-
-
-
-@media screen and (max-width: 768px) {
-    .footer{
-        display: none;
-    }
+  p {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: -0.06px;
+    color: rgba(34, 34, 34, 0.3);
+    padding: 10px;
+  }
 }
