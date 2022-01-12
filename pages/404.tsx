@@ -1,27 +1,29 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import MarginBottom from '../components/layout/margin-bottom';
-import MarginTop from '../components/layout/margin-top';
 import useWidth from '../hooks/useWitdh';
 import Footer from '../layout/_Footer';
 import MobileFooter from '../layout/_mobileFooter';
 import MobileHeader from '../layout/_mobileHeader';
 import PcHeader from '../layout/_pcHeader';
+import { backgroundColorChange } from '../shared/function';
 
 const Custom404Page = () => {
   const { mediaQuery } = useWidth();
+  const text = `사용되지 않는 페이지 입니다!`;
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    backgroundColorChange('on');
+  }, []);
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
       <section id='errorPage'>
         <div className='errorPage-container'>
           <h2 className='errorPage-title'>
-            <img src='error_icon.svg' alt='error-icon' />
+            <img src='/icon/error_icon.svg' alt='error-icon' />
           </h2>
-          <MarginBottom margin={100} />
-          <p>PAGE NOT FOUND</p>
+          <MarginBottom margin={50} />
+          <p dangerouslySetInnerHTML={{ __html: text }} />
         </div>
       </section>
       {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
