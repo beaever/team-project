@@ -45,31 +45,33 @@ const PcHeader = () => {
       <div className='top_menu right_menu clearfix'>
         {loginForm && loginForm.login ? (
           <>
-            <li>
-              <Link href='/alert'>
-                <a>
-                  <img src='../img/bell.svg' alt='알람이미지' />
-                </a>
-              </Link>
-            </li>
-            <li>
-              <div className='line' />
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  setDrop(!drop);
-                }}
-              >
-                내정보
-              </button>
-            </li>
-            <li>
-              <div className='line' />
-            </li>
-            <li>
-              <button onClick={onClickLogout}>로그아웃</button>
-            </li>
+            <ul>
+              <li>
+                <Link href='/alert'>
+                  <a>
+                    <img src='../img/bell.svg' alt='알람이미지' />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <div className='line' />
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    setDrop(!drop);
+                  }}
+                >
+                  내정보
+                </button>
+              </li>
+              <li>
+                <div className='line' />
+              </li>
+              <li>
+                <button onClick={onClickLogout}>로그아웃</button>
+              </li>
+            </ul>
           </>
         ) : (
           <>
