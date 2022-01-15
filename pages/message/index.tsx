@@ -18,7 +18,7 @@ interface MessageListDataModel {
 const Message = () => {
   const { mediaQuery } = useWidth();
   const messageContArr = [{}];
-
+  const [isMessage, setIsMessage] = useState(false);
   const [messageList, setMessageList] = useState<MessageListDataModel[]>([
     {
       idx: 1,
@@ -61,8 +61,6 @@ const Message = () => {
       title: '상품 문의드립니다',
     },
   ]);
-
-  const [isMessage, setIsMessage] = useState(false);
 
   const onMessage = (e: ReactEventHandler) => {};
   return (

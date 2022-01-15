@@ -75,7 +75,6 @@ const Login = () => {
           />
           <MarginBottom margin={30} />
           <Button className='btn_login prime' disabled={!validation} label='로그인' onClick={onClickLogin} marginBottom={10} />
-
           <Button className='btn_login siginup' span='signup' label=' 회원가입' onClick={() => onClickMove('signup')} />
 
           <Link href='/find'>
