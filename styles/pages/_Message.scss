@@ -26,13 +26,6 @@
   }
 }
 
-.message_a {
-}
-
-// .message_profilImg {
-//   background: url(../../public/img/prof.svg) no-repeat;
-// }
-
 .message_info {
   width: 100%;
   margin-left: 12px;
@@ -79,4 +72,20 @@
     color: $font-color6;
     font-size: 20px;
   }
+}
+
+//------------------ chat ------
+
+.ChatPage {
+  background-color: $color-gray5;
+}
+
+.chatBox {
+  width: 480px;
+  height: 658px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
 }
