@@ -20,6 +20,7 @@ const Join = () => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
   const [phone, setPhone] = useState<string>('');
+  const [auth, setAuth] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
   const [validTimer, setValidTimer] = useState<boolean>(false); // Validation Time
   const [validCount, setValidCount] = useState<number>(-1); // Validation
@@ -147,6 +148,7 @@ const Join = () => {
               placeholder='010-1234-5678'
               max_length={13}
               value={phone}
+              onChange={(e) => setPhone(e.currentTarget.value)}
               side_type='type1'
               side={
                 <>
@@ -168,6 +170,7 @@ const Join = () => {
                 <InputText
                   name='auth'
                   type='text'
+                  value={auth}
                   side_type='type1'
                   side={
                     <>
@@ -177,7 +180,7 @@ const Join = () => {
                     </>
                   }
                   error={`${authtimmer()}`}
-                  onChange={(e) => {}}
+                  onChange={(e) => setAuth(e.currentTarget.value)}
                   disabled={validation ? false : true}
                 />
               </>

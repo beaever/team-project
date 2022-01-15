@@ -75,18 +75,18 @@ const Agree = () => {
         </li>
         <li>
           <label htmlFor='service'>
-            <span className='required'>*</span>서비스 이용약관 동의
+            <span className='required'>*</span>서비스 이용약관 동의<span className='sub_link'><button>보기</button></span>
           </label>
           <CheckBox onChange={checkedHandler} checked={form?.service} id='service' name='service' value='service' className='reverse' />
         </li>
         <li>
           <label htmlFor='privacy'>
-            <span className='required'>*</span>개인정보 수집 · 이용 동의
+            <span className='required'>*</span>개인정보 수집 · 이용 동의<span className='sub_link'><button>보기</button></span>
           </label>
           <CheckBox onChange={checkedHandler} checked={form?.privacy} id='privacy' name='privacy' value='privacy' className='reverse' />
         </li>
         <li>
-          <label htmlFor='marketing'>마케팅 정보 수신 동의</label>
+          <label htmlFor='marketing'>마케팅 정보 수신 동의<span className='sub_link'><button>보기</button></span></label>
           <CheckBox onChange={checkedHandler} checked={form?.marketing} id='marketing' name='marketing' value='marketing' className='reverse' />
         </li>
       </ul>

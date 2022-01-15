@@ -74,6 +74,14 @@
         span.required {
           color: $required;
         }
+        span.sub_link {
+          margin-left: 10px;
+          font-size: 10px;
+          button {
+            color: #CDCFD1;
+            text-decoration: underline;
+          }
+        }
       }
       &:last-child {
         margin-left: 5px;
