@@ -4,7 +4,13 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='footerinner'>
-        <h2>GOING BUYING</h2>
+        <h2>
+          <Link href='/' as='/'>
+            <a>
+            <img src="../icon/sub_logo.svg" alt="sub_logo" />
+            </a>
+          </Link>
+        </h2>
         <div className='corporation_area'>
           <ul>
             <Link href='/notice' as='/notice'>

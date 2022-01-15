@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="163" height="29" viewBox="0 0 163 29">
-  <text id="GOING_BUYING" data-name="GOING BUYING" transform="translate(0 22)" font-size="24" font-family="AppleSDGothicNeo-ExtraBold, Apple SD Gothic Neo" font-weight="800"><tspan x="0" y="0">GOING BUYING</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="93" height="26" viewBox="0 0 93 26">
+  <g id="로고" transform="translate(-306 -21)">
+    <text id="SELLBAR" transform="translate(307 41)" fill="#7f8d9a" font-size="24" font-family="NanumSquareEB, NanumSquare" letter-spacing="-0.09em"><tspan x="0" y="0">SELLBAR</tspan></text>
+    <text id="SELLBAR-2" data-name="SELLBAR" transform="translate(306 41)" fill="#1f2a36" font-size="24" font-family="NanumSquareEB, NanumSquare" letter-spacing="-0.09em"><tspan x="0" y="0">SELLBAR</tspan></text>
+  </g>
 </svg>
