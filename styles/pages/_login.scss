@@ -107,8 +107,10 @@
     cursor: pointer;
     &.prime {
       background-color: $login-prime;
-      color: #fff;
       border: 0px;
+      span {
+        color: #fff;
+      }
     }
     &.disabled {
       background-color: $login-disabled;

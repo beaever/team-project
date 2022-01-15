@@ -41,7 +41,6 @@ export const phoneFormat = (_x: string): string => {
   if (number.replace(/[ 0-9 | \- ]/g, '').length) {
     number = number.substr(0, number.length - 1);
   }
-
   if (number.length < 4) {
     return number;
   } else if (number.length < 7) {
