@@ -18,7 +18,7 @@ const JoinComplete = () => {
       <MarginTop margin={200} />
       <section id='complete'>
         <div className='complete-container'>
-          <img className='sub_logo' src='/icon/sub_logo.svg' alt='서브로고' />
+          <img className='sub_logo' src='/icon/logo.svg' alt='서브로고' />
           <MarginBottom margin={40} />
           <p className='complete-text'>반갑습니다. 김진영님:)</p>
           <MarginBottom margin={50} />

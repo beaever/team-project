@@ -20,6 +20,7 @@ let authCount = 0;
 const Join = (props: any) => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
+  const query = router.query.type
   const [phone, setPhone] = useState<string>('');
   const [auth, setAuth] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
@@ -108,6 +109,10 @@ const Join = (props: any) => {
       clearTimeout(vTick);
     };
   }, [validCount]);
+
+  useEffect(() => {
+    console.log(query)
+  },[])
 
   return (
     <>

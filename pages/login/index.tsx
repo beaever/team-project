@@ -23,7 +23,11 @@ const Login = () => {
 
   const onClickMove = (type: string) => {
     if (type === 'signup') {
-      router.push('/join');
+      router.push('/join/df');
+    }else if (type === 'kakao') {
+      router.push('/join/ko')
+    }else if (type === 'naver') {
+      router.push('/join/nv/')
     }
   };
 
