@@ -1,5 +1,5 @@
 {
-	"name": "team-project",
+	"name": "sellbar",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
