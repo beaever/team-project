@@ -10,6 +10,7 @@ const PcHeader = () => {
   const [drop, setDrop] = useState<boolean>(false);
   const drop_container_ref = useRef<HTMLDivElement>(null);
 
+
   const onClickLogout = () => {
     setLoginForm({
       ['login']: false,
@@ -26,9 +27,7 @@ const PcHeader = () => {
         setDrop(false);
       }
     };
-
     window.addEventListener('mousedown', contOutsideClickDetector);
-
     return () => {
       window.removeEventListener('mousedown', contOutsideClickDetector);
     };
@@ -76,13 +75,13 @@ const PcHeader = () => {
         ) : (
           <>
             <li>
-              <Link href='/login'>로그인</Link>
+              <Link href='/login' as='/login'>로그인</Link>
             </li>
             <li>
               <div className='line' />
             </li>
             <li>
-              <Link href='/join'>회원가입</Link>
+              <Link href='/join' as='/join'>회원가입</Link>
             </li>
           </>
         )}
