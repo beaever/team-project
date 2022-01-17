@@ -9,10 +9,9 @@ header {
   border-bottom: #ececec 1px solid;
   padding: 0 10%;
   margin: auto;
-  background: #fff;
+  background-color: $color-white;
   margin-top: constant(safe-area-inset-top);
   margin-top: env(safe-area-inset-top);
-
   .logo {
     padding: 18px 0;
     margin-right: 5%;

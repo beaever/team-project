@@ -37,7 +37,7 @@ const FindSuccess = (props) => {
       <MarginTop margin={200} />
       <section id='complete'>
         <div className='complete-container'>
-          <img className='sub_logo' src='/icon/sub_logo.svg' alt='서브로고' />
+          <img className='sub_logo' src='/icon/logo.svg' alt='서브로고' />
           <MarginBottom margin={40} />
           <p className='complete-text' dangerouslySetInnerHTML={{ __html: typeTextRender(router_type) }}></p>
           <MarginBottom margin={50} />
