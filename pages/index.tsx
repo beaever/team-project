@@ -36,7 +36,7 @@ export default function Home() {
       <MarginTop margin={100} />
       <section className='mainPage'>
         <div className='mainContainer'>
-          <Slider />
+          {/* <Slider /> */}
           <ItemSlider />
           <ItemList />
         </div>
