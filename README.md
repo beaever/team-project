@@ -33,10 +33,14 @@
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
 <img src="https://img.shields.io/badge/next-000000?style=for-the-badge&logo=next.js&logoColor=white">
+<img src="https://img.shields.io/badge/netlify-5FADB9?style=for-the-badge&logo=netlify&logoColor=white">
 
 ---
 
 **Server**
+
+<img src="https://img.shields.io/badge/jenkins-E34F26?style=for-the-badge&logo=jenkins&logoColor=white">
+<img src="https://img.shields.io/badge/AWS-007396?style=for-the-badge&logo=amazon&logoColor=white">
 
 # Demo <a id="demo">
 
