@@ -104,11 +104,11 @@ const Notice = () => {
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
-      <MarginTop margin={100} />
+      <MarginTop margin={150} />
       <section className='noticePage'>
         <h2 className='noticePage_h2'>공지사항</h2>
+        <MarginBottom margin={40} />
         <div className='noticeContainer'>
-          <MarginBottom margin={40} />
           <div>
             <ul className='notice_ul'>
               {noticeList?.map((item) => {
@@ -123,12 +123,12 @@ const Notice = () => {
                 );
               })}
             </ul>
-            {noticeList.length > 10 && <button> + 더보기</button>}
           </div>
         </div>
+        <MarginBottom margin={40} />
+        {noticeList.length > 10 && <button> + 더보기</button>}
       </section>
       {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
-      <MarginBottom margin={100} />
     </>
   );
 };
