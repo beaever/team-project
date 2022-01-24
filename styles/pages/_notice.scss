@@ -18,14 +18,15 @@
     text-decoration: none;
     text-align: left;
   }
-  button {
-    display: block;
-    margin: 0 auto;
-    background-color: $color-white;
-    border: none;
-    opacity: 0.5;
-    cursor: pointer;
-  }
+}
+button {
+  display: block;
+  margin: 0 auto;
+  background-color: $color-white;
+  color: #979fa7;
+  border: none;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .noticePage_h2 {
