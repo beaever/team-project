@@ -20,13 +20,19 @@
   }
 }
 button {
-  display: block;
+  display: flex;
   margin: 0 auto;
   background-color: $color-white;
   color: #979fa7;
   border: none;
   opacity: 0.5;
   cursor: pointer;
+  img {
+    margin-right: 10px;
+  }
+  div {
+    text-align: center;
+  }
 }
 
 .noticePage_h2 {
@@ -47,6 +53,9 @@ button {
     border-bottom: 1px solid $color-gray1;
     padding: 20px;
     text-overflow: ellipsis;
+    &:hover {
+      background-color: $color-gray2;
+    }
   }
   li:not(:last-child) {
     border-bottom: none;

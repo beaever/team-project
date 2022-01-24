@@ -128,7 +128,7 @@ const Notice = () => {
         <MarginBottom margin={80} />
         {noticeList.length > 10 && (
           <button>
-            <img src='icon/plus.svg' alt='plus' /> 더보기
+            <img src='icon/plus.svg' alt='plus' /> <div>더보기</div>
           </button>
         )}
       </section>
