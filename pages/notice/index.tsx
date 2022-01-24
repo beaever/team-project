@@ -107,7 +107,7 @@ const Notice = () => {
       <MarginTop margin={150} />
       <section className='noticePage'>
         <h2 className='noticePage_h2'>공지사항</h2>
-        <MarginBottom margin={40} />
+        <MarginBottom margin={100} />
         <div className='noticeContainer'>
           <div>
             <ul className='notice_ul'>
@@ -125,8 +125,12 @@ const Notice = () => {
             </ul>
           </div>
         </div>
-        <MarginBottom margin={40} />
-        {noticeList.length > 10 && <button> + 더보기</button>}
+        <MarginBottom margin={80} />
+        {noticeList.length > 10 && (
+          <button>
+            <img src='icon/plus.svg' alt='plus' /> 더보기
+          </button>
+        )}
       </section>
       {mediaQuery === 'M' ? <MobileFooter /> : <Footer />}
     </>
