@@ -12,14 +12,6 @@ import MarginBottom from '../components/layout/margin-bottom';
 import MobileFooter from '../layout/_mobileFooter';
 import Footer from '../layout/_Footer';
 
-const Div = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: gray;
-  top: 13px;
-  position: relative;
-`;
-
 export default function Home() {
   const router = useRouter();
   const { mediaQuery } = useWidth();
