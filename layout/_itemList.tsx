@@ -7,14 +7,10 @@ interface ItemListDateModal {
   name: string;
   price: string;
   item_image: string;
+  text: string;
 }
 
 const ItemList = () => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const modalClose = () => {
-    setModalOpen(!modalOpen);
-  };
-
   const [itemList, SetItemList] = useState<ItemListDateModal[]>([
     {
       idx: 1,
@@ -22,6 +18,7 @@ const ItemList = () => {
       name: 'Jodan 1',
       price: '10000',
       item_image: '사진이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 2,
@@ -29,6 +26,7 @@ const ItemList = () => {
       name: 'Sneakers Low',
       price: '20000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 3,
@@ -36,6 +34,7 @@ const ItemList = () => {
       name: '블랙 반팔',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 4,
@@ -43,6 +42,7 @@ const ItemList = () => {
       name: 'Air Force 1 Low Flax ',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 5,
@@ -50,6 +50,7 @@ const ItemList = () => {
       name: '993 Grey ',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 6,
@@ -57,6 +58,7 @@ const ItemList = () => {
       name: 'Yeezy Boost 350 V2',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 7,
@@ -64,6 +66,7 @@ const ItemList = () => {
       name: 'Calfskin Replica Sneakers',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 8,
@@ -71,6 +74,7 @@ const ItemList = () => {
       name: 'Air Force 1 Low Flax ',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 9,
@@ -78,6 +82,7 @@ const ItemList = () => {
       name: '블랙 반팔',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 10,
@@ -85,6 +90,7 @@ const ItemList = () => {
       name: 'Jodan 1',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 11,
@@ -92,6 +98,7 @@ const ItemList = () => {
       name: '993 Grey ',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
     {
       idx: 12,
@@ -99,8 +106,15 @@ const ItemList = () => {
       name: 'Calfskin Replica Sneakers',
       price: '10000',
       item_image: '사진 이미지',
+      text: '상품을 설명하는 글입니다.',
     },
   ]);
+
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+  const modalClose = () => {
+    setModalOpen(!modalOpen);
+  };
 
   return (
     <section className='itemListContainer'>
@@ -116,7 +130,7 @@ const ItemList = () => {
                     <span className='item_name'>{item.name}</span>
                     <span className='item_price'>{item.price}</span>
                   </button>
-                  {modalOpen && <ItemModal modalClose={modalClose}></ItemModal>}
+                  {modalOpen && <ItemModal key={item.idx} item={item} modalClose={modalClose}></ItemModal>}
                 </div>
               </li>
             );
