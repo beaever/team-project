@@ -23,7 +23,7 @@
     font-size: 24px;
   }
   .terms_text {
-    height: calc(100vh - 400px);
+    max-height: 900px;
     overflow-y: scroll;
     scrollbar-width: 0px;
     padding: 0 0.5em;
