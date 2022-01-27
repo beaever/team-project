@@ -28,6 +28,14 @@ const ItemSlider = () => {
     sliderRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 애니메이션을 만듭니다.
   }, [currentSlide]);
 
+  // const clickRight = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
+  //   moveRight();
+  // };
+
+  // const clickLeft = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
+  //   moveLeft();
+  // };
+
   return (
     <section className='itemContainer'>
       <div className='itemListBox' ref={sliderRef}>
