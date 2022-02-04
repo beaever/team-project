@@ -1,3 +1,3 @@
 export default interface UserMemberInfoRequestDataModel {
-	token: string;
+  email: string;
 }
