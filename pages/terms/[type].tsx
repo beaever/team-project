@@ -8,6 +8,7 @@ import Footer from '../../layout/_Footer';
 import MobileFooter from '../../layout/_mobileFooter';
 import MobileHeader from '../../layout/_mobileHeader';
 import PcHeader from '../../layout/_pcHeader';
+import API from '../../service/api';
 import { termsText, termsTitle } from '../../shared/function';
 
 const Terms = (props) => {
@@ -15,8 +16,28 @@ const Terms = (props) => {
   const { mediaQuery } = useWidth();
   const router_type = props.type as string;
 
+  const getName = () => {
+    switch (router_type) {
+      case '1':
+        return 'service';
+      default:
+        return '';
+    }
+  };
+
+  const getTersDetail = () => {
+    API.terms
+      .termsDetail({ name: getName() })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   useEffect(() => {
-    console.log(router_type);
+    getTersDetail();
   }, []);
 
   return (
