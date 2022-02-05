@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Modal from '../../pages/join/modal/modal';
 import CheckBox from '../input/checkbox';
 
 interface AgreeCheckboxModel {
@@ -17,6 +18,14 @@ const Agree = () => {
     privacy: false,
     marketing: false,
   });
+
+  const [activeId, setActiveId] = useState(0);
+
+  const [toggle, setToggle] = useState<Boolean>(false);
+
+  const modalSwitch = (index) => {
+    setToggle(!toggle);
+  };
 
   const checkedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const n = e.currentTarget.name;
@@ -75,18 +84,29 @@ const Agree = () => {
         </li>
         <li>
           <label htmlFor='service'>
-            <span className='required'>*</span>서비스 이용약관 동의<span className='sub_link'><button>보기</button></span>
+            <span className='required'>*</span>서비스 이용약관 동의
+            <span className='sub_link'>
+              <button onClick={() => modalSwitch(1)}>보기{toggle && <Modal modalSwitch={modalSwitch} />}</button>
+            </span>
           </label>
           <CheckBox onChange={checkedHandler} checked={form?.service} id='service' name='service' value='service' className='reverse' />
         </li>
         <li>
           <label htmlFor='privacy'>
-            <span className='required'>*</span>개인정보 수집 · 이용 동의<span className='sub_link'><button>보기</button></span>
+            <span className='required'>*</span>개인정보 수집 · 이용 동의
+            <span className='sub_link'>
+              <button onClick={() => modalSwitch(2)}>보기{toggle && <Modal modalSwitch={modalSwitch} />}</button>
+            </span>
           </label>
           <CheckBox onChange={checkedHandler} checked={form?.privacy} id='privacy' name='privacy' value='privacy' className='reverse' />
         </li>
         <li>
-          <label htmlFor='marketing'>마케팅 정보 수신 동의<span className='sub_link'><button>보기</button></span></label>
+          <label htmlFor='marketing'>
+            마케팅 정보 수신 동의
+            <span className='sub_link'>
+              <button onClick={() => modalSwitch(3)}>보기{toggle && <Modal modalSwitch={modalSwitch} />}</button>
+            </span>
+          </label>
           <CheckBox onChange={checkedHandler} checked={form?.marketing} id='marketing' name='marketing' value='marketing' className='reverse' />
         </li>
       </ul>

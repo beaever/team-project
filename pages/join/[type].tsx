@@ -14,13 +14,15 @@ import Footer from '../../layout/_Footer';
 import InputText from '../../components/input/inputText';
 import Agree from '../../components/join/agree';
 import Button from '../../components/input/button';
+
 import { GetServerSideProps } from 'next';
+import Axios from 'axios';
 
 let authCount = 0;
 const Join = (props: any) => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
-  const query = router.query.type
+  const query = router.query.type;
   const [phone, setPhone] = useState<string>('');
   const [auth, setAuth] = useState<string>('');
   const [checkPhoneNumber, setCheckPhoneNumber] = useState<string>('');
@@ -111,8 +113,8 @@ const Join = (props: any) => {
   }, [validCount]);
 
   useEffect(() => {
-    console.log(query)
-  },[])
+    console.log(query);
+  }, []);
 
   return (
     <>
@@ -208,7 +210,11 @@ const Join = (props: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {props: {type: context.query.type}};
+  return {
+    props: {
+      type: context.query.type,
+    },
+  };
 };
 
 export default Join;
