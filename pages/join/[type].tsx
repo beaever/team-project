@@ -34,7 +34,7 @@ const Join = (props: any) => {
   const onBlurValidCheck = (e: React.FocusEvent<HTMLInputElement>) => {
     const id = e.currentTarget.id;
     const value = (e.currentTarget.value as string) ?? '';
-    if (id === 'id') {
+    if (id === 'join-email') {
       if (value === '') {
         alert('이메일을 입력해주세요.');
       }
@@ -210,11 +210,7 @@ const Join = (props: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: {
-      type: context.query.type,
-    },
-  };
+  return { props: { type: context.query.type } };
 };
 
 export default Join;
