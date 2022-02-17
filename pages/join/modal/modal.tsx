@@ -1,9 +1,40 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import API from '../../../service/api';
 
-const Modal = ({ modalSwitch }) => {
+const Modal = ({ modalSwitch, props, getTermsName }) => {
+  // const [termsDetail, setTermsDetail] = useState(getTermsName);
+  const router = useRouter();
+  const terms_type = props.type as string;
+
+  // const getTermsName = (terms_type: string) => {
+  //   switch (terms_type) {
+  //     case 'service':
+  //       return 'service';
+  //     case 'marketing':
+  //       return 'marketing';
+  //     case 'personalInfo':
+  //       return 'personalInfo';
+  //     default:
+  //       return '';
+  //   }
+  // };
+
+  useEffect(() => {
+    const getTersDetail = () => {
+      API.terms
+        .termsDetail({ name: getTermsName(terms_type) })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+    getTersDetail();
+  }, []);
+
   const onCloseModal = (e) => {
-    console.log('e.target: ', e.target);
-    console.log('e.tarcurrentTargetget: ', e.currentTarget);
     if (e.target === e.currentTarget) {
       modalSwitch();
     }
@@ -26,6 +57,7 @@ const Modal = ({ modalSwitch }) => {
       <div className='modal'>
         <div className='modal_terms'>
           <h2> 이용약관</h2>
+          <p></p>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
+import Axios from 'axios';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
-import React, { useEffect } from 'react';
+import { json } from 'node:stream/consumers';
+import React, { useEffect, useState } from 'react';
 import MarginBottom from '../../components/layout/margin-bottom';
 import MarginTop from '../../components/layout/margin-top';
 import useWidth from '../../hooks/useWitdh';
@@ -16,7 +18,9 @@ const Terms = (props) => {
   const { mediaQuery } = useWidth();
   const router_type = props.type as string;
 
-  const getName = () => {
+  const [termsDetail, setTermsDetail] = useState();
+
+  const getTermsName = (router_type: string) => {
     switch (router_type) {
       case '1':
         return 'service';
@@ -25,20 +29,33 @@ const Terms = (props) => {
     }
   };
 
-  const getTersDetail = () => {
-    API.terms
-      .termsDetail({ name: getName() })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+  // useEffect(() => {
+  //   fetch(`http://3.37.125.107/api/v1/terms/`)
+  //     .then((response) => response.json())
+  //     .then((json) => console.log(json));
+  // }, []);
 
-  useEffect(() => {
-    getTersDetail();
-  }, []);
+  // const getTermsText = (router_type: string) => {
+  //   switch (router_type) {
+  //     case '1':
+  //       return setTermsDetail;
+  //     default:
+  //       return '';
+  //   }
+  // };
+
+  // const getTersDetail = () => {
+  //   API.terms
+  //     .termsDetail({ name: getTermsName(router_type) })
+  //     .then((res) => {
+  //       console.log(res);
+  //       // const response = res.request.responseURL;
+  //       // console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // };
 
   return (
     <>
@@ -46,10 +63,10 @@ const Terms = (props) => {
       <MarginTop margin={100} />
       <section className='termPage'>
         <div className='termConainer'>
-          <h1>{termsTitle(router_type)}</h1>
+          <h1>{getTermsName(router_type)}</h1>
           <MarginBottom margin={50} />
           <div className='terms_text'>
-            <span dangerouslySetInnerHTML={{ __html: termsText(router_type) }}></span>
+            <span dangerouslySetInnerHTML={{ __html: getTermsName(router_type) }}></span>
           </div>
         </div>
       </section>
