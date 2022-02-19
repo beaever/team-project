@@ -14,7 +14,11 @@ import Footer from '../../layout/_Footer';
 import InputText from '../../components/input/inputText';
 import Agree from '../../components/join/agree';
 import Button from '../../components/input/button';
+
 import { GetServerSideProps } from 'next';
+import Axios from 'axios';
+import API from '../../service/api';
+import { join } from 'path/posix';
 
 let authCount = 0;
 const Join = (props: any) => {
@@ -29,24 +33,117 @@ const Join = (props: any) => {
   const [validation, setValidation] = useState<boolean>(true);
   const [status, setStatus] = useState(0);
 
-  const onBlurValidCheck = (e: React.FocusEvent<HTMLInputElement>) => {
+  // email , password , nickname , phone
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [passCofirm, setPassCofirm] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [nickname, setNickname] = useState<string>('');
+
+  //유효성 검사
+  const [isEmail, setIsEmail] = useState<boolean>(false);
+  const [isPassword, setIsPassword] = useState<boolean>(false);
+  const [isPassCofirm, setIsPassCofirm] = useState<boolean>(false);
+  const [isName, setIsName] = useState<boolean>(false);
+  const [isNickname, setIsNickname] = useState<boolean>(false);
+
+  // error message
+  const [emailMessage, setEmailMessage] = useState<string>('');
+  const [passwordMessage, setPasswordMessage] = useState<string>('');
+  const [passCofirmMessage, setPassCofirmMessage] = useState<string>('');
+  const [nameMessage, setNameMessage] = useState<string>('');
+  const [nicknameMessage, setNicknameMessage] = useState<string>('');
+
+  // 이메일 유효성 검사
+  const onEmailCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id = e.currentTarget.id;
     const value = (e.currentTarget.value as string) ?? '';
+    const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    setEmail(value);
+    // 이메일 중복 검사도 해야함
     if (id === 'join-email') {
       if (value === '') {
         alert('이메일을 입력해주세요.');
-      }
-    } else if (id === 'password') {
-      if (value === '') {
-        alert('비밀번호를 입력해주세요.');
-      } else if (value.length < 6) {
-        alert('비밀번호는 6 ~ 20 사이로 설정해주세요.');
+        setIsEmail(false);
+      } else if (!emailRegex.test(value)) {
+        setEmailMessage('이메일 형식이 맞지 않습니다.');
+        setIsEmail(false);
+      } else {
+        setIsEmail(true);
+        setEmailMessage('');
       }
     }
   };
 
+  // 비밀번호 유효성 검사
+  const onPassCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = (e.currentTarget.value as string) ?? '';
+    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{6,20}$/;
+    setPassword(value);
+    if (value === '') {
+      alert('비밀번호를 입력해주세요.');
+      // setIsPassword(false);
+    } else if (!passwordRegex.test(value)) {
+      setPasswordMessage('비밀번호는 6 ~ 20 사이로 특수문자를 포함하여 설정해주세요');
+      setIsPassword(false);
+    } else {
+      // setIsPassword(true);
+      setPasswordMessage('');
+    }
+  };
+
+  // 비밀번호 확인
+  const onPassConfirm = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const passwordConfirmCurrent = e.target.value;
+    setPassCofirm(passwordConfirmCurrent);
+    if (password === passwordConfirmCurrent) {
+      setPassCofirmMessage('');
+      setIsPassCofirm(true);
+    } else {
+      setPassCofirmMessage('비밀번호가 일치하지 않습니다.');
+      setIsPassCofirm(false);
+    }
+  };
+  // 이름 유효성 검사
+  const onChangeName = (e) => {
+    setName(e.target.value);
+    if (e.target.value.length < 2 || e.target.value.length > 5) {
+      setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.');
+      setIsName(false);
+    } else if (e.target.value <= 0) {
+      alert('닉네임을 설정해주세요.');
+      setIsName(false);
+    } else {
+      setNameMessage('');
+      setIsName(true);
+    }
+  };
+
+  const onChangeNickName = (e) => {
+    // 닉네임 중복검사해야함
+    setNickname(e.target.value);
+    if (e.target.value.length < 2 || e.target.value.length > 8) {
+      setNicknameMessage('2글자 이상 8글자 미만으로 입력해주세요.');
+      setIsNickname(false);
+    } else if (e.target.value <= 0) {
+      alert('닉네임을 설정해주세요.');
+      setIsNickname(false);
+    } else {
+      setNicknameMessage('');
+      setIsNickname(true);
+    }
+  };
+  // 회원 가입 유효성검사
   const onClickSuccess = () => {
-    router.push('/join/complete');
+    if (isEmail === false) {
+      alert('이메일 확인 바랍니다.');
+    } else if (isPassCofirm === false) {
+      alert('비밀번호 확인 바랍니다.');
+    } else if (isName === false) {
+      alert('이름을 확인 바랍니다');
+    } else if (isNickname === false) {
+      alert('닉네임을 확인 바랍니다.');
+    } else router.push('/join/complete');
   };
 
   const onClickPhoneAuth = () => {
@@ -126,23 +223,52 @@ const Join = (props: any) => {
           </p>
           <MarginBottom margin={1} />
           <div>
-            <InputText required label='이메일' id='join-email' type='text' placeholder='goingbuying@gmail.com' error={'등록된 이메일 주소 입니다.'} />
+            <InputText
+              required
+              label='이메일'
+              id='join-email'
+              type='text'
+              placeholder='goingbuying@gmail.com'
+              // error={'등록된 이메일 주소 입니다.'}
+              value={email}
+              onChange={onEmailCheck}
+            />
+            {email.length > 15 && <span className='error'>{emailMessage}</span>}
           </div>
           <MarginBottom margin={27} />
           <div>
-            <InputText required label='비밀번호' id='join-password1' type='password' placeholder='**********' />
+            <InputText
+              required
+              label='비밀번호'
+              id='join-password'
+              type='password'
+              placeholder='**********'
+              value={password}
+              onChange={onPassCheck}
+            />
           </div>
+          {password.length < 8 && <span className='error'>{passwordMessage}</span>}
           <MarginBottom margin={10} />
           <div>
-            <InputText id='join-password2' type='password' placeholder='**********' error={'비밀번호가 일치 하지 않습니다.'} />
+            <InputText
+              id='join-password2'
+              type='password'
+              placeholder='**********'
+              // error={'비밀번호가 일치 하지 않습니다.'}
+              value={passCofirm}
+              onChange={onPassConfirm}
+            />
+            {passCofirm.length > 0 && <span className='error'>{passCofirmMessage}</span>}
           </div>
           <MarginBottom margin={27} />
           <div>
-            <InputText required label='이름' id='join-name' type='text' placeholder='고잉바잉' />
+            <InputText required label='이름' id='join-name' type='text' placeholder='고잉바잉' value={name} onChange={onChangeName} />
+            {name.length > 0 && <span className='error'>{nameMessage}</span>}
           </div>
           <MarginBottom margin={10} />
           <div>
-            <InputText required label='닉네임' id='join-nickname' type='text' placeholder='닉네임' />
+            <InputText required label='닉네임' id='join-nickname' type='text' placeholder='닉네임' value={nickname} onChange={onChangeNickName} />
+            {nickname.length > 0 && <span className='error'>{nicknameMessage}</span>}
           </div>
           <MarginBottom margin={27} />
           <div>
@@ -193,7 +319,7 @@ const Join = (props: any) => {
             )}
           </div>
           <div>
-            <Agree />
+            <Agree props={props} />
           </div>
           <MarginBottom margin={10} />
           <div className='join-btn'>
