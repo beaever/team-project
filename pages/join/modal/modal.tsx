@@ -20,19 +20,19 @@ const Modal = ({ modalSwitch, props, getTermsName }) => {
   //   }
   // };
 
-  useEffect(() => {
-    const getTersDetail = () => {
-      API.terms
-        .termsDetail({ name: getTermsName(terms_type) })
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
-    getTersDetail();
-  }, []);
+  // useEffect(() => {
+  //   const getTersDetail = () => {
+  //     API.terms
+  //       .termsDetail({ name: getTermsName(terms_type) })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //       });
+  //   };
+  //   getTersDetail();
+  // }, []);
 
   const onCloseModal = (e) => {
     if (e.target === e.currentTarget) {

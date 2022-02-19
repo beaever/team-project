@@ -24,12 +24,7 @@ const Terms = (props: IpropsDataModel) => {
   const router = useRouter();
   const propsData = props.data;
   const { mediaQuery } = useWidth();
-<<<<<<< HEAD
-  const router_type = props.type as string;
-  const [termsDetail, setTermsDetail] = useState();
-=======
   const [termsDetail, setTermsDetail] = useState(propsData.content);
->>>>>>> 84fb622cb3e66f4edd5cce6c3744fb39e57224ed
 
   const getTermsName = (router_type: string) => {
     switch (router_type) {
@@ -60,15 +55,6 @@ const Terms = (props: IpropsDataModel) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-<<<<<<< HEAD
-  // const name = context.params.name;
-  // const apiUrl = `http://3.37.125.107/api/v1/terms/${name}`;
-  // const res = await Axios.get(apiUrl);
-  // const data = res.data;
-
-  //pageProps로 넘길 데이터
-  return { props: { type: context.query.type } };
-=======
   const queryTypeName = context.query.type as string;
   const apiUrl = `http://3.37.125.107/api/v1/terms/${queryTypeName}`;
   const res = await Axios.get(apiUrl);
@@ -76,7 +62,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // //pageProps로 넘길 데이터
   // return { props: { type: context.query.type } };
   return { props: { data } };
->>>>>>> 84fb622cb3e66f4edd5cce6c3744fb39e57224ed
 };
 
 export default Terms;

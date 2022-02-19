@@ -208,13 +208,6 @@ const Join = (props: any) => {
       clearTimeout(vTick);
     };
   }, [validCount]);
-
-<<<<<<< HEAD
-  // // 이메일 체크 API
-  // const getCheckEmail = (email: string) => {
-  //   API.user.checkEmail({reqEmail: email})
-  // }
-=======
   // 이메일 체크 API
   const getCheckEmailMessage = (checkEmail: string) => {
     API.user
@@ -227,7 +220,6 @@ const Join = (props: any) => {
         console.error(err);
       });
   };
->>>>>>> 84fb622cb3e66f4edd5cce6c3744fb39e57224ed
 
   useEffect(() => {
     console.log(query);
