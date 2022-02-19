@@ -21,4 +21,18 @@ export const user = {
     };
     return axios(config);
   },
+  // 이메일 중복 검사 API
+  checkEmail: (reqEmail: string) => {
+    const config: AxiosRequestConfig = {
+      url: 'check-email',
+      method: POST,
+      headers: {
+        ...JSON_HEADER,
+      },
+      data: {
+        email: reqEmail,
+      },
+    };
+    return axios(config);
+  },
 };
