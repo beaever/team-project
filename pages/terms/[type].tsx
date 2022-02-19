@@ -17,7 +17,6 @@ const Terms = (props) => {
   const router = useRouter();
   const { mediaQuery } = useWidth();
   const router_type = props.type as string;
-
   const [termsDetail, setTermsDetail] = useState();
 
   const getTermsName = (router_type: string) => {
@@ -62,10 +61,11 @@ const Terms = (props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const name = context.params.name;
-  const apiUrl = `http://3.37.125.107/api/v1/terms/${name}`;
-  const res = await Axios.get(apiUrl);
-  const data = res.data;
+  // const name = context.params.name;
+  // const apiUrl = `http://3.37.125.107/api/v1/terms/${name}`;
+  // const res = await Axios.get(apiUrl);
+  // const data = res.data;
+
   //pageProps로 넘길 데이터
   return { props: { type: context.query.type } };
 };

@@ -207,6 +207,11 @@ const Join = (props: any) => {
     };
   }, [validCount]);
 
+  // // 이메일 체크 API
+  // const getCheckEmail = (email: string) => {
+  //   API.user.checkEmail({reqEmail: email})
+  // }
+
   useEffect(() => {
     console.log(query);
   }, []);
