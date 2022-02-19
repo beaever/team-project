@@ -7,7 +7,7 @@ const Footer = () => {
         <h2>
           <Link href='/' as='/'>
             <a>
-            <img src="../icon/sub_logo.svg" alt="sub_logo" />
+              <img src='../icon/sub_logo.svg' alt='sub_logo' />
             </a>
           </Link>
         </h2>
@@ -18,7 +18,7 @@ const Footer = () => {
                 <li>공지사항</li>
               </a>
             </Link>
-            <Link href='/terms/1' as='/terms/1'>
+            <Link href='/terms/service' as='/terms/service'>
               <a>
                 <li>이용약관</li>
               </a>
@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className='copyright'>
-          <p>회사명 : SELLBAR | 대표 : 김진영 | 주소 : 서울특별시 노원구 동일로215길 48  | 사업자번호 : 111-11-11111</p>
+          <p>회사명 : SELLBAR | 대표 : 김진영 | 주소 : 서울특별시 노원구 동일로215길 48 | 사업자번호 : 111-11-11111</p>
           <p>Copyright 2022. WIT. All rights reserved</p>
         </div>
       </div>

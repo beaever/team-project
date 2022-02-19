@@ -231,7 +231,7 @@ const Join = (props: any) => {
               placeholder='goingbuying@gmail.com'
               // error={'등록된 이메일 주소 입니다.'}
               value={email}
-              onChange={onEmailCheck}
+              onChange={(e) => onEmailCheck(e)}
             />
             {email.length > 15 && <span className='error'>{emailMessage}</span>}
           </div>
@@ -334,6 +334,12 @@ const Join = (props: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const EmailCheck = async () => {
+    const EmailApi = `http://3.37.125.107/api/v1/auth/check-email`;
+    const res = await Axios.post(EmailApi);
+    const data = res.data;
+    console.log(data);
+  };
   return { props: { type: context.query.type } };
 };
 

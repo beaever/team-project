@@ -22,40 +22,25 @@ const Terms = (props) => {
 
   const getTermsName = (router_type: string) => {
     switch (router_type) {
-      case '1':
-        return 'service';
+      case 'service':
+        return;
       default:
         return '';
     }
   };
 
-  // useEffect(() => {
-  //   fetch(`http://3.37.125.107/api/v1/terms/`)
-  //     .then((response) => response.json())
-  //     .then((json) => console.log(json));
-  // }, []);
-
-  // const getTermsText = (router_type: string) => {
-  //   switch (router_type) {
-  //     case '1':
-  //       return setTermsDetail;
-  //     default:
-  //       return '';
-  //   }
-  // };
-
-  // const getTersDetail = () => {
-  //   API.terms
-  //     .termsDetail({ name: getTermsName(router_type) })
-  //     .then((res) => {
-  //       console.log(res);
-  //       // const response = res.request.responseURL;
-  //       // console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
+  const getTemrsDetail = () => {
+    API.terms
+      .termsDetail({ name: getTermsName(router_type) })
+      .then((res) => {
+        console.log(res);
+        const response = res.request.responseURL;
+        console.log(response);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <>
@@ -77,6 +62,10 @@ const Terms = (props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const name = context.params.name;
+  const apiUrl = `http://3.37.125.107/api/v1/terms/${name}`;
+  const res = await Axios.get(apiUrl);
+  const data = res.data;
   //pageProps로 넘길 데이터
   return { props: { type: context.query.type } };
 };
