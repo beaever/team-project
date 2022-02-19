@@ -60,10 +60,11 @@ const Join = (props: any) => {
     const value = (e.currentTarget.value as string) ?? '';
     const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     setEmail(value);
+
     // 이메일 중복 검사도 해야함
     if (id === 'join-email') {
       if (value === '') {
-        alert('이메일을 입력해주세요.');
+        setEmailMessage('이메일을 입력해주세요.');
         setIsEmail(false);
       } else if (!emailRegex.test(value)) {
         setEmailMessage('이메일 형식이 맞지 않습니다.');
@@ -71,6 +72,7 @@ const Join = (props: any) => {
       } else {
         setIsEmail(true);
         setEmailMessage('');
+        getCheckEmailMessage(email);
       }
     }
   };
@@ -207,10 +209,18 @@ const Join = (props: any) => {
     };
   }, [validCount]);
 
-  // // 이메일 체크 API
-  // const getCheckEmail = (email: string) => {
-  //   API.user.checkEmail({reqEmail: email})
-  // }
+  // 이메일 체크 API
+  const getCheckEmailMessage = (checkEmail: string) => {
+    API.user
+      .checkEmail({ email: checkEmail })
+      .then((res) => {
+        const data = res.data;
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   useEffect(() => {
     console.log(query);
@@ -234,11 +244,10 @@ const Join = (props: any) => {
               id='join-email'
               type='text'
               placeholder='goingbuying@gmail.com'
-              // error={'등록된 이메일 주소 입니다.'}
+              error={emailMessage.length > 0 && emailMessage}
               value={email}
               onChange={(e) => onEmailCheck(e)}
             />
-            {email.length > 15 && <span className='error'>{emailMessage}</span>}
           </div>
           <MarginBottom margin={27} />
           <div>
