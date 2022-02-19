@@ -1,18 +1,18 @@
 import TermsRequestDataModel from './model/terms-requestDataModel';
-import { GET, JSON_HEADER, POST } from '../../../shared/api-constant';
+import { BASE_URL, GET, JSON_HEADER, POST } from '../../../shared/api-constant';
 import { AxiosRequestConfig } from '../config/axios';
 import axios from 'axios';
 
 export const terms = {
-  termsDetail: (request: TermsRequestDataModel) => {
+  termsInfo: (req: TermsRequestDataModel) => {
     const config: AxiosRequestConfig = {
-      url: 'terms/',
+      url: BASE_URL + `terms/name?`,
       method: GET,
       headers: {
         ...JSON_HEADER,
       },
       params: {
-        name: request.name ?? '',
+        name: req.name ?? '',
       },
     };
     return axios(config);
