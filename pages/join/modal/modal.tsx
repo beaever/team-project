@@ -1,42 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import API from '../../../service/api';
+import { GetServerSideProps } from 'next';
+import Axios from 'axios';
 
-const Modal = ({ modalSwitch, props, getTermsName }) => {
-  // const [termsDetail, setTermsDetail] = useState(getTermsName);
+interface IpropsDataModel {
+  data: {
+    id: number;
+    name: string;
+    content: string;
+  };
+}
+
+const Modal = () => {
   const router = useRouter();
-  const terms_type = props.type as string;
+  const [toggle, setToggle] = useState<Boolean>(false);
+  // const [termsDetail, setTermsDetail] = useState(propsData.content);
+  // console.log(termsDetail);
 
-  // const getTermsName = (terms_type: string) => {
-  //   switch (terms_type) {
-  //     case 'service':
-  //       return 'service';
-  //     case 'marketing':
-  //       return 'marketing';
-  //     case 'personalInfo':
-  //       return 'personalInfo';
-  //     default:
-  //       return '';
-  //   }
-  // };
+  useEffect(() => {
+    (async () => {
+      const apiUrl = `http://3.37.125.107/api/v1/terms`;
+      const res = await Axios.get(apiUrl);
+      const data = res.data;
+      console.log(data);
+    })();
+  });
 
-  // useEffect(() => {
-  //   const getTersDetail = () => {
-  //     API.terms
-  //       .termsDetail({ name: getTermsName(terms_type) })
-  //       .then((res) => {
-  //         console.log(res.data);
-  //       })
-  //       .catch((err) => {
-  //         console.error(err);
-  //       });
-  //   };
-  //   getTersDetail();
-  // }, []);
+  const onSwitch = () => {
+    setToggle(!toggle);
+  };
 
   const onCloseModal = (e) => {
     if (e.target === e.currentTarget) {
-      modalSwitch();
+      onSwitch();
     }
   };
 

@@ -19,6 +19,8 @@ import { GetServerSideProps } from 'next';
 import Axios from 'axios';
 import API from '../../service/api';
 import { join } from 'path/posix';
+import axios from 'axios';
+import UserMemberSingupRequestDataModel from '../../service/api/user/model/user-member-singup-request-data-model';
 
 let authCount = 0;
 const Join = (props: any) => {
@@ -40,19 +42,13 @@ const Join = (props: any) => {
   const [name, setName] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
 
-  //유효성 검사
-  const [isEmail, setIsEmail] = useState<boolean>(false);
-  const [isPassword, setIsPassword] = useState<boolean>(false);
-  const [isPassCofirm, setIsPassCofirm] = useState<boolean>(false);
-  const [isName, setIsName] = useState<boolean>(false);
-  const [isNickname, setIsNickname] = useState<boolean>(false);
-
   // error message
   const [emailMessage, setEmailMessage] = useState<string>('');
   const [passwordMessage, setPasswordMessage] = useState<string>('');
   const [passCofirmMessage, setPassCofirmMessage] = useState<string>('');
   const [nameMessage, setNameMessage] = useState<string>('');
   const [nicknameMessage, setNicknameMessage] = useState<string>('');
+  const [errSingup, setErrSignup] = useState<boolean>(false);
 
   // 이메일 유효성 검사
   const onEmailCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,17 +56,15 @@ const Join = (props: any) => {
     const value = (e.currentTarget.value as string) ?? '';
     const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     setEmail(value);
-
-    // 이메일 중복 검사도 해야함
     if (id === 'join-email') {
       if (value === '') {
         setEmailMessage('이메일을 입력해주세요.');
-        setIsEmail(false);
+        setValidation(!validation);
       } else if (!emailRegex.test(value)) {
         setEmailMessage('이메일 형식이 맞지 않습니다.');
-        setIsEmail(false);
+        setValidation(!validation);
       } else {
-        setIsEmail(true);
+        setValidation(!validation);
         setEmailMessage('');
         getCheckEmailMessage(email);
       }
@@ -84,12 +78,10 @@ const Join = (props: any) => {
     setPassword(value);
     if (value === '') {
       alert('비밀번호를 입력해주세요.');
-      // setIsPassword(false);
     } else if (!passwordRegex.test(value)) {
       setPasswordMessage('비밀번호는 6 ~ 20 사이로 특수문자를 포함하여 설정해주세요');
-      setIsPassword(false);
+      setValidation(!validation);
     } else {
-      // setIsPassword(true);
       setPasswordMessage('');
     }
   };
@@ -100,53 +92,73 @@ const Join = (props: any) => {
     setPassCofirm(passwordConfirmCurrent);
     if (password === passwordConfirmCurrent) {
       setPassCofirmMessage('');
-      setIsPassCofirm(true);
+      setValidation(!validation);
     } else {
       setPassCofirmMessage('비밀번호가 일치하지 않습니다.');
-      setIsPassCofirm(false);
+      setValidation(!validation);
     }
   };
+
   // 이름 유효성 검사
   const onChangeName = (e) => {
     setName(e.target.value);
     if (e.target.value.length < 2 || e.target.value.length > 5) {
       setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.');
-      setIsName(false);
+      setValidation(!validation);
     } else if (e.target.value <= 0) {
       alert('닉네임을 설정해주세요.');
-      setIsName(false);
+      setValidation(!validation);
     } else {
       setNameMessage('');
-      setIsName(true);
+      setValidation(!validation);
     }
   };
 
+  // 닉네임 유효성 검사
   const onChangeNickName = (e) => {
-    // 닉네임 중복검사해야함
     setNickname(e.target.value);
     if (e.target.value.length < 2 || e.target.value.length > 8) {
       setNicknameMessage('2글자 이상 8글자 미만으로 입력해주세요.');
-      setIsNickname(false);
+      setValidation(!validation);
     } else if (e.target.value <= 0) {
       alert('닉네임을 설정해주세요.');
-      setIsNickname(false);
+      setValidation(!validation);
     } else {
       setNicknameMessage('');
-      setIsNickname(true);
+      getCheckNicknameMessage(nickname);
+      setValidation(!validation);
     }
   };
-  // 회원 가입 유효성검사
-  const onClickSuccess = () => {
-    if (isEmail === false) {
-      alert('이메일 확인 바랍니다.');
-    } else if (isPassCofirm === false) {
-      alert('비밀번호 확인 바랍니다.');
-    } else if (isName === false) {
-      alert('이름을 확인 바랍니다');
-    } else if (isNickname === false) {
-      alert('닉네임을 확인 바랍니다.');
-    } else router.push('/join/complete');
+
+  const Signup = () => {
+    API.user
+      .Singup({
+        adultOk: true,
+        authId: 'dkladci239fjerwkfg!R',
+        collectionOfMarketingInfoOk: true,
+        collectionOfPersonalInfoOk: true,
+        email: 'sexking223@naver.com',
+        nickname: '헤응헤으으으응',
+        password: 'yasyas!!@33',
+        phoneNum: '01011111111',
+        serviceOk: true,
+        snsType: 'D',
+        username: '김두한',
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        //캐치는 통신이 안된 상황에 주는 메세지
+        console.log(error);
+      });
   };
+
+  // router.push('/join/complete');
+  //성공시
+  //then 통신이 일단은 성공
+  //에러가 일어날시에 백엔드에서 명시해주는 상황으로
+  // if(res.data === 400) 이런식으로 백엔드에서 보내준 코드를 상황을 적어서 보여준다.
 
   const onClickPhoneAuth = () => {
     authCount++;
@@ -208,10 +220,24 @@ const Join = (props: any) => {
       clearTimeout(vTick);
     };
   }, [validCount]);
+
   // 이메일 체크 API
   const getCheckEmailMessage = (checkEmail: string) => {
     API.user
       .checkEmail({ email: checkEmail })
+      .then((res) => {
+        const data = res.data;
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  // 닉네임 체크 API
+  const getCheckNicknameMessage = (checkNickname: string) => {
+    API.user
+      .checkNickname({ nickname: checkNickname })
       .then((res) => {
         const data = res.data;
         console.log(res);
@@ -285,7 +311,7 @@ const Join = (props: any) => {
           </div>
           <MarginBottom margin={27} />
           <div>
-            <InputText
+            {/* <InputText
               required
               label='휴대폰번호'
               id='join-phone'
@@ -308,8 +334,8 @@ const Join = (props: any) => {
                   )}
                 </>
               }
-            />
-            {status === 1 && (
+            /> */}
+            {/* {status === 1 && (
               <>
                 <MarginBottom margin={10} />
                 <InputText
@@ -329,14 +355,14 @@ const Join = (props: any) => {
                   disabled={validation ? false : true}
                 />
               </>
-            )}
+            )} */}
           </div>
           <div>
             <Agree props={props} />
           </div>
           <MarginBottom margin={10} />
           <div className='join-btn'>
-            <Button className={`btn-join disabled`} label=' 회원가입' onClick={onClickSuccess} />
+            <Button className={`btn-join disabled`} label=' 회원가입' onClick={() => Signup()} />
           </div>
         </div>
       </section>

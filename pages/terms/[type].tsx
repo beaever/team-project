@@ -26,15 +26,6 @@ const Terms = (props: IpropsDataModel) => {
   const { mediaQuery } = useWidth();
   const [termsDetail, setTermsDetail] = useState(propsData.content);
 
-  const getTermsName = (router_type: string) => {
-    switch (router_type) {
-      case 'service':
-        return;
-      default:
-        return '';
-    }
-  };
-
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
