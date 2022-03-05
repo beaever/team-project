@@ -23,7 +23,7 @@ const Footer = () => {
                 <li>이용약관</li>
               </a>
             </Link>
-            <Link href='/terms/2' as='/terms/2'>
+            <Link href='/terms/personalInfo' as='/terms/personalInfo'>
               <a>
                 <li className='aferNone'>개인정보처리방침</li>
               </a>

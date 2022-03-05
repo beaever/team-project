@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next';
 import Modal from '../../pages/join/modal/modal';
 import CheckBox from '../input/checkbox';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface AgreeCheckboxModel {
   all: boolean;
@@ -27,33 +28,6 @@ const Agree = (props) => {
 
   const router = useRouter();
   const type = props.type as string;
-
-  const getTermsName = () => {
-    switch (type) {
-      case 'service':
-        return 'service';
-      case 'marketing':
-        return 'marketing';
-      case 'personalInfo':
-        return 'personalInfo';
-      default:
-        return '';
-    }
-  };
-  // const getTersDetail = () => {
-  //   API.terms
-  //     .termsDetail({ name: getTermsName() })
-  //     .then((res) => {
-  //       return res;
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getTersDetail();
-  // }, []);
 
   const modalSwitch = () => {
     setToggle(!toggle);
@@ -120,7 +94,13 @@ const Agree = (props) => {
             <span className='sub_link'>
               <button onClick={modalSwitch}>
                 보기
-                {toggle && <Modal modalSwitch={modalSwitch} props={props} getTermsName={getTermsName} />}
+                {toggle && (
+                  <Link href='/join/service' as='/service'>
+                    <a>
+                      <Modal />
+                    </a>
+                  </Link>
+                )}
               </button>
             </span>
           </label>
@@ -130,7 +110,7 @@ const Agree = (props) => {
           <label htmlFor='privacy'>
             <span className='required'>*</span>개인정보 수집 · 이용 동의
             <span className='sub_link'>
-              <button onClick={modalSwitch}>보기{toggle && <Modal modalSwitch={modalSwitch} props={props} getTermsName={getTermsName} />}</button>
+              <button onClick={modalSwitch}>보기{toggle && <Modal />}</button>
             </span>
           </label>
           <CheckBox onChange={checkedHandler} checked={form?.privacy} id='privacy' name='privacy' value='privacy' className='reverse' />
@@ -139,7 +119,7 @@ const Agree = (props) => {
           <label htmlFor='marketing'>
             마케팅 정보 수신 동의
             <span className='sub_link'>
-              <button onClick={modalSwitch}>보기{toggle && <Modal modalSwitch={modalSwitch} props={props} getTermsName={getTermsName} />}</button>
+              <button onClick={modalSwitch}>보기{toggle && <Modal />}</button>
             </span>
           </label>
           <CheckBox onChange={checkedHandler} checked={form?.marketing} id='marketing' name='marketing' value='marketing' className='reverse' />
