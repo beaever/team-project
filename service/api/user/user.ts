@@ -6,6 +6,7 @@ import UserCheckEmailRequesetDataModel from './model/user-checkEmail-request-dat
 import UserCheckNickanmeRequesetDataModel from './model/user-checkNickname-request-data-model';
 import { config } from 'process';
 import UserMemberSingupRequestDataModel from './model/user-member-singup-request-data-model';
+import UserCheckPhoneRequesetDataModel from './model/user-checkPhone-request-data-model';
 
 export const user = {
   // 회원의 개인 정보 가져오기 API
@@ -55,7 +56,26 @@ export const user = {
     };
     return axios(config);
   },
-  Singup: (request: UserMemberSingupRequestDataModel) => {
+
+  // 휴대폰 중복 검사 API
+
+  checkPhone: (request: UserCheckPhoneRequesetDataModel) => {
+    const config: AxiosRequestConfig = {
+      url: BASE_URL + 'auth/check-nickname',
+      method: POST,
+      headers: {
+        ...JSON_HEADER,
+      },
+      data: {
+        nickname: request.phone ?? '',
+      },
+    };
+    return axios(config);
+  },
+
+  // 회원가입 API
+
+  Signup: (request: UserMemberSingupRequestDataModel) => {
     const config: AxiosRequestConfig = {
       url: BASE_URL + 'auth/signup',
       method: POST,
