@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ItemModal = ({ modalClose, item }) => {
+const ItemModal = ({ modalClose, itemLists }) => {
   const onCloseModal = (e) => {
     // console.log('e.target: ', e.target);
     // console.log('e.tarcurrentTargetget: ', e.currentTarget);
@@ -20,9 +20,9 @@ const ItemModal = ({ modalClose, item }) => {
     };
   }, []);
 
-  const { brand, name, text, idx } = item;
+  const { brand, name, text, idx } = itemLists;
 
-  console.log(item);
+  console.log(itemLists);
   return (
     <div className='modal__container' onClick={onCloseModal}>
       <div className='modal_itemContainer'>

@@ -128,6 +128,8 @@ const Join = (props: any) => {
         // 휴대폰 api 체크 아직 서버에 없어서 형식만 만들었음
         setPhoneMessage('');
       }
+    } else {
+      setValidation(validation);
     }
   };
 

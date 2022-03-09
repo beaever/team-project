@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
 import ItemModal from './modal/itemModal';
 
 interface ItemListDateModal {
@@ -11,131 +12,85 @@ interface ItemListDateModal {
 }
 
 const ItemList = () => {
-  const [itemList, SetItemList] = useState<ItemListDateModal[]>([
-    {
-      idx: 1,
-      brand: 'NIKE',
-      name: 'Jodan 1',
-      price: '10000',
-      item_image: '사진이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 2,
-      brand: 'Off-White',
-      name: 'Sneakers Low',
-      price: '20000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 3,
-      brand: 'IAB STUDIO',
-      name: '블랙 반팔',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 4,
-      brand: 'Supreme',
-      name: 'Air Force 1 Low Flax ',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 5,
-      brand: 'New Balance',
-      name: '993 Grey ',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 6,
-      brand: 'Adidas',
-      name: 'Yeezy Boost 350 V2',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 7,
-      brand: 'Maison Margiela',
-      name: 'Calfskin Replica Sneakers',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 8,
-      brand: 'Supreme',
-      name: 'Air Force 1 Low Flax ',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 9,
-      brand: 'IAB STUDIO',
-      name: '블랙 반팔',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 10,
-      brand: 'NIKE',
-      name: 'Jodan 1',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 11,
-      brand: 'New Balance',
-      name: '993 Grey ',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-    {
-      idx: 12,
-      brand: 'Maison Margiela',
-      name: 'Calfskin Replica Sneakers',
-      price: '10000',
-      item_image: '사진 이미지',
-      text: '상품을 설명하는 글입니다.',
-    },
-  ]);
-
+  const [target, setTarget] = useState(null);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [itemLists, setItemLists] = useState([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const modalClose = () => {
     setModalOpen(!modalOpen);
   };
 
+  const Item = () => {
+    setIsLoaded(true);
+    axios
+      .get(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline`)
+      .then((res) => {
+        const data = res.data.slice(0, 20);
+        setItemLists(data);
+        setIsLoaded(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    Item();
+  }, []);
+
+  useEffect(() => {
+    console.log(itemLists);
+  }, [itemLists]);
+
+  const getMoreItem = async () => {
+    setIsLoaded(true);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    let Items = itemLists;
+    setItemLists((itemLists) => itemLists.concat(Items));
+    setIsLoaded(false);
+  };
+
+  const onIntersect = async ([entry], observer) => {
+    if (entry.isIntersecting && !isLoaded) {
+      observer.unobserve(entry.target);
+      await getMoreItem();
+      observer.observe(entry.target);
+    }
+  };
+
+  useEffect(() => {
+    let observer;
+    if (target) {
+      observer = new IntersectionObserver(onIntersect, {
+        threshold: 1,
+      });
+      observer.observe(target);
+    }
+    return () => observer && observer.disconnect();
+  }, [target]);
+
   return (
     <section className='itemListContainer'>
       <div className='item_inner'>
         <ul className='item_ul'>
-          {itemList.map((item) => {
+          {itemLists.map((item, i) => {
             return (
-              <li className='item_li' key={item.idx}>
+              <li className='item_li' key={i + 1}>
                 <div className='item_listBox'>
-                  <button onClick={modalClose}>
-                    <img src={item.item_image} alt='' />
-                    <h3>{item.brand}</h3>
-                    <span className='item_name'>{item.name}</span>
-                    <span className='item_price'>{item.price}</span>
+                  <button className='item_btn' onClick={modalClose}>
+                    <h3>{item.name}</h3>
+                    <img style={{ width: ' 50px' }} src={item.api_featured_image} alt='' />
                   </button>
-                  {modalOpen && <ItemModal key={item.idx} item={item} modalClose={modalClose}></ItemModal>}
+                  {modalOpen && <ItemModal itemLists={itemLists} modalClose={modalClose}></ItemModal>}
                 </div>
               </li>
             );
           })}
         </ul>
+        <div ref={setTarget} className='Target-Element'>
+          {isLoaded && <p>Loading...</p>}
+        </div>
       </div>
     </section>
   );

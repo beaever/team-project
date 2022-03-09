@@ -7,6 +7,7 @@ import UserCheckNickanmeRequesetDataModel from './model/user-checkNickname-reque
 import { config } from 'process';
 import UserMemberSingupRequestDataModel from './model/user-member-singup-request-data-model';
 import UserCheckPhoneRequesetDataModel from './model/user-checkPhone-request-data-model';
+import UserMemberLoginRequestDataModel from './model/user-member-login-request-data-model';
 
 export const user = {
   // 회원의 개인 정보 가져오기 API
@@ -98,5 +99,21 @@ export const user = {
     };
     return axios(config);
   },
+
+  Login: (request: UserMemberLoginRequestDataModel) => {
+    const config: AxiosRequestConfig = {
+      url: BASE_URL + `auth/login`,
+      method: POST,
+      headers: {
+        ...JSON_HEADER,
+      },
+      data: {
+        authId: request.authId ?? '',
+        email: request.email ?? '',
+        loginType: request.loginType ?? '',
+        password: request.password ?? '',
+      },
+    };
+    return axios(config);
+  },
 };
-// 회원가입 API

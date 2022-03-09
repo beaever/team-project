@@ -11,6 +11,7 @@ import MobileFooter from '../../layout/_mobileFooter';
 import Footer from '../../layout/_Footer';
 import MarginTop from '../../components/layout/margin-top';
 import useLoginState from '../../hooks/useLoginState';
+import API from '../../service/api';
 
 const Login = () => {
   const router = useRouter();
@@ -24,27 +25,46 @@ const Login = () => {
   const onClickMove = (type: string) => {
     if (type === 'signup') {
       router.push('/join/df');
-    }else if (type === 'kakao') {
-      router.push('/join/ko')
-    }else if (type === 'naver') {
-      router.push('/join/nv/')
+    } else if (type === 'kakao') {
+      router.push('/join/ko');
+    } else if (type === 'naver') {
+      router.push('/join/nv/');
     }
   };
 
-  const onClickLogin = () => {
-    alert('로그인 완료');
-    setLoginForm({
-      ['login']: true,
-    });
-    router.push('/');
+  // 로그인 API
+  const onLogin = () => {
+    API.user
+      .Login({
+        authId: '',
+        email: email,
+        password: password,
+        loginType: 'D',
+      })
+      .then((res) => res.data)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          window.localStorage.setItem('access-token', res.data['access-token']);
+          window.localStorage.setItem('refresh-token', res.data['refresh-token']);
+        }
+      });
   };
-  useEffect(() => {
-    if (email?.length > 0 && password?.length > 0) {
-      setValidation(true);
-    } else {
-      setValidation(false);
-    }
-  }, [email, password]);
+
+  // const onClickLogin = () => {
+  //   alert('로그인 완료');
+  //   setLoginForm({
+  //     ['login']: true,
+  //   });
+  //   router.push('/');
+  // };
+  // useEffect(() => {
+  //   if (email?.length > 0 && password?.length > 0) {
+  //     setValidation(true);
+  //   } else {
+  //     setValidation(false);
+  //   }
+  // }, [email, password]);
 
   return (
     <>
@@ -78,7 +98,7 @@ const Login = () => {
             }}
           />
           <MarginBottom margin={30} />
-          <Button className='btn_login prime' disabled={!validation} label='로그인' onClick={onClickLogin} marginBottom={10} />
+          <Button className='btn_login prime' disabled={!validation} label='로그인' onClick={onLogin} marginBottom={10} />
           <Button className='btn_login siginup' span='signup' label=' 회원가입' onClick={() => onClickMove('signup')} />
 
           <Link href='/find'>
