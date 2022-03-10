@@ -48,23 +48,24 @@ const Login = () => {
           window.localStorage.setItem('access-token', res.data['access-token']);
           window.localStorage.setItem('refresh-token', res.data['refresh-token']);
         }
+        router.push('/');
       });
   };
 
-  // const onClickLogin = () => {
-  //   alert('로그인 완료');
-  //   setLoginForm({
-  //     ['login']: true,
-  //   });
-  //   router.push('/');
-  // };
-  // useEffect(() => {
-  //   if (email?.length > 0 && password?.length > 0) {
-  //     setValidation(true);
-  //   } else {
-  //     setValidation(false);
-  //   }
-  // }, [email, password]);
+  const onClickLogin = () => {
+    alert('로그인 완료');
+    setLoginForm({
+      ['login']: true,
+    });
+    router.push('/');
+  };
+  useEffect(() => {
+    if (email?.length > 0 && password?.length > 0) {
+      setValidation(true);
+    } else {
+      setValidation(false);
+    }
+  }, [email, password]);
 
   return (
     <>
@@ -98,7 +99,7 @@ const Login = () => {
             }}
           />
           <MarginBottom margin={30} />
-          <Button className='btn_login prime' disabled={!validation} label='로그인' onClick={onLogin} marginBottom={10} />
+          <Button className='btn_login prime' disabled={!validation} label='로그인' onClick={() => onLogin()} marginBottom={10} />
           <Button className='btn_login siginup' span='signup' label=' 회원가입' onClick={() => onClickMove('signup')} />
 
           <Link href='/find'>

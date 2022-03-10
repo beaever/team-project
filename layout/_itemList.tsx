@@ -76,7 +76,7 @@ const ItemList = () => {
         <ul className='item_ul'>
           {itemLists.map((item, i) => {
             return (
-              <li className='item_li' key={i + 1}>
+              <li className='item_li' key={i}>
                 <div className='item_listBox'>
                   <button className='item_btn' onClick={modalClose}>
                     <h3>{item.name}</h3>

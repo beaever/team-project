@@ -1,60 +1,36 @@
+import axios from 'axios';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface ItemListDateModel {
   idx: number;
   title: string;
 }
 const ItemSlide = () => {
-  const [itemList, setItemList] = useState<ItemListDateModel[]>([
-    {
-      idx: 1,
-      title: '나이키',
-    },
-    {
-      idx: 2,
-      title: '아디다스',
-    },
-    {
-      idx: 3,
-      title: '반스',
-    },
-    {
-      idx: 4,
-      title: '푸마',
-    },
-    {
-      idx: 5,
-      title: 'APC',
-    },
-    {
-      idx: 6,
-      title: '스투시',
-    },
-    {
-      idx: 7,
-      title: '노스페이스',
-    },
-    {
-      idx: 8,
-      title: '나나미카',
-    },
-    {
-      idx: 9,
-      title: '비즈빔',
-    },
-    {
-      idx: 10,
-      title: '아크네',
-    },
-  ]);
+  const [itemLists, setItemLists] = useState([]);
+  const Item = () => {
+    axios
+      .get(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline`)
+      .then((res) => {
+        const data = res.data.slice(0, 10);
+        setItemLists(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    Item();
+  }, []);
+
   return (
     <ul className='itemSlideContainer_ul'>
-      {itemList?.map((item) => {
+      {itemLists?.map((item) => {
         return (
           <Link href='/' as='/'>
-            <li className='itemSlideContainer_li' key={item.idx}>
-              {item.title}
+            <li className='itemSlideContainer_li' key={item.id}>
+              <h3 className='slide_h3'> {item.brand}</h3>
             </li>
           </Link>
         );
