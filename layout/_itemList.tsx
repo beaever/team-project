@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import ItemModal from './modal/itemModal';
 
@@ -15,20 +16,21 @@ const ItemList = () => {
   const [target, setTarget] = useState(null);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [itemLists, setItemLists] = useState([]);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const scrollEnd = useRef<any>();
 
   const modalClose = () => {
     setModalOpen(!modalOpen);
   };
 
   const Item = () => {
-    setIsLoaded(true);
     axios
-      .get(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline`)
+      .get(`http://makeup-api.herokuapp.com/api/v1/products.json/`)
       .then((res) => {
-        const data = res.data.slice(0, 20);
+        const data = res.data.slice(0, 9);
         setItemLists(data);
-        setIsLoaded(false);
+        setIsLoading(false);
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -40,35 +42,26 @@ const ItemList = () => {
   }, []);
 
   useEffect(() => {
-    console.log(itemLists);
-  }, [itemLists]);
+    if (!isLoading) {
+      const observer = new IntersectionObserver(
+        (entrise) => {
+          if (entrise[0].isIntersecting) {
+            loadMore();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      observer.observe(scrollEnd.current);
+    }
+  }, [isLoading]);
 
-  const getMoreItem = async () => {
-    setIsLoaded(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+  const loadMore = () => {
     let Items = itemLists;
     setItemLists((itemLists) => itemLists.concat(Items));
-    setIsLoaded(false);
   };
 
-  const onIntersect = async ([entry], observer) => {
-    if (entry.isIntersecting && !isLoaded) {
-      observer.unobserve(entry.target);
-      await getMoreItem();
-      observer.observe(entry.target);
-    }
-  };
-
-  useEffect(() => {
-    let observer;
-    if (target) {
-      observer = new IntersectionObserver(onIntersect, {
-        threshold: 1,
-      });
-      observer.observe(target);
-    }
-    return () => observer && observer.disconnect();
-  }, [target]);
+  const router = useRouter();
+  console.log(router);
 
   return (
     <section className='itemListContainer'>
@@ -88,9 +81,7 @@ const ItemList = () => {
             );
           })}
         </ul>
-        <div ref={setTarget} className='Target-Element'>
-          {isLoaded && <p>Loading...</p>}
-        </div>
+        <div ref={scrollEnd}></div>
       </div>
     </section>
   );

@@ -10,9 +10,10 @@ const ItemSlide = () => {
   const [itemLists, setItemLists] = useState([]);
   const Item = () => {
     axios
-      .get(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline`)
+      .get(`http://makeup-api.herokuapp.com/api/v1/products.json/`)
       .then((res) => {
-        const data = res.data.slice(0, 10);
+        const data = res.data.slice(0, 10).filter((data) => data.brand);
+        console.log(data);
         setItemLists(data);
       })
       .catch((error) => {
