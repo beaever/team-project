@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
+import Skeleton from '../components/Skeletion/skeletion';
 import ItemModal from './modal/itemModal';
 
 interface ItemListDateModal {
@@ -61,26 +62,30 @@ const ItemList = () => {
   };
 
   const router = useRouter();
-  console.log(router);
 
   return (
     <section className='itemListContainer'>
       <div className='item_inner'>
-        <ul className='item_ul'>
-          {itemLists.map((item, i) => {
-            return (
-              <li className='item_li' key={i}>
-                <div className='item_listBox'>
-                  <button className='item_btn' onClick={modalClose}>
-                    <h3>{item.name}</h3>
-                    <img style={{ width: ' 50px' }} src={item.api_featured_image} alt='' />
-                  </button>
-                  {modalOpen && <ItemModal itemLists={itemLists} modalClose={modalClose}></ItemModal>}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        {isLoading ? (
+          <Skeleton />
+        ) : (
+          <ul className='item_ul'>
+            {itemLists.map((item, i) => {
+              return (
+                <li className='item_li' key={i}>
+                  <div className='item_listBox'>
+                    <button className='item_btn' onClick={modalClose}>
+                      <h3>{item.name}</h3>
+                      <img style={{ width: ' 50px' }} src={item.api_featured_image} alt='' />
+                    </button>
+                    {modalOpen && <ItemModal itemLists={itemLists} modalClose={modalClose}></ItemModal>}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+
         <div ref={scrollEnd}></div>
       </div>
     </section>

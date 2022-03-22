@@ -46,7 +46,8 @@
   margin: 0;
   overflow: hidden;
   position: relative;
-  top: 13px;
+  display: flex;
+  align-items: center;
 }
 .itemListBox {
   width: 100%;
@@ -56,8 +57,10 @@
 }
 
 .itemSlider_btnBox {
-  position: relative;
+  width: 100%;
+  position: absolute;
   display: flex;
+  justify-content: space-between;
 }
 
 .itemSlider_btn {

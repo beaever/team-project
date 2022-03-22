@@ -1,0 +1,72 @@
+.Skeleton_ul {
+  @keyframes backgroundAnimation2 {
+    0% {
+      background-color: #d5d5d5;
+    }
+    50% {
+      background-color: #b0b0b0;
+    }
+    100% {
+      background-color: #e6e6e6;
+    }
+  }
+  @keyframes backgroundAnimation1 {
+    0% {
+      background-color: #e6e6e6;
+    }
+    50% {
+      background-color: #f0f0f0;
+    }
+    100% {
+      background-color: #f8f8f8;
+    }
+  }
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+  text-align: center;
+  .Skeleton_h3 {
+    height: 20px;
+    width: 80%;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 40px;
+    animation: backgroundAnimation2 2s linear infinite;
+    font-size: 9px;
+  }
+  h3::before {
+    content: '';
+  }
+  span {
+    display: block;
+    margin: 5px;
+  }
+
+  .Skeleton_li {
+    width: 140px;
+    height: 140px;
+    // border: 1px solid $color-black;
+    animation: backgroundAnimation1 2s linear infinite;
+    // background-color: $color-gray2;
+    border-bottom: 1px solid rgba(112, 112, 112, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px;
+  }
+  .item_listBox {
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .item_name {
+    font-size: 11px;
+  }
+
+  .item_price {
+    font-size: 8px;
+  }
+}
