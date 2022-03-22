@@ -3,11 +3,33 @@ import Slide from './_slide';
 import ItemSlide from './_itemSlide';
 import img1 from '../public/1.jpeg';
 import ItemList from './_itemList';
+import axios from 'axios';
+import SkeletonLi from '../components/Skeletion/skeletionLi';
 
 const TOTAL_SLIDES = 1;
 const ItemSlider = () => {
+  const [itemLists, setItemLists] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const Item = () => {
+    axios
+      .get(`http://makeup-api.herokuapp.com/api/v1/products.json/`)
+      .then((res) => {
+        const data = res.data.slice(0, 10).filter((data) => data.brand);
+        console.log(data);
+        setItemLists(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    Item();
+  }, []);
 
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
@@ -28,18 +50,10 @@ const ItemSlider = () => {
     sliderRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 애니메이션을 만듭니다.
   }, [currentSlide]);
 
-  // const clickRight = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
-  //   moveRight();
-  // };
-
-  // const clickLeft = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
-  //   moveLeft();
-  // };
-
   return (
     <section className='itemContainer'>
       <div className='itemListBox' ref={sliderRef}>
-        <ItemSlide />
+        {isLoading ? <SkeletonLi /> : <ItemSlide itemLists={itemLists} />}
       </div>
       <div className='itemSlider_btnBox'>
         <button className='itemSlider_btn' onClick={prevSlide}>

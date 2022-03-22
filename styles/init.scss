@@ -10,7 +10,7 @@
 @import '../styles/pages/joinComplete';
 @import '../styles/pages/login';
 @import '../styles/pages/mainPage';
-@import '../styles/pages/itemList';
+@import '../styles/pages/itemList.scss';
 @import '../styles/pages/notice';
 @import '../styles/pages/terms';
 @import '../styles/pages/board';
@@ -31,6 +31,8 @@
 @import '../styles/components/button/pulldelete.scss';
 @import '../styles/components/input/checkbox.scss';
 @import '../styles/components/input/selectbox.scss';
+@import './components/Skeleton/skeleton.scss';
+@import './components/Skeleton/skeletonLi.scss';
 
 // ---------------------------------------------------
 input[type='password']::-ms-clear {
