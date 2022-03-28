@@ -12,6 +12,12 @@ import Footer from '../../layout/_Footer';
 import MarginTop from '../../components/layout/margin-top';
 import useLoginState from '../../hooks/useLoginState';
 import API from '../../service/api';
+import UserGetKakaoProfileResponseDataModel from '../../model/kakao/user-kakao-reponse-data-mode';
+
+declare const window: any;
+declare const AppleID: any;
+declare const Kakao: any;
+declare const gapi: any;
 
 const Login = () => {
   const router = useRouter();
@@ -67,6 +73,46 @@ const Login = () => {
     }
   }, [email, password]);
 
+  // KAKAO LOGIN
+  const onClickKakaoLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!Kakao.isInitialized()) {
+      Kakao.init(process.env.KAKAO_REST_KEY);
+    }
+
+    Kakao.Auth.loginForm({
+      success: kakaoSuccess,
+      fail: kakaoFail,
+    });
+  };
+
+  // kakao
+  const kakaoSuccess = async (res) => {
+    // const token = res.access_token;
+    // API.user.getKakaoProfile(token).then((res) => {
+    // const data = res.data as UserGetKakaoProfileResponseDataModel;
+    //  if (data?.code == 200) {
+    //    const snsId = data?.data?.id ?? '';
+    //    const snsEmail = data?.data.email ?? '';
+    //    const snsNick = data?.data.nickname ?? '';
+    //    const snsType = 'kk';
+    //    if (snsId == '') return false;
+    //     // setForm({ ...form, type: snsType, id: snsId, email: snsEmail, name: snsNick });
+    //  } else {
+    //    alert('!!!!!' + res);
+    //  }
+    // });
+  };
+
+  const kakaoSuccessAndroid = async (id: string, email: string, name: string) => {
+    // if (id == '') return false;
+    // setForm({ ...form, type: 'kk', id, name, email });
+  };
+
+  const kakaoFail = (error) => {
+    // alert('실패');
+    // console.log(error);
+  };
+
   return (
     <>
       {mediaQuery === 'M' ? <MobileHeader /> : <PcHeader />}
@@ -115,8 +161,8 @@ const Login = () => {
             </div>
             <MarginBottom margin={22} />
             <div className='sns_wrap'>
-              <Button className='kakao' label='카카오' img={true} src='icon/kakao.svg' onClick={() => {}} marginBottom={10} />
-              <Button className='naver' label=' 네이버' img={true} src='icon/naver.svg' onClick={() => {}} />
+              <Button className='kakao' label='카카오' img={true} src='icon/kakao.svg' onClick={() => alert('kakao')} marginBottom={10} />
+              <Button className='naver' label=' 네이버' img={true} src='icon/naver.svg' onClick={() => alert('naver')} />
             </div>
           </div>
         </div>
